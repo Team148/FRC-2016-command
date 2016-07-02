@@ -11,7 +11,7 @@
 #include "ActionStop.h"
 #include "BattleAxe.h"
 
-class ActionArm : public ActionStop, public BattleAxe {
+class ActionArm {
 public:
 	ActionArm();
 	virtual ~ActionArm();
