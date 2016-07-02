@@ -16,3 +16,28 @@ ActionArm::~ActionArm() {
 	// TODO Auto-generated destructor stub
 }
 
+
+void ActionArm::SetUpMode() {
+
+}
+
+void ActionArm::SetChevyMode() {
+
+}
+
+void ActionArm::SetPorticullisMode() {
+
+}
+
+
+bool ActionArm::InChevyMode() {
+
+
+}
+
+bool ActionArm::InPorticullisMode() {
+
+
+}
+
+}

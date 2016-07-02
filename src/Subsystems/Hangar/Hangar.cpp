@@ -16,3 +16,20 @@ Hangar::~Hangar() {
 	// TODO Auto-generated destructor stub
 }
 
+void Hangar::DeployArm() {
+
+}
+void Hangar::WinchUp() {
+
+}
+void Hangar::ResetArm() {
+
+}
+
+
+bool Hangar::ArmIsDeployed() {
+
+}
+bool Hangar::ArmIsReset() {
+
+}

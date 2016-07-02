@@ -12,6 +12,15 @@ class RingLight {
 public:
 	RingLight();
 	virtual ~RingLight();
+
+	//
+	void SetRingLight(int on);
+
+	bool IsRightLightOn();
+
+private:
+	bool _ison = 0;
+
 };
 
 #endif /* SRC_SUBSYSTEMS_VISION_RINGLIGHT_H_ */

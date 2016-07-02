@@ -16,3 +16,11 @@ RingLight::~RingLight() {
 	// TODO Auto-generated destructor stub
 }
 
+
+void RingLight::SetRingLight(int on) {
+
+}
+
+bool RingLight::IsRightLightOn() {
+
+}

@@ -12,6 +12,17 @@ class Hangar {
 public:
 	Hangar();
 	virtual ~Hangar();
+
+	//setters
+	void DeployArm();
+	void WinchUp();
+	void ResetArm();
+
+
+	//getters
+	bool ArmIsDeployed();
+	bool ArmIsReset();
+
 };
 
 #endif /* HANGAR_H_ */
