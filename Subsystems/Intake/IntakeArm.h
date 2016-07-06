@@ -1,17 +1,32 @@
-#ifndef IntakeArm_H
-#define IntakeArm_H
+/*
+ * IntakeArm.h
+ *
+ *  Created on: July 6, 2016
+ *      Author: Zach Cody
+ */
+#ifndef INTAKEARM_H_
+#define INTAKEARM_H_
 
-#include "Commands/Subsystem.h"
+
+#include "Timer.h"
 #include "WPILib.h"
 
-class IntakeArm: public Subsystem
+class IntakeArm
 {
-private:
-	// It's desirable that everything possible under private except
-	// for methods that implement subsystem capabilities
+
 public:
 	IntakeArm();
-	void InitDefaultCommand();
+	virtual~IntakeArm();
+
+	void SetIntakeUp();
+	void SetIntakeDown();
+
+
+	bool IsIntakeUp();
+	bool IsIntakeDown();
+	bool IsIntakeFloating();
+
+
 };
 
-#endif
+#endif // INTAKEARM_H_

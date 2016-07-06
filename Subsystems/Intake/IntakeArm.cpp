@@ -1,17 +1,40 @@
-#include "IntakeArm.h"
-#include "../RobotMap.h"
+/*
+ * IntakeArm.cpp
+ *
+ *  Created on: July 6, 2016
+ *      Author: Zach Cody
+ */
+#include <Subsystems/Intake/IntakeArm.h>
 
-IntakeArm::IntakeArm() :
-		Subsystem("ExampleSubsystem")
+
+IntakeArm::IntakeArm()
+{
+
+}
+IntakeArm::~IntakeArm()
 {
 
 }
 
-void IntakeArm::InitDefaultCommand()
+void IntakeArm::SetIntakeUp()
 {
-	// Set the default command for a subsystem here.
-	//SetDefaultCommand(new MySpecialCommand());
+
+}
+void IntakeArm::SetIntakeDown()
+{
+
+}
+bool IntakeArm::IsIntakeUp()
+{
+
+}
+bool IntakeArm::IsIntakeDown()
+{
+
+}
+bool IntakeArm::IsIntakeFloating()
+{
+
 }
 
-// Put methods for controlling this subsystem
-// here. Call these from Commands.
+
