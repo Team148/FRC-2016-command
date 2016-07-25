@@ -2,20 +2,15 @@
  * ActionArm.cpp
  *
  *  Created on: Jun 30, 2016
- *      Author: justin
+ *      Author: Justin
  */
 
-#include <Subsystems/ActionArm/ActionArm.h>
+#include "ActionArm.h"
 
 ActionArm::ActionArm() {
 	// TODO Auto-generated constructor stub
 
 }
-
-ActionArm::~ActionArm() {
-	// TODO Auto-generated destructor stub
-}
-
 
 void ActionArm::SetUpMode() {
 
@@ -37,7 +32,5 @@ bool ActionArm::InChevyMode() {
 
 bool ActionArm::InPorticullisMode() {
 
-
-}
 
 }
