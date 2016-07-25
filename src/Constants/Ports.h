@@ -52,6 +52,16 @@ class Ports {
 	//Compressor Relay
 	public const int COMPRESSOR_RELAY = 0;
 
+
+	//sensors
+	public const int INTAKE_BEAM_BREAK = 1;
+	public const int DRIVETRAIN_ENCODER_LEFT_A = 3;
+	public const int DRIVETRAIN_ENCODER_LEFT_B = 4;
+	public const int DRIVETRAIN_ENCODER_RIGHT_A = 1;
+	public const int DRIVETRAIN_ENCODER_RIGHT_B = 2;
+
+	//SPARE_TALON = 1
+
 };
 
 
