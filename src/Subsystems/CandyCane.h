@@ -1,7 +1,6 @@
 #ifndef CandyCane_H
 #define CandyCane_H
 
-#include "Commands/Subsystem.h"
 #include "WPILib.h"
 
 class CandyCane: public Subsystem

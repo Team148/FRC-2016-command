@@ -1,7 +1,6 @@
 #ifndef HangerWinch_H
 #define HangerWinch_H
 
-#include "Commands/Subsystem.h"
 #include "WPILib.h"
 
 class HangerWinch: public Subsystem

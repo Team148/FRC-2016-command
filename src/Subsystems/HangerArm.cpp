@@ -1,8 +1,6 @@
 #include "HangerArm.h"
-#include "../RobotMap.h"
 
-HangerArm::HangerArm() :
-		Subsystem("ExampleSubsystem")
+HangerArm::HangerArm() : Subsystem("HangerArm")
 {
 
 }

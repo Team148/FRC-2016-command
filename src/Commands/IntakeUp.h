@@ -1,10 +1,9 @@
 #ifndef IntakeUp_H
 #define IntakeUp_H
 
-#include "../CommandBase.h"
 #include "WPILib.h"
 
-class IntakeUp: public CommandBase
+class IntakeUp: public Command
 {
 public:
 	IntakeUp();

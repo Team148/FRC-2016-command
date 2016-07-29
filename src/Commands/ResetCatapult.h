@@ -1,10 +1,9 @@
 #ifndef ResetCatapult_H
 #define ResetCatapult_H
 
-#include "../CommandBase.h"
 #include "WPILib.h"
 
-class ResetCatapult: public CommandBase
+class ResetCatapult: public Command
 {
 public:
 	ResetCatapult();

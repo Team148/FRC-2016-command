@@ -1,10 +1,9 @@
 #ifndef SpecialIntake_H
 #define SpecialIntake_H
 
-#include "../CommandBase.h"
 #include "WPILib.h"
 
-class SpecialIntake: public CommandBase
+class SpecialIntake: public Command
 {
 public:
 	SpecialIntake();

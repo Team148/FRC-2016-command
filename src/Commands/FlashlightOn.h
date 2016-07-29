@@ -1,10 +1,9 @@
 #ifndef FlashlightOn_H
 #define FlashlightOn_H
 
-#include "../CommandBase.h"
 #include "WPILib.h"
 
-class FlashlightOn: public CommandBase
+class FlashlightOn: public Command
 {
 public:
 	FlashlightOn();

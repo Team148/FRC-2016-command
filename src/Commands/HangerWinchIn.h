@@ -1,10 +1,9 @@
 #ifndef HangerWinchIn_H
 #define HangerWinchIn_H
 
-#include "../CommandBase.h"
 #include "WPILib.h"
 
-class HangerWinchIn: public CommandBase
+class HangerWinchIn: public Command
 {
 public:
 	HangerWinchIn();

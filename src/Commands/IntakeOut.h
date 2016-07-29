@@ -1,10 +1,9 @@
 #ifndef IntakeOut_H
 #define IntakeOut_H
 
-#include "../CommandBase.h"
 #include "WPILib.h"
 
-class IntakeOut: public CommandBase
+class IntakeOut: public Command
 {
 public:
 	IntakeOut();

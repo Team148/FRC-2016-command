@@ -8,21 +8,12 @@
 #ifndef SRC_SUBSYSTEMS_ACTIONARM_ACTIONARM_H_
 #define SRC_SUBSYSTEMS_ACTIONARM_ACTIONARM_H_
 
-#include "Timer.h"
+#include "WPILib.h"
 
-class ActionArm {
+class ActionArm : public Subsystem {
 public:
 	ActionArm();
-	virtual ~ActionArm();
 
-	//Setters
-	void SetUpMode();
-	void SetChevyMode();
-	void SetPorticullisMode();
-
-	//Getters
-	bool InChevyMode();
-	bool InPorticullisMode();
 
 private:
 

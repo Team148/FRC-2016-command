@@ -1,9 +1,7 @@
 #include "HangerWinch.h"
-#include "../RobotMap.h"
 
-HangerWinch::HangerWinch() :
-		Subsystem("ExampleSubsystem")
-{
+
+HangerWinch::HangerWinch() : Subsystem("HangerWinch") {
 
 }
 

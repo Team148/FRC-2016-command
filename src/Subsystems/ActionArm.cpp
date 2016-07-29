@@ -7,30 +7,7 @@
 
 #include "ActionArm.h"
 
-ActionArm::ActionArm() {
+ActionArm::ActionArm() : Subsystem("ActionArm") {
 	// TODO Auto-generated constructor stub
-
-}
-
-void ActionArm::SetUpMode() {
-
-}
-
-void ActionArm::SetChevyMode() {
-
-}
-
-void ActionArm::SetPorticullisMode() {
-
-}
-
-
-bool ActionArm::InChevyMode() {
-
-
-}
-
-bool ActionArm::InPorticullisMode() {
-
 
 }

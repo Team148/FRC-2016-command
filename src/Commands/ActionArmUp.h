@@ -1,10 +1,9 @@
 #ifndef ActionArmUp_H
 #define ActionArmUp_H
 
-#include "../CommandBase.h"
 #include "WPILib.h"
 
-class ActionArmUp: public CommandBase
+class ActionArmUp : public Command
 {
 public:
 	ActionArmUp();

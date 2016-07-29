@@ -1,9 +1,6 @@
 #include "CandyCane.h"
-#include "../RobotMap.h"
 
-CandyCane::CandyCane() :
-		Subsystem("ExampleSubsystem")
-{
+CandyCane::CandyCane() : Subsystem("CandyCane") {
 
 }
 

@@ -1,10 +1,10 @@
 #ifndef FireCatapult_H
 #define FireCatapult_H
 
-#include "../CommandBase.h"
+
 #include "WPILib.h"
 
-class FireCatapult: public CommandBase
+class FireCatapult: public Command
 {
 public:
 	FireCatapult();

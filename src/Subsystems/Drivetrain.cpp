@@ -1,8 +1,6 @@
 #include "Drivetrain.h"
-#include "../RobotMap.h"
 
-Drivetrain::Drivetrain() :
-		Subsystem("ExampleSubsystem")
+Drivetrain::Drivetrain() : Subsystem("Drivetrain")
 {
 
 }

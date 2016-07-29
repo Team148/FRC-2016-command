@@ -1,7 +1,6 @@
 #ifndef Flashlight_H
 #define Flashlight_H
 
-#include "Commands/Subsystem.h"
 #include "WPILib.h"
 
 class Flashlight: public Subsystem

@@ -1,9 +1,6 @@
 #include "Clamp.h"
-#include "../RobotMap.h"
 
-Clamp::Clamp() :
-		Subsystem("ExampleSubsystem")
-{
+Clamp::Clamp() : Subsystem("Clamp") {
 
 }
 

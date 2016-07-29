@@ -1,10 +1,9 @@
 #ifndef OpenClamp_H
 #define OpenClamp_H
 
-#include "../CommandBase.h"
 #include "WPILib.h"
 
-class OpenClamp: public CommandBase
+class OpenClamp: public Command
 {
 public:
 	OpenClamp();

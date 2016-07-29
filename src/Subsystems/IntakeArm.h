@@ -11,21 +11,11 @@
 #include "Timer.h"
 #include "WPILib.h"
 
-class IntakeArm
+class IntakeArm : public Subsystem
 {
 
 public:
 	IntakeArm();
-	virtual~IntakeArm();
-
-	void SetIntakeUp();
-	void SetIntakeDown();
-
-
-	bool IsIntakeUp();
-	bool IsIntakeDown();
-	bool IsIntakeFloating();
-
 
 };
 

@@ -1,7 +1,6 @@
 #ifndef Clamp_H
 #define Clamp_H
 
-#include "Commands/Subsystem.h"
 #include "WPILib.h"
 
 class Clamp: public Subsystem

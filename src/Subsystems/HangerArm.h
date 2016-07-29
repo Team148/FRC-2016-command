@@ -1,7 +1,6 @@
 #ifndef HangerArm_H
 #define HangerArm_H
 
-#include "Commands/Subsystem.h"
 #include "WPILib.h"
 
 class HangerArm: public Subsystem

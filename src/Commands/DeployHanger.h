@@ -1,10 +1,9 @@
 #ifndef DeployHanger_H
 #define DeployHanger_H
 
-#include "../CommandBase.h"
 #include "WPILib.h"
 
-class DeployHanger: public CommandBase
+class DeployHanger: public Command
 {
 public:
 	DeployHanger();

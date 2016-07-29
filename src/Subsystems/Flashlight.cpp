@@ -1,9 +1,6 @@
 #include "Flashlight.h"
-#include "../RobotMap.h"
 
-Flashlight::Flashlight() :
-		Subsystem("ExampleSubsystem")
-{
+Flashlight::Flashlight() : Subsystem("Flashlight") {
 
 }
 

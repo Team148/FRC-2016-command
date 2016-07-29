@@ -1,10 +1,9 @@
 #ifndef Drive_H
 #define Drive_H
 
-#include "../CommandBase.h"
 #include "WPILib.h"
 
-class Drive: public CommandBase
+class Drive: public Command
 {
 public:
 	Drive();

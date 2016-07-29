@@ -1,10 +1,9 @@
 #ifndef ActionArmChevy_H
 #define ActionArmChevy_H
 
-#include "../CommandBase.h"
 #include "WPILib.h"
 
-class ActionArmChevy: public CommandBase
+class ActionArmChevy : public Command
 {
 public:
 	ActionArmChevy();

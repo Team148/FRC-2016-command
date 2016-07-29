@@ -1,10 +1,9 @@
 #ifndef CloseClamp_H
 #define CloseClamp_H
 
-#include "../CommandBase.h"
 #include "WPILib.h"
 
-class CloseClamp: public CommandBase
+class CloseClamp: public Command
 {
 public:
 	CloseClamp();
