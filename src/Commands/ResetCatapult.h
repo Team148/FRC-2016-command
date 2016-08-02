@@ -1,13 +1,12 @@
-#ifndef LongShot_H
-#define LongShot_H
+#ifndef ResetCatapult_H
+#define ResetCatapult_H
 
-#include "Commands/Command.h"
 #include "WPILib.h"
 
-class LongShot: public CommandBase
+class ResetCatapult: public Command
 {
 public:
-	LongShot();
+	ResetCatapult();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

@@ -11,23 +11,11 @@
 #include "Timer.h"
 #include "WPILib.h"
 
-class Catapult
+class Catapult : public Subsystem
 {
 public:
 	Catapult();
-	virtual~Catapult();
 
-
-	//setters
-	void SetClamp();
-	void SetCandyCane();
-	void SetCatapult();
-
-	//getters
-	bool InShortShot();
-	bool InLongShot();
-	bool IsClampOpen();
-	bool IsCandyCane_Short();
 };
 
 #endif // SRC_SUBSYSTEMS_CATAPULT_H_

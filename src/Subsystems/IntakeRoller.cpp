@@ -1,33 +1,7 @@
-#include <Subsystems/Intake/IntakeRoller.h>
+#include "IntakeRoller.h"
 
 
-IntakeRoller::IntakeRoller()
-{
-
-}
-IntakeRoller::~IntakeRoller()
-{
-
-}
-
-void IntakeRoller::Intake()
-{
-
-}
-void IntakeRoller::Outtake()
-{
-
-}
-bool IntakeRoller::IsIntaking()
-{
-
-}
-bool IntakeRoller::IsOuttaking()
-{
-
-}
-bool IntakeRoller::IsBallSeen()
-{
+IntakeRoller::IntakeRoller() : Subsystem("IntakeRoller") {
 
 }
 

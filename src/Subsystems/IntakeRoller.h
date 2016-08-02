@@ -5,20 +5,12 @@
 #include "Timer.h"
 #include "WPILib.h"
 
-class IntakeRoller
+class IntakeRoller : public Subsystem
 {
 
 public:
 	IntakeRoller();
-	virtual~IntakeRoller();
 
-
-	void Intake();
-	void Outtake();
-
-	bool IsIntaking();
-	bool IsOuttaking();
-	bool IsBallSeen();
 
 };
 
