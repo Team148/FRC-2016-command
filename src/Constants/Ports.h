@@ -8,9 +8,7 @@
 #ifndef SRC_CONSTANTS_PORTS_H_
 #define SRC_CONSTANTS_PORTS_H_
 
-class Ports {
-public:
-	Ports() {};
+
 	//Drivetrain CAN IDs
 	static const int DRIVE_LEFT_1 = 2;
 	static const int DRIVE_LEFT_2 = 3;
@@ -62,6 +60,5 @@ public:
 
 	//SPARE_TALON = 1
 
-};
 
 #endif /* SRC_CONSTANTS_PORTS_H_ */

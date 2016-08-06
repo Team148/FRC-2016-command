@@ -1,7 +1,12 @@
 #include "WPILib.h"
 #include "Constants/Ports.h"
 #include "Subsystems/IntakeRoller.h"
+#include "OperatorInterface.h"
 
+
+// Initialize a single static instance of all of your subsystems to NULL
+OperatorInterface* operatorInterface = 0;
+IntakeRoller* intakeRoller = 0;
 
 class Robot: public IterativeRobot
 {
@@ -9,7 +14,8 @@ private:
 
 	void RobotInit()
 	{
-		//CommandBase::init();
+		intakeRoller->GetInstance();
+		operatorInterface = new OperatorInterface();
 		//chooser = new SendableChooser();
 		//chooser->AddDefault("Default Auto", new ExampleCommand());
 		//chooser->AddObject("My Auto", new MyAutoCommand());

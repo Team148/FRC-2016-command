@@ -2,6 +2,7 @@
 #define IntakeIn_H
 
 #include "WPILib.h"
+#include "Subsystems/IntakeRoller.h"
 
 class IntakeIn: public Command
 {
@@ -12,6 +13,8 @@ public:
 	bool IsFinished();
 	void End();
 	void Interrupted();
+private:
+	IntakeRoller* m_intakeRoller;
 };
 
 #endif

@@ -7,17 +7,16 @@
 
 class IntakeRoller : public Subsystem
 {
-
 public:
-	IntakeRoller* GetInstance();
-	void SetRollerSpeed(double speed);
-
+	static IntakeRoller* GetInstance();
+	void SetSpeed(double speed);
 
 private:
 	IntakeRoller();
-	IntakeRoller* m_instance;
-	double m_speed = 0.0;
-	CanTalonSRX* m_rollerMotor;
+	static IntakeRoller* m_instance;
+	CanTalonSRX* RollerMotor;
+
+	double m_speed = 0;
 
 };
 
