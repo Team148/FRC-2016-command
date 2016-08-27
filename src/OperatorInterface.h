@@ -10,6 +10,7 @@
 
 #include "WPILib.h"
 #include "Commands/IntakeIn.h"
+#include "Commands/IntakeOut.h"
 
 class OperatorInterface {
 public:
