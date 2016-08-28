@@ -1,16 +1,25 @@
-#ifndef HangerWinch_H
-#define HangerWinch_H
+#ifndef HANGERWINCH_H
+#define HANGERWINCH_H
 
 #include "WPILib.h"
+#include "Subsystems/HangerArm.h"
+#include "Constants/Ports.h"
 
 class HangerWinch: public Subsystem
 {
-private:
-	// It's desirable that everything possible under private except
-	// for methods that implement subsystem capabilities
 public:
+	static HangerWinch* GetInstance();
+	void InitDefaultCommand();  //not currently implemented
+	void SetSpeed(double speed);
+	bool IsExtended();
+	void Reset();
+
+private:
 	HangerWinch();
-	void InitDefaultCommand();
+	static HangerWinch* m_instance;
+	CANTalon* WinchMotor;
+	bool m_isExtended = 0;
+	double m_speed = 0.0;
 };
 
 #endif
