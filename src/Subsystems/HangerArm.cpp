@@ -19,11 +19,16 @@ HangerArm* HangerArm::GetInstance() {
 
 void HangerArm::Deploy() {
 	solenoid->Set(DoubleSolenoid::kForward);
+	m_deployed = true;
 
 }
 
 
 void HangerArm::Reset() {
 	solenoid->Set(DoubleSolenoid::kReverse);
+	m_deployed = false;
 }
 
+bool HangerArm::IsDeployed() {
+	return m_deployed;
+}

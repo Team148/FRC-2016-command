@@ -12,6 +12,7 @@ public:
 	static HangerArm* GetInstance();
 	void Deploy();
 	void Reset();
+	bool IsDeployed();
 
 private:
 	HangerArm();
