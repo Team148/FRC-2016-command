@@ -1,15 +1,29 @@
 #include "HangerArm.h"
 
-HangerArm::HangerArm() : Subsystem("HangerArm")
-{
+HangerArm* HangerArm::m_instance = 0;  						//Global static pointer
+
+HangerArm::HangerArm() : Subsystem("HangerArm") {
+	solenoid = new DoubleSolenoid(0, HANGER_DEPLOY_1, HANGER_DEPLOY_2);
 
 }
 
-void HangerArm::InitDefaultCommand()
-{
-	// Set the default command for a subsystem here.
-	//SetDefaultCommand(new MySpecialCommand());
+
+HangerArm* HangerArm::GetInstance() {
+	if (m_instance ==  0) {
+		m_instance = new HangerArm();
+		std::cout << "info: Creating HangerArm Class" << std::endl;
+	}
+	return m_instance;
 }
 
-// Put methods for controlling this subsystem
-// here. Call these from Commands.
+
+void HangerArm::Deploy() {
+	solenoid->Set(DoubleSolenoid::kForward);
+
+}
+
+
+void HangerArm::Reset() {
+	solenoid->Set(DoubleSolenoid::kReverse);
+}
+

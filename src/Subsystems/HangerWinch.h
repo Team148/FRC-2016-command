@@ -7,9 +7,11 @@
 
 class HangerWinch: public Subsystem
 {
+
+
 public:
 	static HangerWinch* GetInstance();
-	void InitDefaultCommand();  //not currently implemented
+	//void InitDefaultCommand();  //not currently implemented
 	void SetSpeed(double speed);
 	bool IsExtended();
 	void Reset();

@@ -2,6 +2,7 @@
 #include "Constants/Ports.h"
 #include "Subsystems/IntakeRoller.h"
 #include "Subsystems/HangerWinch.h"
+#include "Subsystems/HangerArm.h"
 #include "OperatorInterface.h"
 
 
@@ -9,6 +10,7 @@
 OperatorInterface* operatorInterface = 0;
 IntakeRoller* intakeRoller = 0;
 HangerWinch* hangerWinch = 0;
+HangerArm* hangerArm = 0;
 
 class Robot: public IterativeRobot
 {
@@ -18,6 +20,7 @@ private:
 	{
 		intakeRoller->GetInstance();
 		hangerWinch->GetInstance();
+		hangerArm->GetInstance();
 		operatorInterface = new OperatorInterface();
 		//chooser = new SendableChooser();
 		//chooser->AddDefault("Default Auto", new ExampleCommand());

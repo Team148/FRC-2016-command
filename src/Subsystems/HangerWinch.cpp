@@ -18,10 +18,10 @@ HangerWinch* HangerWinch::GetInstance() {
 }
 
 
-void HangerWinch::InitDefaultCommand() {
+/*void HangerWinch::InitDefaultCommand() {
 	// Set the default command for a subsystem here.
 	//SetDefaultCommand(new MySpecialCommand());
-}
+}*/
 
 
 void HangerWinch::SetSpeed(double speed) {
