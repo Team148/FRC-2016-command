@@ -2,8 +2,8 @@
 
 DeployHanger::DeployHanger()
 {
-	// Use Requires() here to declare subsystem dependencies
-	// eg. Requires(chassis);
+	m_hangerArm->GetInstance();
+	Requires(m_hangerArm);
 }
 
 // Called just before this Command runs the first time
@@ -15,12 +15,15 @@ void DeployHanger::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void DeployHanger::Execute()
 {
-
+	m_hangerArm->Deploy();
 }
 
 // Make this return true when this Command no longer needs to run execute()
 bool DeployHanger::IsFinished()
 {
+	if(m_hangerArm->IsDeployed())
+		return true;
+	else
 	return false;
 }
 
@@ -34,5 +37,5 @@ void DeployHanger::End()
 // subsystems is scheduled to run
 void DeployHanger::Interrupted()
 {
-
+	End();
 }

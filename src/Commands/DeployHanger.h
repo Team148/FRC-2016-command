@@ -2,6 +2,7 @@
 #define DeployHanger_H
 
 #include "WPILib.h"
+#include "Subsystems/HangerArm.h"
 
 class DeployHanger: public Command
 {
@@ -12,6 +13,8 @@ public:
 	bool IsFinished();
 	void End();
 	void Interrupted();
+private:
+	HangerArm* m_hangerArm;
 };
 
 #endif
