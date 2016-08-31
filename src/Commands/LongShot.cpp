@@ -6,6 +6,9 @@ LongShot::LongShot()
 	// eg. Requires(chassis);
 
 	Timer m_timer = new Timer();
+	Requires(Catapult);
+	Requires(Clamp);
+	Requires(CandyCane);
 }
 
 // Called just before this Command runs the first time
@@ -17,6 +20,15 @@ void LongShot::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void LongShot::Execute()
 {
+	double m_currentTime = m_timer->GetFPGATimestamp();
+	if((m_startTime-m_currentTime) < CLAMP_OPEN_LONG_DWELL){
+
+	}
+	else{
+		if((m_startTime+CLAMP_OPEN_LONG_DWELL-m_currentTime) < ){
+
+		}
+	}
 
 
 }
