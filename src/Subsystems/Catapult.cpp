@@ -26,8 +26,10 @@ Catapult* Catapult::GetInstance() {
 
 void Catapult::SetState(bool on)
 {
-	Catapult0->Set(on);
-	Catapult1->Set(on);
-	Catapult2->Set(on);
-	Catapult3->Set(on);
+	m_on = on;
+
+	Catapult0->Set(m_on);
+	Catapult1->Set(m_on);
+	Catapult2->Set(m_on);
+	Catapult3->Set(m_on);
 }
