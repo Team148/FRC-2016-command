@@ -19,8 +19,9 @@ private:
 	void RobotInit()
 	{
 		intakeRoller->GetInstance();
-		hangerWinch->GetInstance();
-		hangerArm->GetInstance();
+		//intakeRoller = new IntakeRoller();
+		//hangerWinch->GetInstance();
+		//hangerArm->GetInstance();
 		operatorInterface = new OperatorInterface();
 		//chooser = new SendableChooser();
 		//chooser->AddDefault("Default Auto", new ExampleCommand());
