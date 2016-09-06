@@ -7,10 +7,10 @@
 
 
 // Initialize a single static instance of all of your subsystems to NULL
-OperatorInterface* operatorInterface = 0;
-IntakeRoller* intakeRoller = 0;
-HangerWinch* hangerWinch = 0;
-HangerArm* hangerArm = 0;
+OperatorInterface *operatorInterface = 0;
+IntakeRoller *intakeRoller = 0;
+HangerWinch *hangerWinch = 0;
+HangerArm *hangerArm = 0;
 
 class Robot: public IterativeRobot
 {
@@ -18,8 +18,7 @@ private:
 
 	void RobotInit()
 	{
-		intakeRoller->GetInstance();
-		//intakeRoller = new IntakeRoller();
+		intakeRoller = IntakeRoller::GetInstance();
 		//hangerWinch->GetInstance();
 		//hangerArm->GetInstance();
 		operatorInterface = new OperatorInterface();

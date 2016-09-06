@@ -2,7 +2,8 @@
 
 IntakeOut::IntakeOut()
 {
-	IntakeRoller* m_intakeRoller = m_intakeRoller->GetInstance();
+	//IntakeRoller* m_intakeRoller = m_intakeRoller->GetInstance();
+	m_intakeRoller = IntakeRoller::GetInstance();
 	Requires(m_intakeRoller);
 }
 
