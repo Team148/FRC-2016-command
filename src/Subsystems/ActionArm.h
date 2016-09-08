@@ -14,8 +14,8 @@
 class ActionArm : public Subsystem {
 public:
 	static ActionArm* GetInstance();
-	void PortcullisMode(bool portcullis);
-	void ActionArm::ChevyMode(bool chevy);
+	void SetArmMode(bool setarm);
+	void SetStopMode(bool stoparm);
 
 
 private:
@@ -24,8 +24,8 @@ private:
 
 	Solenoid *arm_solenoid;
 	Solenoid *stop_solenoid;
-	bool m_portcullis = false;
-	bool m_chevy = false;
+	bool m_setarm = false; // false : in | true : out
+	bool m_stoparm = false; // false : in | true : out
 };
 
 #endif /* SRC_SUBSYSTEMS_ACTIONARM_ACTIONARM_H_ */
