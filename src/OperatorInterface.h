@@ -12,12 +12,14 @@
 #include "Commands/IntakeIn.h"
 #include "Commands/IntakeOut.h"
 
+
 class OperatorInterface {
 public:
 	OperatorInterface();
+	Joystick* GetJoystick();
 
 private:
-	Joystick* m_driverJoystick;
+	Joystick* m_drvJoystick;
 	Joystick* m_operatorJoystick;
 
 	JoystickButton* m_drvButton1;
@@ -35,8 +37,8 @@ private:
 	JoystickButton* m_opButton6;
 
 
-	float m_driverXStick = 0.0;
-	float m_driverYStick = 0.0;
+	float m_drvXStick = 0.0;
+	float m_drvYStick = 0.0;
 	float m_operatorXStick = 0.0;
 	float m_operatorYStick = 0.0;
 
