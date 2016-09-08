@@ -2,15 +2,32 @@
 #define Drivetrain_H
 
 #include "WPILib.h"
+#include "Constants/Ports.h"
 
 class Drivetrain: public Subsystem
 {
-private:
-	// It's desirable that everything possible under private except
-	// for methods that implement subsystem capabilities
+
 public:
-	Drivetrain();
+	static Drivetrain* GetInstance();
 	void InitDefaultCommand();
+	void Arcade(float ystick, float xstick);
+
+private:
+	Drivetrain();
+	static Drivetrain *m_instance;
+
+	CANTalon *m_LeftMotor1;
+	CANTalon *m_LeftMotor2;
+	CANTalon *m_RightMotor1;
+	CANTalon *m_RightMotor2;
+
+	RobotDrive *m_drive;
+
+
+
+	//left encoder
+	//Right encoder
+
 };
 
 #endif
