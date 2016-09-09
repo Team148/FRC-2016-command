@@ -11,16 +11,19 @@
 #include "WPILib.h"
 #include "Commands/IntakeIn.h"
 #include "Commands/IntakeOut.h"
-
+#include "Commands/DriveWithJoystick.h"
 
 class OperatorInterface {
 public:
-	OperatorInterface();
+
 	Joystick* GetJoystick();
+	static OperatorInterface* GetInstance();
 
 private:
-	Joystick* m_drvJoystick;
+	OperatorInterface();
+	static OperatorInterface* m_instance;
 	Joystick* m_operatorJoystick;
+	Joystick* m_drvJoystick;
 
 	JoystickButton* m_drvButton1;
 	JoystickButton* m_drvButton2;

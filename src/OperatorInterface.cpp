@@ -7,6 +7,7 @@
 
 #include <OperatorInterface.h>
 
+OperatorInterface* OperatorInterface::m_instance = 0;
 
 OperatorInterface::OperatorInterface() {
 
@@ -26,7 +27,7 @@ OperatorInterface::OperatorInterface() {
 	m_drvButton1->WhileHeld(new IntakeIn());
 	m_drvButton2->WhileHeld(new IntakeOut());
 
-	//WhenActive(new DriveWithJoystick());
+
 
 	//m_operatorJoystick = new Joystick(1);
 	//JoystickButton* m_opButton1 = new JoystickButton(m_operatorJoystick, 1);
@@ -41,4 +42,12 @@ OperatorInterface::OperatorInterface() {
 
 Joystick* OperatorInterface::GetJoystick() {
 	return m_drvJoystick;
+}
+
+OperatorInterface* OperatorInterface::GetInstance() {
+	if (m_instance ==  0) {
+		std::cout << "info: GetInstance Creating OperatorInterface Class" << std::endl;
+		m_instance = new OperatorInterface();
+	}
+	return m_instance;
 }

@@ -3,6 +3,7 @@
 #include "Subsystems/IntakeRoller.h"
 #include "Subsystems/HangerWinch.h"
 #include "Subsystems/HangerArm.h"
+#include "Subsystems/Drivetrain.h"
 #include "OperatorInterface.h"
 
 
@@ -11,6 +12,7 @@ OperatorInterface *operatorInterface = 0;
 IntakeRoller *intakeRoller = 0;
 HangerWinch *hangerWinch = 0;
 HangerArm *hangerArm = 0;
+Drivetrain *drivetrain = 0;
 
 class Robot: public IterativeRobot
 {
@@ -18,10 +20,12 @@ private:
 
 	void RobotInit()
 	{
+		std::cout << "starting RobotInit" << std::endl;
 		intakeRoller = IntakeRoller::GetInstance();
 		//hangerWinch->GetInstance();
 		//hangerArm->GetInstance();
-		operatorInterface = new OperatorInterface();
+		drivetrain = Drivetrain::GetInstance();
+		operatorInterface = OperatorInterface::GetInstance();
 		//chooser = new SendableChooser();
 		//chooser->AddDefault("Default Auto", new ExampleCommand());
 		//chooser->AddObject("My Auto", new MyAutoCommand());
