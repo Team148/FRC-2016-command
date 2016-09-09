@@ -3,6 +3,7 @@
 
 #include "WPILib.h"
 #include "Constants/Ports.h"
+#include "Commands/DriveWithJoystick.h"
 
 class Drivetrain: public Subsystem
 {
@@ -11,6 +12,7 @@ public:
 	static Drivetrain* GetInstance();
 	void InitDefaultCommand();
 	void Arcade(float ystick, float xstick);
+	//void Arcade(Joystick joy);
 
 private:
 	Drivetrain();
@@ -23,7 +25,8 @@ private:
 
 	RobotDrive *m_drive;
 
-
+	//float ystick;
+	//float xstick;
 
 	//left encoder
 	//Right encoder

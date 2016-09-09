@@ -3,8 +3,7 @@
 DriveWithJoystick::DriveWithJoystick()
 {
 	std::cout << "info: DriveWithJoystick constructor" << std::endl;
-	m_drivetrain = Drivetrain::GetInstance();
-	Requires(m_drivetrain);
+	Requires(Drivetrain::GetInstance());
 
 }
 
@@ -17,6 +16,8 @@ void DriveWithJoystick::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void DriveWithJoystick::Execute()
 {
+
+	Drivetrain::GetInstance()->Arcade(OperatorInterface::GetInstance()->GetJoystick()->GetRawAxis(2), OperatorInterface::GetInstance()->GetJoystick()->GetRawAxis(1));
 
 }
 
