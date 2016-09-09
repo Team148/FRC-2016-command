@@ -14,7 +14,7 @@ public:
 	void End();
 	void Interrupted();
 private:
-	IntakeRoller* m_intakeRoller;
+
 };
 
 #endif

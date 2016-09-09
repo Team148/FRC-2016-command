@@ -3,8 +3,7 @@
 IntakeIn::IntakeIn()
 {
 	std::cout << "info: IntakeIn constructor" << std::endl;
-	m_intakeRoller = IntakeRoller::GetInstance();
-	Requires(m_intakeRoller);
+	Requires(IntakeRoller::GetInstance());
 }
 
 // Called just before this Command runs the first time
@@ -17,7 +16,7 @@ void IntakeIn::Initialize()
 void IntakeIn::Execute()
 {
 	std::cout << "info: IntakeIn Execute" << std::endl;
-	m_intakeRoller->SetSpeed(1.0);
+	IntakeRoller::GetInstance()->SetSpeed(1.0);
 
 }
 
@@ -31,7 +30,7 @@ bool IntakeIn::IsFinished()
 void IntakeIn::End()
 {
 	std::cout << "info: IntakeIn End" << std::endl;
-	m_intakeRoller->SetSpeed(0);
+	IntakeRoller::GetInstance()->SetSpeed(0);
 }
 
 // Called when another command which requires one or more of the same
