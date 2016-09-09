@@ -10,6 +10,10 @@ Drivetrain::Drivetrain() : Subsystem("Drivetrain") {
 	m_RightMotor2 = new CANTalon(DRIVE_RIGHT_2);
 
 	m_drive = new RobotDrive(m_LeftMotor1, m_RightMotor1, m_LeftMotor2, m_RightMotor2);
+
+	//Pneumatics
+	m_comp = new Compressor(0); //TODO: add Constant
+	m_compSpike = new Relay(COMPRESSOR_RELAY);
 }
 
 

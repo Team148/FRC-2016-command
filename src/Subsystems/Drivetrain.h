@@ -25,8 +25,9 @@ private:
 
 	RobotDrive *m_drive;
 
-	//float ystick;
-	//float xstick;
+	//Compressor
+	Compressor *m_comp;
+	Relay *m_compSpike;
 
 	//left encoder
 	//Right encoder
