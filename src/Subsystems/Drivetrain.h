@@ -28,7 +28,8 @@ private:
 	RobotDrive *m_drive;
 
 
-
+	//PDP
+	PowerDistributionPanel *pdp;
 
 	//Encoders
 	Encoder *m_lEncoder;
