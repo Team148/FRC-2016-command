@@ -14,6 +14,13 @@ Drivetrain::Drivetrain() : Subsystem("Drivetrain") {
 	//Pneumatics
 	m_comp = new Compressor(0); //TODO: add Constant
 	m_compSpike = new Relay(COMPRESSOR_RELAY);
+
+	//Encoders
+	m_rEncoder = new Encoder(DRIVETRAIN_ENCODER_RIGHT_A,DRIVETRAIN_ENCODER_RIGHT_B,true, CounterBase::k4X);
+	m_lEncoder = new Encoder(DRIVETRAIN_ENCODER_LEFT_A,DRIVETRAIN_ENCODER_LEFT_B,true, CounterBase::k4X);
+
+	//gyro
+	m_gyro = new ADXRS450_Gyro(SPI::Port::kOnboardCS0);
 }
 
 

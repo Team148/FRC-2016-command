@@ -29,8 +29,14 @@ private:
 	Compressor *m_comp;
 	Relay *m_compSpike;
 
-	//left encoder
-	//Right encoder
+	//Encoders
+	Encoder *m_lEncoder;
+	Encoder *m_rEncoder;
+
+	//Gyro
+	Gyro *m_gyro;
+
+
 
 };
 
