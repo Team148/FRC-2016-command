@@ -5,9 +5,7 @@
 #include "Constants/Ports.h"
 #include "Commands/DriveWithJoystick.h"
 
-class Drivetrain: public Subsystem
-{
-
+class Drivetrain: public Subsystem {
 public:
 	static Drivetrain* GetInstance();
 	void InitDefaultCommand();
