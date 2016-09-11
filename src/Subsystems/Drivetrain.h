@@ -12,6 +12,10 @@ public:
 	void Arcade(float ystick, float xstick);
 	//void Arcade(Joystick joy);
 
+	//Compressor
+	Compressor *m_comp;
+	Relay *m_compSpike;
+
 private:
 	Drivetrain();
 	static Drivetrain *m_instance;
@@ -23,9 +27,8 @@ private:
 
 	RobotDrive *m_drive;
 
-	//Compressor
-	Compressor *m_comp;
-	Relay *m_compSpike;
+
+
 
 	//Encoders
 	Encoder *m_lEncoder;
