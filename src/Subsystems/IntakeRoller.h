@@ -13,8 +13,8 @@ public:
 
 private:
 	IntakeRoller();
-	static IntakeRoller* m_instance;
-	CanTalonSRX* RollerMotor;
+	static IntakeRoller *m_instance;
+	CanTalonSRX *RollerMotor;
 
 	double m_speed = 0;
 

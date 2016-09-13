@@ -1,16 +1,19 @@
 #include "WPILib.h"
+
 #include "Constants/Ports.h"
 #include "Subsystems/IntakeRoller.h"
 #include "Subsystems/HangerWinch.h"
 #include "Subsystems/HangerArm.h"
+#include "Subsystems/Drivetrain.h"
 #include "OperatorInterface.h"
 
 
 // Initialize a single static instance of all of your subsystems to NULL
-OperatorInterface* operatorInterface = 0;
-IntakeRoller* intakeRoller = 0;
-HangerWinch* hangerWinch = 0;
-HangerArm* hangerArm = 0;
+OperatorInterface *operatorInterface = 0;
+IntakeRoller *intakeRoller = 0;
+HangerWinch *hangerWinch = 0;
+HangerArm *hangerArm = 0;
+Drivetrain *drivetrain = 0;
 
 class Robot: public IterativeRobot
 {
@@ -18,10 +21,12 @@ private:
 
 	void RobotInit()
 	{
-		intakeRoller->GetInstance();
-		hangerWinch->GetInstance();
-		hangerArm->GetInstance();
-		operatorInterface = new OperatorInterface();
+		std::cout << "starting RobotInit" << std::endl;
+		intakeRoller = IntakeRoller::GetInstance();
+		//hangerWinch->GetInstance();
+		//hangerArm->GetInstance();
+		drivetrain = Drivetrain::GetInstance();
+		operatorInterface = OperatorInterface::GetInstance();
 		//chooser = new SendableChooser();
 		//chooser->AddDefault("Default Auto", new ExampleCommand());
 		//chooser->AddObject("My Auto", new MyAutoCommand());
