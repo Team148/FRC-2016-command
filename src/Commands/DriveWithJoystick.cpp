@@ -17,7 +17,7 @@ void DriveWithJoystick::Initialize()
 void DriveWithJoystick::Execute()
 {
 
-	Drivetrain::GetInstance()->Arcade(OperatorInterface::GetInstance()->GetJoystick()->GetRawAxis(2), OperatorInterface::GetInstance()->GetJoystick()->GetRawAxis(1));
+	Drivetrain::GetInstance()->Arcade(-OperatorInterface::GetInstance()->GetJoystick()->GetRawAxis(1), OperatorInterface::GetInstance()->GetJoystick()->GetRawAxis(2));
 
 }
 
