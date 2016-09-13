@@ -13,13 +13,13 @@ Drivetrain::Drivetrain() : Subsystem("Drivetrain") {
 	m_RightMotor1 = new CANTalon(DRIVE_RIGHT_1);
 	m_RightMotor2 = new CANTalon(DRIVE_RIGHT_2);
 
-	//TODO: Set CANTalon Ramp Rate to 6.0V per second
+	//Tested CANTalon Ramp Rate at 6.0V per second, seemed too slow
 	//m_LeftMotor1->SetVoltageRampRate(6.0);
 	//m_LeftMotor2->SetVoltageRampRate(6.0);
 	//m_RightMotor1->SetVoltageRampRate(6.0);
 	//m_RightMotor2->SetVoltageRampRate(6.0);
 
-	m_drive = new RobotDrive(m_LeftMotor1, m_RightMotor1, m_LeftMotor2, m_RightMotor2);
+	m_drive = new RobotDrive(m_LeftMotor1, m_LeftMotor2, m_RightMotor1, m_RightMotor2);
 
 	//Pneumatics
 	m_comp = new Compressor(0); //TODO: add Constant
@@ -49,12 +49,21 @@ Drivetrain* Drivetrain::GetInstance() {
 
 void Drivetrain::InitDefaultCommand() {
 	SetDefaultCommand(new DriveWithJoystick());
-
 }
 
 
 void Drivetrain::Arcade(float ystick, float xstick) {
 	m_drive->ArcadeDrive(ystick,xstick);
+}
+
+//Drive a given distance in an optional amount of time
+void Drivetrain::DriveDistance(int dist, int time) {
+	//TODO:
+}
+
+//turn a specified amount in an optional amount of time
+void Drivetrain::Turn(int angle, int time) {
+	//TODO:
 }
 
 
