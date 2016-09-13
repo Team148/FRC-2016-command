@@ -2,7 +2,7 @@
  * Catapult.cpp
  *
  *  Created on: July 5, 2016
- *      Author: Zach Cody
+ *      Author: James Tonthat
  */
 
 #include "Catapult.h"
@@ -22,7 +22,7 @@ Catapult::Catapult() : Subsystem("Catapult") {
 Catapult* Catapult::GetInstance() {
 	if(m_instance==0){
 		m_instance = new Catapult();
-		std::count << "info: Creating Catapult Class" << std:endl;
+		cout << "info: Creating Catapult Class" << endl;
 	}
 	return m_instance;
 }

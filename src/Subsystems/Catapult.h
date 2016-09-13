@@ -2,8 +2,9 @@
  * Catapult.h
  *
  *  Created on: July 5, 2016
- *      Author: Zach Cody
+ *      Author: James Tonthat
  */
+
 #ifndef SRC_SUBSYSTEMS_CATAPULT_H_
 #define SRC_SUBSYSTEMS_CATAPULT_H_
 

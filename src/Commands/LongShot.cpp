@@ -2,13 +2,13 @@
 
 LongShot::LongShot()
 {
-	// Use Requires() here to declare subsystem dependencies
-	// eg. Requires(chassis);
+	m_timer = new Timer();
+	Requires(Catapult::GetInstance());
+	Requires(Clamp::GetInstance());
+	Requires(CandyCane::GetInstance());
 
-	Timer m_timer = new Timer();
-	Requires(Catapult);
-	Requires(Clamp);
-	Requires(CandyCane);
+	m_step1 = CLAMP_OPEN_LONG_DWELL;
+	m_step2 = m_step1 + CATAPULT_LONG_DWELL;
 }
 
 // Called just before this Command runs the first time
@@ -21,12 +21,17 @@ void LongShot::Initialize()
 void LongShot::Execute()
 {
 	double m_currentTime = m_timer->GetFPGATimestamp();
-	if((m_startTime-m_currentTime) < CLAMP_OPEN_LONG_DWELL){
 
+	if((m_currentTime-m_startTime) < m_step1){
+		if(Clamp::GetInstance()->GetState()){ //if closed then open
+			Clamp::GetInstance()->SetState(1) //open
+		}
 	}
 	else{
-		if((m_startTime+CLAMP_OPEN_LONG_DWELL-m_currentTime) < ){
-
+		if((m_currentTime-m_startTime) < m_step2){
+			if(Catapult::GetInstance()->GetState()){ //if not fired
+				Clamp::GetInstance()->SetState(1) //fire
+			}
 		}
 	}
 
