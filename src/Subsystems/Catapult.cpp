@@ -7,13 +7,16 @@
 
 #include "Catapult.h"
 
-Catapult* Catapult::m_instance = 0; // Global Static pointer
+Catapult *Catapult::m_instance = 0; // Global Static pointer
+
+using namespace std;
 
 Catapult::Catapult() : Subsystem("Catapult") {
-	Catapult0 = new Solenoid(1,CAT_SHOOTER_1);
-	Catapult1 = new Solenoid(1,CAT_SHOOTER_2);
-	Catapult2 = new Solenoid(1,CAT_SHOOTER_3);
-	Catapult3 = new Solenoid(1,CAT_SHOOTER_4);
+	Catapult1 = new Solenoid(1,CAT_SHOOTER_1);
+	Catapult2 = new Solenoid(1,CAT_SHOOTER_2);
+	Catapult3 = new Solenoid(1,CAT_SHOOTER_3);
+	Catapult4 = new Solenoid(1,CAT_SHOOTER_4);
+	cout << "info: Catapult class created" << endl;
 }
 
 Catapult* Catapult::GetInstance() {
@@ -24,12 +27,15 @@ Catapult* Catapult::GetInstance() {
 	return m_instance;
 }
 
-void Catapult::SetState(bool on)
-{
+void Catapult::SetState(bool on){
 	m_on = on;
 
-	Catapult0->Set(m_on);
 	Catapult1->Set(m_on);
 	Catapult2->Set(m_on);
 	Catapult3->Set(m_on);
+	Catapult4->Set(m_on);
+}
+
+bool Catapult::GetState(){
+	return m_on;
 }

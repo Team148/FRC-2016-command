@@ -16,14 +16,15 @@ class Catapult : public Subsystem
 public:
 	static Catapult* GetInstance();
 	void SetState(bool on);
+	bool GetState();
 
 private:
 	Catapult();
-	static Catapult* m_instance;
-	Solenoid* Catapult0;
-	Solenoid* Catapult1;
-	Solenoid* Catapult2;
-	Solenoid* Catapult3;
+	static Catapult *m_instance;
+	Solenoid *Catapult1;
+	Solenoid *Catapult2;
+	Solenoid *Catapult3;
+	Solenoid *Catapult4;
 
 	bool m_on = 0;
 
