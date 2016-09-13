@@ -15,7 +15,7 @@ void IntakeIn::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void IntakeIn::Execute()
 {
-	std::cout << "info: IntakeIn Execute" << std::endl;
+	//std::cout << "info: IntakeIn Execute" << std::endl;
 	IntakeRoller::GetInstance()->SetSpeed(1.0);
 
 }
@@ -29,7 +29,7 @@ bool IntakeIn::IsFinished()
 // Called once after isFinished returns true
 void IntakeIn::End()
 {
-	std::cout << "info: IntakeIn End" << std::endl;
+	//std::cout << "info: IntakeIn End" << std::endl;
 	IntakeRoller::GetInstance()->SetSpeed(0);
 }
 
