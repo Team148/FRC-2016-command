@@ -2,6 +2,7 @@
 #define FlashlightOn_H
 
 #include "WPILib.h"
+#include "Subsystems/Flashlight.h"
 
 class FlashlightOn: public Command
 {

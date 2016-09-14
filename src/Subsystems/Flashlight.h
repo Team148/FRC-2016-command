@@ -2,15 +2,20 @@
 #define Flashlight_H
 
 #include "WPILib.h"
+#include "Constants/Ports.h"
 
-class Flashlight: public Subsystem
+class Flashlight : public Subsystem
 {
 private:
-	// It's desirable that everything possible under private except
-	// for methods that implement subsystem capabilities
-public:
 	Flashlight();
-	void InitDefaultCommand();
+	static Flashlight *m_instance;
+	Relay *FlashlightRelay;
+
+
+public:
+	static Flashlight* GetInstance();
+	void TurnOn();
+	void TurnOff();
 };
 
 #endif
