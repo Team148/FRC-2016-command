@@ -54,15 +54,6 @@ void Drivetrain::Arcade(float ystick, float xstick) {
 	m_drive->ArcadeDrive(ystick,xstick);
 }
 
-//Drive a given distance in an optional amount of time
-void Drivetrain::DriveDistance(int dist, int time) {
-	//TODO: DriveDistance pseudocode
-}
-
-//turn a specified amount in an optional amount of time
-void Drivetrain::Turn(int angle, int time) {
-	//TODO: Turn pseudocode
-}
 
 //select drivetrain gear.  lowgear=true highgear=false
 //TODO: TEST SetGear
@@ -77,6 +68,7 @@ void Drivetrain::SwitchGear() {
 	m_shifter->Set(m_gear);
 
 }
+
 
 
 //void Drivetrain::Arcade(Joystick joy) {

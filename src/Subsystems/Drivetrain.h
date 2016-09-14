@@ -12,9 +12,8 @@ public:
 	void Arcade(float ystick, float xstick);
 	//void Arcade(Joystick joy);
 
-	void DriveDistance(int dist, int time = 0);		//drive a given distance
-	void Turn(int angle, int time = 0);				//Turn a specific angle
 	void ResetEncoders(); 							//Reset Both Encoders
+	int CountToDist(int tick);						//convert encoder ticks to distance traveled
 	void SetGear(bool gear);						//shift to given low/high gear
 	void SwitchGear();								//shift to the other gear
 
