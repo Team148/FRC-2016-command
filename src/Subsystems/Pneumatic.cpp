@@ -21,5 +21,13 @@ Pneumatic* Pneumatic::GetInstance() {
 
 void Pneumatic::InitDefaultCommand() {
 	// Set the default command for a subsystem here.
-	//SetDefaultCommand(new RunCompressor());
+	SetDefaultCommand(new RunCompressor());
+}
+
+//Turn the compressor on or off.
+void Pneumatic::SetCompressor(bool on) {
+	if(on)
+		m_relay->Set(Relay::kForward);
+	else
+		m_relay->Set(Relay::kOff);
 }
