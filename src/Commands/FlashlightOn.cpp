@@ -1,6 +1,6 @@
 #include "FlashlightOn.h"
 
-
+using namespace std;
 
 FlashlightOn::FlashlightOn()
 {
