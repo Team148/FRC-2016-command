@@ -21,7 +21,8 @@ Drivetrain::Drivetrain() : Subsystem("Drivetrain") {
 
 	m_drive = new RobotDrive(m_LeftMotor1, m_LeftMotor2, m_RightMotor1, m_RightMotor2);
 
-
+	//Shifter
+	m_shifter = new Solenoid(0,0);
 
 	//Encoders
 	m_rEncoder = new Encoder(DRIVETRAIN_ENCODER_RIGHT_A,DRIVETRAIN_ENCODER_RIGHT_B,true, CounterBase::k4X);
@@ -63,6 +64,11 @@ void Drivetrain::Turn(int angle, int time) {
 	//TODO:
 }
 
+//select drivetrain gear.  lowgear=true highgear=false
+void Drivetrain::SetGear(bool gear) {
+	m_gear = gear;
+	m_shifter->Set(m_gear);
+}
 
 //void Drivetrain::Arcade(Joystick joy) {
 //	m_drive->ArcadeDrive(joy, false);

@@ -15,7 +15,7 @@ public:
 	void DriveDistance(int dist, int time = 0);		//drive a given distance
 	void Turn(int angle, int time = 0);				//Turn a specific angle
 	void ResetEncoders(); 							//Reset Both Encoders
-
+	void SetGear(bool gear);						//shift to low/high gear
 
 private:
 	Drivetrain();
@@ -27,6 +27,10 @@ private:
 	CANTalon *m_RightMotor2;
 
 	RobotDrive *m_drive;
+
+	//Shifter Solenoid
+	Solenoid *m_shifter;
+	bool m_gear;
 
 
 	//PDP
