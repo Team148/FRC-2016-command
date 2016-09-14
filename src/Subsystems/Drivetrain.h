@@ -17,10 +17,6 @@ public:
 	void ResetEncoders(); 							//Reset Both Encoders
 
 
-	//Compressor
-	Compressor *m_comp;
-	Relay *m_compSpike;
-
 private:
 	Drivetrain();
 	static Drivetrain *m_instance;
