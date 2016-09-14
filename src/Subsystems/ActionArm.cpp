@@ -18,7 +18,7 @@ ActionArm::ActionArm() : Subsystem("ActionArm") {
 
 }
 
-ActionArm* GetInstance() {
+ActionArm* ActionArm::GetInstance() {
 	if (m_instance ==  0) {
 		m_instance = new ActionArm();
 		std::cout << "info: Creating ActionArm Class" << std::endl;

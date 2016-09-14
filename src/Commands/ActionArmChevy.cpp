@@ -4,6 +4,8 @@ ActionArmChevy::ActionArmChevy()
 {
 	// Use Requires() here to declare subsystem dependencies
 	// eg. Requires(chassis);
+	ActionArm* m_actionArm = m_actionArm->GetInstance();
+	Requires(m_actionArm);
 }
 
 // Called just before this Command runs the first time
@@ -15,10 +17,10 @@ void ActionArmChevy::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void ActionArmChevy::Execute()
 {
-	m_actionArm->PortcullisMode(true);
-	Wait(0.5);
-	m_actionArm->ChevyMode(true);
-	m_actionArm->PortcullisMode(false);
+//	m_actionArm->SetArmMode(true);
+//	Wait(0.5);
+//	m_actionArm->SetStopMode(true);
+//	m_actionArm->SetArmMode(false);
 }
 
 // Make this return true when this Command no longer needs to run execute()
@@ -30,10 +32,10 @@ bool ActionArmChevy::IsFinished()
 // Called once after isFinished returns true
 void ActionArmChevy::End()
 {
-	m_actionArm->PortcullisMode(true);
-	Wait(0.2);
-	m_actionArm->ChevyMode(false);
-	m_actionArm->PortcullisMode(false);
+//	m_actionArm->SetArmMode(true);
+//	Wait(0.2);
+//	m_actionArm->SetStopMode(false);
+//	m_actionArm->SetArmMode(false);
 }
 
 // Called when another command which requires one or more of the same
