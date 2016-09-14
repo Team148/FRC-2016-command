@@ -16,6 +16,7 @@ void LongShot::Initialize()
 {
 	m_startTime = m_timer->GetFPGATimestamp();
 	m_finished = 0;
+	CandyCane::GetInstance()->SetState(0); //make sure CandyCane is open
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -24,8 +25,8 @@ void LongShot::Execute()
 	double m_currentTime = m_timer->GetFPGATimestamp();
 
 	if(((m_currentTime-m_startTime) < m_step1)&& !Clamp::GetInstance()->GetState()){ 	//if closed then open
-
 		Clamp::GetInstance()->SetState(1); //open
+
 	}
 	else{
 		if(((m_currentTime-m_startTime) < m_step2)&& !Catapult::GetInstance()->GetState()){ //checks if right time and if not fired
@@ -48,7 +49,7 @@ bool LongShot::IsFinished()
 
 // Called once after isFinished returns true
 void LongShot::End(){
-
+	//ends a ResetCatapult in here
 }
 
 // Called when another command which requires one or more of the same
