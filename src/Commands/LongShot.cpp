@@ -15,6 +15,7 @@ LongShot::LongShot()
 void LongShot::Initialize()
 {
 	m_startTime = m_timer->GetFPGATimestamp();
+	m_finished = 0;
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -31,7 +32,7 @@ void LongShot::Execute()
 			Clamp::GetInstance()->SetState(1); //fire
 		}
 		else{
-
+			m_finished = 1;
 		}
 
 	}
@@ -42,7 +43,7 @@ void LongShot::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool LongShot::IsFinished()
 {
-	return false;
+	return m_finished;
 }
 
 // Called once after isFinished returns true

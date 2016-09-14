@@ -21,6 +21,7 @@ private:
 	double m_startTime;
 	double m_step1;		//open clamp
 	double m_step2;		//fire catapult
+	bool m_finished;
 };
 
 #endif
