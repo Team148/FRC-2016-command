@@ -5,7 +5,7 @@
  *      Author: Justin
  */
 
-#include "ActionArm.h"
+#include "Subsystems/ActionArm.h"
 
 ActionArm* ActionArm::m_instance = 0;  						//Global static pointer
 
@@ -13,9 +13,6 @@ ActionArm::ActionArm() : Subsystem("ActionArm") {
 	std::cout << "Starting Action Arm" << std::endl;
 	arm_solenoid = new Solenoid(0, ACTION_ARM);
 	stop_solenoid = new Solenoid(0,ACTION_ARM_STOP);
-
-
-
 }
 
 ActionArm* GetInstance() {
