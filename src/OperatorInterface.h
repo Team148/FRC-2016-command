@@ -12,6 +12,7 @@
 #include "Commands/IntakeIn.h"
 #include "Commands/IntakeOut.h"
 #include "Commands/DriveWithJoystick.h"
+#include "Commands/FlashlightOn.h"
 #include "Commands/ShiftHighGear.h"
 
 class OperatorInterface {

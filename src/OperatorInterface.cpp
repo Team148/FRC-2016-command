@@ -18,7 +18,7 @@ OperatorInterface::OperatorInterface() {
 	m_drvButton2 = new JoystickButton(m_drvJoystick, 2);
 
 
-	//JoystickButton* m_drvButton3 = new JoystickButton(m_driverJoystick, 3);
+	m_drvButton3 = new JoystickButton(m_drvJoystick, 3);
 	//JoystickButton* m_drvButton4 = new JoystickButton(m_driverJoystick, 4);
 	//JoystickButton* m_drvButton5 = new JoystickButton(m_driverJoystick, 5);
 	m_drvButton6 = new JoystickButton(m_drvJoystick, 6);
@@ -26,6 +26,7 @@ OperatorInterface::OperatorInterface() {
 	//Driver Controls
 	m_drvButton1->WhileHeld(new IntakeIn());
 	m_drvButton2->WhileHeld(new IntakeOut());
+	m_drvButton3->WhileHeld(new FlashlightOn());
 
 	m_drvButton6->WhileHeld(new ShiftHighGear());
 
