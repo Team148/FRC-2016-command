@@ -21,10 +21,7 @@ Drivetrain::Drivetrain() : Subsystem("Drivetrain") {
 
 	m_drive = new RobotDrive(m_LeftMotor1, m_LeftMotor2, m_RightMotor1, m_RightMotor2);
 
-	//Pneumatics
-	m_comp = new Compressor(0); //TODO: add Constant
-	m_compSpike = new Relay(COMPRESSOR_RELAY);
-	m_comp->SetClosedLoopControl(true);
+
 
 	//Encoders
 	m_rEncoder = new Encoder(DRIVETRAIN_ENCODER_RIGHT_A,DRIVETRAIN_ENCODER_RIGHT_B,true, CounterBase::k4X);

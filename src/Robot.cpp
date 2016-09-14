@@ -4,6 +4,7 @@
 #include "Subsystems/IntakeRoller.h"
 #include "Subsystems/HangerWinch.h"
 #include "Subsystems/HangerArm.h"
+#include "Subsystems/Pneumatic.h"
 #include "Subsystems/Drivetrain.h"
 #include "OperatorInterface.h"
 
@@ -14,6 +15,7 @@ IntakeRoller *intakeRoller = 0;
 HangerWinch *hangerWinch = 0;
 HangerArm *hangerArm = 0;
 Drivetrain *drivetrain = 0;
+Pneumatic *pneumatic = 0;
 
 class Robot: public IterativeRobot
 {
@@ -26,6 +28,7 @@ private:
 		//hangerWinch->GetInstance();
 		//hangerArm->GetInstance();
 		drivetrain = Drivetrain::GetInstance();
+		pneumatic = Pneumatic::GetInstance();
 		operatorInterface = OperatorInterface::GetInstance();
 		//chooser = new SendableChooser();
 		//chooser->AddDefault("Default Auto", new ExampleCommand());
