@@ -1,6 +1,7 @@
 /Debug/
 /.settings/
 .settings/
+/.metadata/
 
 # Windows image file caches
 Thumbs.db
