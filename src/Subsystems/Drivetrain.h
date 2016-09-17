@@ -17,6 +17,9 @@ public:
 	void SetGear(bool gear);						//shift to given low/high gear
 	void SwitchGear();								//shift to the other gear
 	void SetBrakeMode(bool on);						//set the drivetrain in/out of brake mode
+	void SetLeftDrive(float power);
+	void SetRightDrive(float power);
+
 private:
 	Drivetrain();
 	static Drivetrain *m_instance;

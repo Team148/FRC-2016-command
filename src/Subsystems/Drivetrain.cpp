@@ -80,6 +80,24 @@ void Drivetrain::SetBrakeMode(bool on) {
 	}
 }
 
+void Drivetrain::SetLeftDrive(float power) {
+	if(power>1.0)
+		power=1.0;
+
+	m_LeftMotor1->Set(power);
+	m_LeftMotor2->Set(power);
+}
+
+
+void Drivetrain::SetRightDrive(float power) {
+	if(power>1.0)
+		power=1.0;
+
+	m_RightMotor1->Set(power);
+	m_RightMotor2->Set(power);
+}
+
+
 //void Drivetrain::Arcade(Joystick joy) {
 //	m_drive->ArcadeDrive(joy, false);
 //}
