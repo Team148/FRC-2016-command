@@ -13,11 +13,7 @@ Drivetrain::Drivetrain() : Subsystem("Drivetrain") {
 	m_RightMotor1 = new CANTalon(DRIVE_RIGHT_1);
 	m_RightMotor2 = new CANTalon(DRIVE_RIGHT_2);
 
-	//Tested CANTalon Ramp Rate at 6.0V per second, seemed too slow
-	//m_LeftMotor1->SetVoltageRampRate(6.0);
-	//m_LeftMotor2->SetVoltageRampRate(6.0);
-	//m_RightMotor1->SetVoltageRampRate(6.0);
-	//m_RightMotor2->SetVoltageRampRate(6.0);
+	SetBrakeMode(0);
 
 	m_drive = new RobotDrive(m_LeftMotor1, m_LeftMotor2, m_RightMotor1, m_RightMotor2);
 
@@ -69,7 +65,20 @@ void Drivetrain::SwitchGear() {
 
 }
 
-
+void Drivetrain::SetBrakeMode(bool on) {
+	if(on) {
+		m_LeftMotor1->ConfigNeutralMode(CANTalon::kNeutralMode_Brake);
+		m_LeftMotor2->ConfigNeutralMode(CANTalon::kNeutralMode_Brake);
+		m_RightMotor1->ConfigNeutralMode(CANTalon::kNeutralMode_Brake);
+		m_RightMotor2->ConfigNeutralMode(CANTalon::kNeutralMode_Brake);
+	}
+	else {
+		m_LeftMotor1->ConfigNeutralMode(CANTalon::kNeutralMode_Coast);
+		m_LeftMotor2->ConfigNeutralMode(CANTalon::kNeutralMode_Coast);
+		m_RightMotor1->ConfigNeutralMode(CANTalon::kNeutralMode_Coast);
+		m_RightMotor2->ConfigNeutralMode(CANTalon::kNeutralMode_Coast);
+	}
+}
 
 //void Drivetrain::Arcade(Joystick joy) {
 //	m_drive->ArcadeDrive(joy, false);
