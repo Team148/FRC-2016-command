@@ -20,9 +20,7 @@ public:
 	void SetChevyMode();
 	void SetPorticullisMode();
 
-	//Getters
-	bool InChevyMode();
-	bool InPorticullisMode();
+
 
 private:
 

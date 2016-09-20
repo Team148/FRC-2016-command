@@ -30,11 +30,3 @@ void ActionArm::SetPorticullisMode() {
 }
 
 
-bool ActionArm::InChevyMode() {
-
-}
-
-bool ActionArm::InPorticullisMode() {
-
-}
-
