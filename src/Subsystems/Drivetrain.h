@@ -19,6 +19,8 @@ public:
 	void SetBrakeMode(bool on);						//set the drivetrain in/out of brake mode
 	void SetLeftDrive(float power);
 	void SetRightDrive(float power);
+	Encoder* GetLEncoder();
+	Encoder* GetREncoder();
 
 private:
 	Drivetrain();

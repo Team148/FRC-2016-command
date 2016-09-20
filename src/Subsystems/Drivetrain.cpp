@@ -65,6 +65,7 @@ void Drivetrain::SwitchGear() {
 
 }
 
+//TODO: Test SetBrakeMode
 void Drivetrain::SetBrakeMode(bool on) {
 	if(on) {
 		m_LeftMotor1->ConfigNeutralMode(CANTalon::kNeutralMode_Brake);
@@ -80,6 +81,7 @@ void Drivetrain::SetBrakeMode(bool on) {
 	}
 }
 
+//TODO: Test SetLeftDrive
 void Drivetrain::SetLeftDrive(float power) {
 	if(power>1.0)
 		power=1.0;
@@ -88,7 +90,7 @@ void Drivetrain::SetLeftDrive(float power) {
 	m_LeftMotor2->Set(power);
 }
 
-
+//TODO: TestRightDrive
 void Drivetrain::SetRightDrive(float power) {
 	if(power>1.0)
 		power=1.0;
@@ -97,7 +99,14 @@ void Drivetrain::SetRightDrive(float power) {
 	m_RightMotor2->Set(power);
 }
 
+Encoder* Drivetrain::GetLEncoder() {
+	return m_lEncoder;
+}
 
+
+Encoder* Drivetrain::GetREncoder() {
+	return m_rEncoder;
+}
 //void Drivetrain::Arcade(Joystick joy) {
 //	m_drive->ArcadeDrive(joy, false);
 //}
