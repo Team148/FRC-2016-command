@@ -5,7 +5,7 @@
  *      Author: justin
  */
 
-#include <Subsystems/ActionArm/ActionArm.h>
+#include <Subsystems/ActionArm.h>
 
 ActionArm::ActionArm() {
 	// TODO Auto-generated constructor stub
@@ -32,12 +32,9 @@ void ActionArm::SetPorticullisMode() {
 
 bool ActionArm::InChevyMode() {
 
-
 }
 
 bool ActionArm::InPorticullisMode() {
 
-
 }
 
-}
