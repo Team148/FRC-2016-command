@@ -1,13 +1,17 @@
 #include "ShiftHighGear.h"
 
+using namespace std;
+
 ShiftHighGear::ShiftHighGear()
 {
-	Requires(Drivetrain::GetInstance());
+	cout << "info: ShiftHighGear constructor" << endl;
+	//Requires(Drivetrain::GetInstance());
 }
 
 // Called just before this Command runs the first time
 void ShiftHighGear::Initialize()
 {
+	cout << "info: ShiftHighGear initialize" << endl;
 	Drivetrain::GetInstance()->SetGear(0);
 }
 
@@ -25,6 +29,7 @@ bool ShiftHighGear::IsFinished()
 // Called once after isFinished returns true
 void ShiftHighGear::End()
 {
+	cout << "info: ShiftHighGear End" << endl;
 	Drivetrain::GetInstance()->SetGear(1);
 }
 
@@ -32,5 +37,5 @@ void ShiftHighGear::End()
 // subsystems is scheduled to run
 void ShiftHighGear::Interrupted()
 {
-	End();
+
 }
