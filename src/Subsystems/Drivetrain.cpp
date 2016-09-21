@@ -107,6 +107,10 @@ Encoder* Drivetrain::GetLEncoder() {
 Encoder* Drivetrain::GetREncoder() {
 	return m_rEncoder;
 }
+
+float Drivetrain::GetGyroAngle() {
+	return m_gyro->GetAngle();
+}
 //void Drivetrain::Arcade(Joystick joy) {
 //	m_drive->ArcadeDrive(joy, false);
 //}
