@@ -1,4 +1,4 @@
-#include "ActionArmChevy.h"
+#include "Commands/ActionArmChevy.h"
 
 ActionArmChevy::ActionArmChevy(bool isActionDown)
 {
@@ -19,6 +19,7 @@ void ActionArmChevy::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void ActionArmChevy::Execute()
 {
+<<<<<<< HEAD
 //	m_actionArm->SetArmMode(true);
 //	Wait(0.5);
 //	m_actionArm->SetStopMode(true);
@@ -33,6 +34,8 @@ void ActionArmChevy::Execute()
 		}
 
 	}
+=======
+>>>>>>> refs/remotes/origin/zach-actionarms
 
 }
 
@@ -45,10 +48,15 @@ bool ActionArmChevy::IsFinished()
 // Called once after isFinished returns true
 void ActionArmChevy::End()
 {
+<<<<<<< HEAD
 //	m_actionArm->SetArmMode(true);
 //	Wait(0.2);
 //	m_actionArm->SetStopMode(false);
 //	m_actionArm->SetArmMode(false);
+=======
+
+
+>>>>>>> refs/remotes/origin/zach-actionarms
 }
 
 // Called when another command which requires one or more of the same
