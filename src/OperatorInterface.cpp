@@ -6,6 +6,7 @@
  */
 
 #include <OperatorInterface.h>
+#include <Commands/ActionArmChevy.h>
 #include <Commands/ActionArmDown.h>
 #include <Commands/IntakeIn.h>
 #include <Commands/IntakeOut.h>
@@ -19,14 +20,16 @@ OperatorInterface::OperatorInterface() {
 	JoystickButton* m_drvButton2 = new JoystickButton(m_driverJoystick, 2);
 	//JoystickButton* m_drvButton3 = new JoystickButton(m_driverJoystick, 3);
 	//JoystickButton* m_drvButton4 = new JoystickButton(m_driverJoystick, 4);
-	//JoystickButton* m_drvButton5 = new JoystickButton(m_driverJoystick, 5);
+ m_drvButton5 = new JoystickButton(m_driverJoystick, 5);
 	//JoystickButton* m_drvButton6 = new JoystickButton(m_driverJoystick, 6);
 	m_drvButton7 = new JoystickButton(m_driverJoystick, 7);
 
 	//Driver Controls
 	m_drvButton1->WhileHeld(new IntakeIn());
 	m_drvButton2->WhileHeld(new IntakeOut());
+	m_drvButton5->WhenPressed(new ActionArmChevy(true));
 	m_drvButton7->WhileHeld(new ActionArmDown());
+
 
 	m_operatorJoystick = new Joystick(1);
 	//JoystickButton* m_opButton1 = new JoystickButton(m_operatorJoystick, 1);
