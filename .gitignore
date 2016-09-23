@@ -1,5 +1,7 @@
 /Debug/
 /.settings/
+/.settings/language.settings.xml
+
 
 # Windows image file caches
 Thumbs.db
