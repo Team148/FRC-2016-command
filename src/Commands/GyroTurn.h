@@ -21,6 +21,7 @@ private:
 	float m_error;
 	float m_kp;
 	float m_kd;
+	float m_errortolerance;
 };
 
 #endif

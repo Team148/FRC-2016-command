@@ -21,7 +21,7 @@ private:
 	double m_prevREncoderCount;
 	double m_prevError;
 
-	double m_kp;
+	double m_kd;
 };
 
 #endif

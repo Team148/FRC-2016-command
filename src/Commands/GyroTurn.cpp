@@ -20,7 +20,7 @@ void GyroTurn::Execute()
 {
 	m_error = m_setpoint - Drivetrain::GetInstance()->GetGyroAngle();
 
-	double output = m_error * m_kp;
+	double output = m_error * m_kp + (m_error-m_preverror) * m_kd;
 
 	Drivetrain::GetInstance()->Arcade(0,output);
 	m_preverror = m_error;
@@ -29,7 +29,7 @@ void GyroTurn::Execute()
 // Make this return true when this Command no longer needs to run execute()
 bool GyroTurn::IsFinished()
 {
-	if(abs(m_error) < 1)
+	if(abs(m_error) < m_errortolerance)
 		return true;
 	else
 		return false;

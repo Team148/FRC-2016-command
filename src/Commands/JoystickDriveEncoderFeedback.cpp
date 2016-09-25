@@ -28,8 +28,8 @@ void JoystickDriveEncoderFeedback::Execute()
 		//error = difference between encoders
 		double error = rdistance - ldistance;
 		//multiply rotation stick by kP
-		double output = error * m_kp;
-		rotatestick = output; // not sure about this
+		double output = (m_prevError-error) * m_kd;
+		rotatestick = output; // not sure about this, may need to flip sign
 	}
 
 	Drivetrain::GetInstance()->Arcade(OperatorInterface::GetInstance()->GetJoystick()->GetRawAxis(1), rotatestick);
