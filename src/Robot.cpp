@@ -6,6 +6,7 @@
 #include "Subsystems/HangerArm.h"
 #include "Subsystems/Pneumatic.h"
 #include "Subsystems/Drivetrain.h"
+#include "Subsystems/Flashlight.h"
 #include "OperatorInterface.h"
 
 
@@ -16,6 +17,7 @@ HangerWinch *hangerWinch = 0;
 HangerArm *hangerArm = 0;
 Drivetrain *drivetrain = 0;
 Pneumatic *pneumatic = 0;
+Flashlight *flashlight = 0;
 
 class Robot: public IterativeRobot
 {
@@ -25,6 +27,7 @@ private:
 	{
 		std::cout << "starting RobotInit" << std::endl;
 		intakeRoller = IntakeRoller::GetInstance();
+		flashlight = Flashlight::GetInstance();
 		//hangerWinch->GetInstance();
 		//hangerArm->GetInstance();
 		drivetrain = Drivetrain::GetInstance();

@@ -26,7 +26,7 @@ OperatorInterface::OperatorInterface() {
 	//Driver Controls
 	m_drvButton1->WhileHeld(new IntakeIn());
 	m_drvButton2->WhileHeld(new IntakeOut());
-
+	m_drvButton3->WhileHeld(new FlashlightOn());
 
 
 	//m_operatorJoystick = new Joystick(1);
