@@ -22,7 +22,7 @@ Flashlight* Flashlight::GetInstance() {
 
 void Flashlight::TurnOn() {
 	cout << "info: Setting Flashlight relay value to kOn" << endl;
-	FlashlightRelay->Set(Relay::Value::kOn); 			//kOn sets both forward/reverse outputs to 12V
+	FlashlightRelay->Set(Relay::Value::kForward); 			//kOn sets both forward/reverse outputs to 12V
 }
 
 void Flashlight::TurnOff() {
