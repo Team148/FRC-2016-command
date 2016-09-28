@@ -4,7 +4,6 @@
 #include "WPILib.h"
 #include "Subsystems/Drivetrain.h"
 
-//TODO: TEST ShiftHighGear Command while driving
 
 class ShiftHighGear: public Command
 {

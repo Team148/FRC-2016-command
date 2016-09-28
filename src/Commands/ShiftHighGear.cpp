@@ -11,13 +11,14 @@ ShiftHighGear::ShiftHighGear()
 // Called just before this Command runs the first time
 void ShiftHighGear::Initialize()
 {
-	cout << "info: ShiftHighGear initialize" << endl;
+	//cout << "info: ShiftHighGear initialize" << endl;
 	Drivetrain::GetInstance()->SetGear(0);
 }
 
 // Called repeatedly when this Command is scheduled to run
 void ShiftHighGear::Execute()
 {
+
 }
 
 // Make this return true when this Command no longer needs to run execute()
@@ -29,7 +30,7 @@ bool ShiftHighGear::IsFinished()
 // Called once after isFinished returns true
 void ShiftHighGear::End()
 {
-	cout << "info: ShiftHighGear End" << endl;
+	//cout << "info: ShiftHighGear End" << endl;
 	Drivetrain::GetInstance()->SetGear(1);
 }
 
@@ -37,5 +38,6 @@ void ShiftHighGear::End()
 // subsystems is scheduled to run
 void ShiftHighGear::Interrupted()
 {
-
+	//cout << "info: ShiftHighGear Interrupted" << endl;
+	End();
 }

@@ -52,7 +52,6 @@ void Drivetrain::Arcade(float ystick, float xstick) {
 
 
 //select drivetrain gear.  lowgear=true highgear=false
-//TODO: TEST SetGear
 void Drivetrain::SetGear(bool gear) {
 	m_gear = gear;
 	m_shifter->Set(m_gear);
