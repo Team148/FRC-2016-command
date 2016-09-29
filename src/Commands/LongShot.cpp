@@ -25,12 +25,12 @@ void LongShot::Execute()
 	double m_currentTime = m_timer->GetFPGATimestamp();
 
 	if(((m_currentTime-m_startTime) < m_step1)&& !Clamp::GetInstance()->GetState()){ 	//if closed then open
-		Clamp::GetInstance()->SetState(1); //open
+		//Clamp::GetInstance()->SetState(1); //open
 
 	}
 	else{
 		if(((m_currentTime-m_startTime) < m_step2)&& !Catapult::GetInstance()->GetState()){ //checks if right time and if not fired
-			Clamp::GetInstance()->SetState(1); //fire
+			//Clamp::GetInstance()->SetState(1); //fire
 		}
 		else{
 			m_finished = 1;

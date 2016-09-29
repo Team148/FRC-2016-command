@@ -23,12 +23,12 @@ Clamp* Clamp::GetInstance(){
 	return m_instance;
 }
 
-void Clamp::SetState(bool on){
-	m_on = on;
+void Clamp::SetOpen(bool open){
+	m_open = open;
 
-	Clamp1->Set(m_on);
+	Clamp1->Set(m_open);
 }
 
 bool Clamp::GetState(){
-	return m_on;
+	return m_open;
 }

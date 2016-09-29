@@ -15,14 +15,14 @@ class Clamp: public Subsystem
 {
 public:
 	static Clamp* GetInstance();
-	void SetState(bool on);
+	void SetOpen(bool open);
 	bool GetState();
 
 private:
 	Clamp();
 	static Clamp *m_instance;
 	Solenoid *Clamp1;
-	bool m_on = 0;
+	bool m_open = 0;
 
 };
 
