@@ -2,6 +2,7 @@
 #define ActionArmDown_H
 
 #include "WPILib.h"
+#include "Subsystems/ActionArm.h"
 
 class ActionArmDown: public Command
 {
@@ -12,6 +13,9 @@ public:
 	bool IsFinished();
 	void End();
 	void Interrupted();
+private:
+	ActionArm* m_actionArm;
 };
+
 
 #endif

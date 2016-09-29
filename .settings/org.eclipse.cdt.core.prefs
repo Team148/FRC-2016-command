@@ -1,6 +1,0 @@
-eclipse.preferences.version=1
-environment/project/cdt.managedbuild.config.gnu.cross.exe.debug.1104744751/PATH/delimiter=;
-environment/project/cdt.managedbuild.config.gnu.cross.exe.debug.1104744751/PATH/operation=replace
-environment/project/cdt.managedbuild.config.gnu.cross.exe.debug.1104744751/PATH/value=/usr/local/bin\:;C\:/frc/bin/;C\:/Program Files/Java/jre1.8.0_91/bin/server;C\:/Program Files/Java/jre1.8.0_91/bin;C\:/Program Files/Java/jre1.8.0_91/lib/amd64;C\:\\ProgramData\\Oracle\\Java\\javapath;C\:\\Python27\\;C\:\\Python27\\Scripts;C\:\\WINDOWS\\system32;C\:\\WINDOWS;C\:\\WINDOWS\\System32\\Wbem;C\:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;c\:\\python27\\;c\:\\python27\\Scripts  ;C\:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;D\:\\frc\\bin;C\:\\Program Files (x86)\\Nmap;C\:\\Users\\justin\\Desktop
-environment/project/cdt.managedbuild.config.gnu.cross.exe.debug.1104744751/append=true
-environment/project/cdt.managedbuild.config.gnu.cross.exe.debug.1104744751/appendContributed=true
