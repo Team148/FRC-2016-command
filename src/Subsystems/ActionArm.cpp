@@ -25,10 +25,10 @@ ActionArm* ActionArm::GetInstance() {
 
 void ActionArm::SetArmMode(bool setarm) {
 	m_setarm = setarm;
-	arm_solenoid->Set(m_setarm);
+	arm_solenoid->Set(setarm);
 }
 
 void ActionArm::SetStopMode(bool stoparm) {
 	m_stoparm = stoparm;
-	stop_solenoid->Set(m_stoparm);
+	stop_solenoid->Set(stoparm);
 }

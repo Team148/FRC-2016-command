@@ -20,7 +20,7 @@ OperatorInterface::OperatorInterface() {
 	JoystickButton* m_drvButton2 = new JoystickButton(m_driverJoystick, 2);
 	//JoystickButton* m_drvButton3 = new JoystickButton(m_driverJoystick, 3);
 	//JoystickButton* m_drvButton4 = new JoystickButton(m_driverJoystick, 4);
- m_drvButton5 = new JoystickButton(m_driverJoystick, 5);
+    m_drvButton5 = new JoystickButton(m_driverJoystick, 5);
 	//JoystickButton* m_drvButton6 = new JoystickButton(m_driverJoystick, 6);
 	m_drvButton7 = new JoystickButton(m_driverJoystick, 7);
 
@@ -28,6 +28,7 @@ OperatorInterface::OperatorInterface() {
 	m_drvButton1->WhileHeld(new IntakeIn());
 	m_drvButton2->WhileHeld(new IntakeOut());
 	m_drvButton5->WhenPressed(new ActionArmChevy(true));
+	m_drvButton5->WhenReleased(new ActionArmChevy(false));
 	m_drvButton7->WhileHeld(new ActionArmDown());
 
 

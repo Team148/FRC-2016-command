@@ -18,12 +18,13 @@ private:
 	ActionArm* m_actionArm;
 
 	//Timer* m_chevyDownTime;
-	Timer* m_chevyUpTime;
+	//Timer* m_chevyUpTime;
 
-	bool m_goingUp;
-	bool m_isFinished;
+	bool m_goingDown;
+	bool m_isFinished = 0;
 	double m_startTime;
-	double m_chevyDownTime = 0.6;
+	double m_chevyDownTime = 0.8;
+	double m_chevyUpTime = 0.25;
 
 };
 
