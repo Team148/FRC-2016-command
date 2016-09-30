@@ -14,7 +14,7 @@ public:
 	void Interrupted();
 private:
 	double m_waittime;
-	bool m_isFinished;
+	bool m_isFinished = false;
 	double m_starttime;
 };
 
