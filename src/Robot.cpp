@@ -8,6 +8,7 @@
 #include "Subsystems/Drivetrain.h"
 #include "Subsystems/Flashlight.h"
 #include "Subsystems/ActionArm.h"
+#include "Subsystems/Clamp.h"
 #include "OperatorInterface.h"
 
 
@@ -16,6 +17,7 @@ OperatorInterface *operatorInterface = 0;
 IntakeRoller *intakeRoller = 0;
 HangerWinch *hangerWinch = 0;
 HangerArm *hangerArm = 0;
+Clamp *clamp = 0;
 Drivetrain *drivetrain = 0;
 Pneumatic *pneumatic = 0;
 Flashlight *flashlight = 0;
@@ -33,6 +35,7 @@ private:
 		//hangerWinch->GetInstance();
 		//hangerArm->GetInstance();
 		actionArm = ActionArm::GetInstance();
+		clamp = Clamp::GetInstance();
 		drivetrain = Drivetrain::GetInstance();
 		pneumatic = Pneumatic::GetInstance();
 		operatorInterface = OperatorInterface::GetInstance();

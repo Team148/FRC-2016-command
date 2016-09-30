@@ -6,10 +6,7 @@
  */
 
 #include <OperatorInterface.h>
-#include <Commands/ActionArmChevy.h>
-#include <Commands/ActionArmDown.h>
-#include <Commands/IntakeIn.h>
-#include <Commands/IntakeOut.h>
+
 
 OperatorInterface* OperatorInterface::m_instance = 0;
 
@@ -20,30 +17,32 @@ OperatorInterface::OperatorInterface() {
 	m_drvJoystick = new Joystick(0);
 	m_drvButton1 = new JoystickButton(m_drvJoystick, 1);
 	m_drvButton2 = new JoystickButton(m_drvJoystick, 2);
-
-
-	//JoystickButton* m_drvButton3 = new JoystickButton(m_driverJoystick, 3);
-	//JoystickButton* m_drvButton4 = new JoystickButton(m_driverJoystick, 4);
-	m_drvButton5 = new JoystickButton(m_drvJoystick, 5);
-	//JoystickButton* m_drvButton6 = new JoystickButton(m_driverJoystick, 6);
+	m_drvButton3 = new JoystickButton(m_drvJoystick, 3);
+	m_drvButton4 = new JoystickButton(m_drvJoystick, 4);
+	//m_drvButton5 = new JoystickButton(m_driverJoystick, 5);
+	//m_drvButton6 = new JoystickButton(m_driverJoystick, 6);
 	m_drvButton7 = new JoystickButton(m_drvJoystick, 7);
 
 	//Driver Controls
-	m_drvButton1->WhileHeld(new IntakeIn());
-	m_drvButton2->WhileHeld(new IntakeOut());
+	m_drvButton1->WhenPressed(new ToggleClamp());
 	m_drvButton3->WhileHeld(new FlashlightOn());
 	m_drvButton5->WhenPressed(new ActionArmChevy(true));
 	m_drvButton5->WhenReleased(new ActionArmChevy(false));
 	m_drvButton7->WhileHeld(new ActionArmDown());
 
 
-	//m_operatorJoystick = new Joystick(1);
-	//JoystickButton* m_opButton1 = new JoystickButton(m_operatorJoystick, 1);
-	//JoystickButton* m_opButton2 = new JoystickButton(m_operatorJoystick, 2);
-	//JoystickButton* m_opButton3 = new JoystickButton(m_operatorJoystick, 3);
-	//JoystickButton* m_opButton4 = new JoystickButton(m_operatorJoystick, 4);
-	//JoystickButton* m_opButton5 = new JoystickButton(m_operatorJoystick, 5);
-	//JoystickButton* m_opButton6 = new JoystickButton(m_operatorJoystick, 6);
+
+	m_opJoystick = new Joystick(1);
+	m_opButton1 = new JoystickButton(m_opJoystick, 1);
+	m_opButton2 = new JoystickButton(m_opJoystick, 2);
+	//m_opButton3 = new JoystickButton(m_opJoystick, 3);
+	//m_opButton4 = new JoystickButton(m_opJoystick, 4);
+	//m_opButton5 = new JoystickButton(m_opJoystick, 5);
+	//m_opButton6 = new JoystickButton(m_opJoystick, 6);
+
+	//Operator Controls
+	m_opButton1->WhileHeld(new IntakeIn());
+	m_opButton2->WhileHeld(new IntakeOut());
 
 
 }
