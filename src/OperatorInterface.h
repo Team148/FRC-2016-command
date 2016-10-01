@@ -33,6 +33,7 @@ private:
 	JoystickButton* m_drvButton4;
 	JoystickButton* m_drvButton5;
 	JoystickButton* m_drvButton6;
+	JoystickButton* m_drvButton7;
 
 	JoystickButton* m_opButton1;
 	JoystickButton* m_opButton2;
@@ -40,12 +41,7 @@ private:
 	JoystickButton* m_opButton4;
 	JoystickButton* m_opButton5;
 	JoystickButton* m_opButton6;
-
-
-	float m_drvXStick = 0.0;
-	float m_drvYStick = 0.0;
-	float m_operatorXStick = 0.0;
-	float m_operatorYStick = 0.0;
+	JoystickButton* m_opButton7;
 
 
 
