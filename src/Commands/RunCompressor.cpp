@@ -15,8 +15,10 @@ void RunCompressor::Initialize()
 void RunCompressor::Execute()
 {
 	//check if the pressure switch has flipped and either turn the relay on or off.
-	if(Pneumatic::GetInstance()->m_comp->GetPressureSwitchValue()) {Pneumatic::GetInstance()->SetCompressor(1);}
-			else {Pneumatic::GetInstance()->SetCompressor(0);}
+	//std::cout << "info: RunCompressor Execute - PressureSwtich:" <<  Pneumatic::GetInstance()->m_comp->GetPressureSwitchValue() << std::endl;
+	if(Pneumatic::GetInstance()->m_comp->GetPressureSwitchValue()) {Pneumatic::GetInstance()->SetCompressor(false);}
+			else {Pneumatic::GetInstance()->SetCompressor(true);}
+
 }
 
 // Make this return true when this Command no longer needs to run execute()

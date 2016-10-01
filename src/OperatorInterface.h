@@ -16,6 +16,7 @@
 #include <Commands/ActionArmChevy.h>
 #include <Commands/ActionArmDown.h>
 #include <Commands/ToggleClamp.h>
+#include "Commands/ShiftHighGear.h"
 
 
 class OperatorInterface {
@@ -44,7 +45,7 @@ private:
 	JoystickButton* m_opButton4;
 	JoystickButton* m_opButton5;
 	JoystickButton* m_opButton6;
-
+	JoystickButton* m_opButton7;
 
 	float m_drvXStick = 0.0;
 	float m_drvYStick = 0.0;

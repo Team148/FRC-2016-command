@@ -13,11 +13,7 @@ Drivetrain::Drivetrain() : Subsystem("Drivetrain") {
 	m_RightMotor1 = new CANTalon(DRIVE_RIGHT_1);
 	m_RightMotor2 = new CANTalon(DRIVE_RIGHT_2);
 
-	//Tested CANTalon Ramp Rate at 6.0V per second, seemed too slow
-	//m_LeftMotor1->SetVoltageRampRate(6.0);
-	//m_LeftMotor2->SetVoltageRampRate(6.0);
-	//m_RightMotor1->SetVoltageRampRate(6.0);
-	//m_RightMotor2->SetVoltageRampRate(6.0);
+	SetBrakeMode(0);
 
 	m_drive = new RobotDrive(m_LeftMotor1, m_LeftMotor2, m_RightMotor1, m_RightMotor2);
 
@@ -54,18 +50,8 @@ void Drivetrain::Arcade(float ystick, float xstick) {
 	m_drive->ArcadeDrive(ystick,xstick);
 }
 
-//Drive a given distance in an optional amount of time
-void Drivetrain::DriveDistance(int dist, int time) {
-	//TODO: DriveDistance pseudocode
-}
-
-//turn a specified amount in an optional amount of time
-void Drivetrain::Turn(int angle, int time) {
-	//TODO: Turn pseudocode
-}
 
 //select drivetrain gear.  lowgear=true highgear=false
-//TODO: TEST SetGear
 void Drivetrain::SetGear(bool gear) {
 	m_gear = gear;
 	m_shifter->Set(m_gear);
@@ -78,7 +64,52 @@ void Drivetrain::SwitchGear() {
 
 }
 
+//TODO: Test SetBrakeMode
+void Drivetrain::SetBrakeMode(bool on) {
+	if(on) {
+		m_LeftMotor1->ConfigNeutralMode(CANTalon::kNeutralMode_Brake);
+		m_LeftMotor2->ConfigNeutralMode(CANTalon::kNeutralMode_Brake);
+		m_RightMotor1->ConfigNeutralMode(CANTalon::kNeutralMode_Brake);
+		m_RightMotor2->ConfigNeutralMode(CANTalon::kNeutralMode_Brake);
+	}
+	else {
+		m_LeftMotor1->ConfigNeutralMode(CANTalon::kNeutralMode_Coast);
+		m_LeftMotor2->ConfigNeutralMode(CANTalon::kNeutralMode_Coast);
+		m_RightMotor1->ConfigNeutralMode(CANTalon::kNeutralMode_Coast);
+		m_RightMotor2->ConfigNeutralMode(CANTalon::kNeutralMode_Coast);
+	}
+}
 
+//TODO: Test SetLeftDrive
+void Drivetrain::SetLeftDrive(float power) {
+	if(power>1.0)
+		power=1.0;
+
+	m_LeftMotor1->Set(power);
+	m_LeftMotor2->Set(power);
+}
+
+//TODO: TestRightDrive
+void Drivetrain::SetRightDrive(float power) {
+	if(power>1.0)
+		power=1.0;
+
+	m_RightMotor1->Set(power);
+	m_RightMotor2->Set(power);
+}
+
+Encoder* Drivetrain::GetLEncoder() {
+	return m_lEncoder;
+}
+
+
+Encoder* Drivetrain::GetREncoder() {
+	return m_rEncoder;
+}
+
+float Drivetrain::GetGyroAngle() {
+	return m_gyro->GetAngle();
+}
 //void Drivetrain::Arcade(Joystick joy) {
 //	m_drive->ArcadeDrive(joy, false);
 //}
