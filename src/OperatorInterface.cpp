@@ -125,7 +125,6 @@ int OperatorInterface::GetSelectorB() {
 
 //TODO: Test GetDSSwitches
 int OperatorInterface::GetDSSwitches() {
-
 	int switches = 0;
 	int sw1 = m_dsiSw1->Get();
 	switches = sw1;

@@ -64,6 +64,9 @@ private:
 	 */
 	void AutonomousInit()
 	{
+		int position = operatorInterface->GetSelectorA();
+		int defense = operatorInterface->GetSelectorB();
+		int actions = operatorInterface->GetDSSwitches();
 		/* std::string autoSelected = SmartDashboard::GetString("Auto Selector", "Default");
 		if(autoSelected == "My Auto") {
 			autonomousCommand.reset(new MyAutoCommand());
