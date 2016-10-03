@@ -14,18 +14,24 @@
 #include "Commands/DriveWithJoystick.h"
 #include "Commands/FlashlightOn.h"
 #include "Commands/ShiftHighGear.h"
+#include "Commands/BeamBreakIntake.h"
 
 class OperatorInterface {
 public:
 
 	Joystick* GetJoystick();
 	static OperatorInterface* GetInstance();
+	int GetSelectorA();
+	int GetSelectorB();
+	int GetDSSwitches();
 
 private:
 	OperatorInterface();
 	static OperatorInterface* m_instance;
 	Joystick* m_operatorJoystick;
 	Joystick* m_drvJoystick;
+	Joystick* m_dsiBrickA;
+	Joystick* m_dsiBrickB;
 
 	JoystickButton* m_drvButton1;
 	JoystickButton* m_drvButton2;
@@ -44,6 +50,29 @@ private:
 	JoystickButton* m_opButton7;
 
 
+	JoystickButton* m_brickAselect1;
+	JoystickButton* m_brickAselect2;
+	JoystickButton* m_brickAselect3;
+	JoystickButton* m_brickAselect4;
+	JoystickButton* m_brickAselect5;
+	JoystickButton* m_brickAselect6;
+	JoystickButton* m_brickAselect7;
+	JoystickButton* m_brickAselect8;
+
+	JoystickButton* m_brickBselect1;
+	JoystickButton* m_brickBselect2;
+	JoystickButton* m_brickBselect3;
+	JoystickButton* m_brickBselect4;
+	JoystickButton* m_brickBselect5;
+	JoystickButton* m_brickBselect6;
+	JoystickButton* m_brickBselect7;
+	JoystickButton* m_brickBselect8;
+
+	JoystickButton* m_dsiSw1;
+	JoystickButton* m_dsiSw2;
+	JoystickButton* m_dsiSw3;
+	JoystickButton* m_dsiSw4;
+	JoystickButton* m_dsiSw5;
 
 };
 
