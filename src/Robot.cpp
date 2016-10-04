@@ -30,8 +30,6 @@ private:
 		std::cout << "starting RobotInit" << std::endl;
 		intakeRoller = IntakeRoller::GetInstance();
 		flashlight = Flashlight::GetInstance();
-		//hangerWinch->GetInstance();
-		//hangerArm->GetInstance();
 		drivetrain = Drivetrain::GetInstance();
 		pneumatic = Pneumatic::GetInstance();
 		operatorInterface = OperatorInterface::GetInstance();
@@ -54,6 +52,7 @@ private:
 	void DisabledPeriodic()
 	{
 		Scheduler::GetInstance()->Run();
+		//Update SmartDashboard
 	}
 
 	/**
@@ -83,6 +82,7 @@ private:
 	void AutonomousPeriodic()
 	{
 		Scheduler::GetInstance()->Run();
+		//Update SmartDashboard
 	}
 
 	void TeleopInit()
@@ -97,12 +97,23 @@ private:
 	void TeleopPeriodic()
 	{
 		Scheduler::GetInstance()->Run();
+		//Update SmartDashboard
 	}
 
 	void TestPeriodic()
 	{
 		LiveWindow::GetInstance()->Run();
 	}
+
+	void UpdateSmartDash()
+	{
+		//Subsystems
+		SmartDashboard::PutData(Drivetrain::GetInstance());
+		SmartDashboard::PutData(ActionArm::GetInstance());
+		SmartDashboard::PutData(IntakeRoller::GetInstance());
+
+	}
+
 };
 
 START_ROBOT_CLASS(Robot)
