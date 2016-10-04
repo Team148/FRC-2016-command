@@ -15,6 +15,7 @@
 #include "Commands/FlashlightOn.h"
 #include "Commands/ShiftHighGear.h"
 #include "Commands/BeamBreakIntake.h"
+#include "Commands/ActionArmChevy.h"
 
 class OperatorInterface {
 public:

@@ -26,6 +26,8 @@ OperatorInterface::OperatorInterface() {
 	m_drvButton1->WhileHeld(new IntakeIn());
 	m_drvButton2->WhileHeld(new IntakeOut());
 	m_drvButton3->WhileHeld(new FlashlightOn());
+	m_drvButton5->WhenPressed(new ActionArmChevy(true));
+	m_drvButton5->WhenReleased(new ActionArmChevy(false));
 	m_drvButton6->WhileHeld(new ShiftHighGear());
 	m_drvButton7->WhileHeld(new BeamBreakIntake());
 

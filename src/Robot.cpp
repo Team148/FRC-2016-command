@@ -7,6 +7,7 @@
 #include "Subsystems/Pneumatic.h"
 #include "Subsystems/Drivetrain.h"
 #include "Subsystems/Flashlight.h"
+#include "Subsystems/ActionArm.h"
 #include "OperatorInterface.h"
 
 
@@ -18,6 +19,7 @@ HangerArm *hangerArm = 0;
 Drivetrain *drivetrain = 0;
 Pneumatic *pneumatic = 0;
 Flashlight *flashlight = 0;
+ActionArm *actionArm = 0;
 
 class Robot: public IterativeRobot
 {
@@ -33,6 +35,7 @@ private:
 		drivetrain = Drivetrain::GetInstance();
 		pneumatic = Pneumatic::GetInstance();
 		operatorInterface = OperatorInterface::GetInstance();
+		actionArm = ActionArm::GetInstance();
 		//chooser = new SendableChooser();
 		//chooser->AddDefault("Default Auto", new ExampleCommand());
 		//chooser->AddObject("My Auto", new MyAutoCommand());
