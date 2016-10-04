@@ -19,6 +19,7 @@ void JoystickDriveEncoderFeedback::Execute()
 {
 	float rotatestick = OperatorInterface::GetInstance()->GetJoystick()->GetRawAxis(2);	//read rotation stick
 
+
 	double rdistance = Drivetrain::GetInstance()->GetREncoder()->GetDistance() - m_prevREncoderCount;//read both encoders tick counted since last loop
 	double ldistance = Drivetrain::GetInstance()->GetLEncoder()->GetDistance() - m_prevLEncoderCount;
 	double error = 0;
@@ -33,6 +34,7 @@ void JoystickDriveEncoderFeedback::Execute()
 	}
 
 	Drivetrain::GetInstance()->Arcade(OperatorInterface::GetInstance()->GetJoystick()->GetRawAxis(1), rotatestick);
+
 
 	//set current encoder ticks to previous
 	m_prevLEncoderCount = ldistance;

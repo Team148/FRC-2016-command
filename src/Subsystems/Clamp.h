@@ -1,16 +1,31 @@
+/*
+ * Clamp.h
+ *
+ *  Created on: July 5, 2016
+ *      Author: James Tonthat
+ */
+
 #ifndef Clamp_H
 #define Clamp_H
 
 #include "WPILib.h"
+#include "Constants/Ports.h"
 
 class Clamp: public Subsystem
 {
-private:
-	// It's desirable that everything possible under private except
-	// for methods that implement subsystem capabilities
 public:
+	static Clamp* GetInstance();
+	void SetOpen(bool open);
+	bool GetState();
+
+private:
 	Clamp();
-	void InitDefaultCommand();
+	static Clamp *m_instance;
+	Solenoid *Clamp1;
+	bool m_open = 0;
+
 };
+
+
 
 #endif

@@ -32,6 +32,21 @@ OperatorInterface::OperatorInterface() {
 	m_drvButton7->WhileHeld(new BeamBreakIntake());
 
 
+
+	
+
+	m_opJoystick = new Joystick(1);
+	m_opButton1 = new JoystickButton(m_opJoystick, 1);
+	m_opButton2 = new JoystickButton(m_opJoystick, 2);
+	m_opButton3 = new JoystickButton(m_opJoystick, 3);
+	m_opButton4 = new JoystickButton(m_opJoystick, 4);
+	m_opButton5 = new JoystickButton(m_opJoystick, 5);
+	m_opButton6 = new JoystickButton(m_opJoystick, 6);
+
+	//Operator Controls
+	m_opButton1->WhileHeld(new IntakeIn());
+	m_opButton2->WhileHeld(new IntakeOut());
+
 	//m_operatorJoystick = new Joystick(1);
 	//m_opButton1 = new JoystickButton(m_operatorJoystick, 1);
 	//m_opButton2 = new JoystickButton(m_operatorJoystick, 2);
@@ -67,6 +82,7 @@ OperatorInterface::OperatorInterface() {
 	m_dsiSw3 = new JoystickButton(m_dsiBrickA, 11);
 	m_dsiSw4 = new JoystickButton(m_dsiBrickB, 9);
 	m_dsiSw5 = new JoystickButton(m_dsiBrickB, 10);
+
 
 }
 

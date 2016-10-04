@@ -8,6 +8,7 @@
 #include "Subsystems/Drivetrain.h"
 #include "Subsystems/Flashlight.h"
 #include "Subsystems/ActionArm.h"
+#include "Subsystems/Clamp.h"
 #include "OperatorInterface.h"
 
 
@@ -104,16 +105,15 @@ private:
 	{
 		LiveWindow::GetInstance()->Run();
 	}
-
+	
 	void UpdateSmartDash()
 	{
 		//Subsystems
 		SmartDashboard::PutData(Drivetrain::GetInstance());
 		SmartDashboard::PutData(ActionArm::GetInstance());
 		SmartDashboard::PutData(IntakeRoller::GetInstance());
-
 	}
-
+	
 };
 
 START_ROBOT_CLASS(Robot)

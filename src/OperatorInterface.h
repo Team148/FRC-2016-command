@@ -13,9 +13,13 @@
 #include "Commands/IntakeOut.h"
 #include "Commands/DriveWithJoystick.h"
 #include "Commands/FlashlightOn.h"
+#include <Commands/ActionArmChevy.h>
+#include <Commands/ActionArmDown.h>
+#include <Commands/ToggleClamp.h>
 #include "Commands/ShiftHighGear.h"
 #include "Commands/BeamBreakIntake.h"
-#include "Commands/ActionArmChevy.h"
+
+
 
 class OperatorInterface {
 public:
@@ -29,7 +33,7 @@ public:
 private:
 	OperatorInterface();
 	static OperatorInterface* m_instance;
-	Joystick* m_operatorJoystick;
+	Joystick* m_opJoystick;
 	Joystick* m_drvJoystick;
 	Joystick* m_dsiBrickA;
 	Joystick* m_dsiBrickB;
