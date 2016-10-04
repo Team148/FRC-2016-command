@@ -21,7 +21,7 @@ void JoystickDriveEncoderFeedback::Execute()
 
 	double rdistance = Drivetrain::GetInstance()->GetREncoder()->GetDistance() - m_prevREncoderCount;//read both encoders tick counted since last loop
 	double ldistance = Drivetrain::GetInstance()->GetLEncoder()->GetDistance() - m_prevLEncoderCount;
-	double error;
+	double error = 0;
 
 	if(rotatestick == 0) {
 		//setpoint is always 0
