@@ -18,6 +18,7 @@
 #include <Commands/ToggleClamp.h>
 #include "Commands/ShiftHighGear.h"
 #include "Commands/BeamBreakIntake.h"
+#include "Commands/ShootGroup.h"
 
 
 

@@ -29,7 +29,7 @@ OperatorInterface::OperatorInterface() {
 	m_drvButton5->WhenPressed(new ActionArmChevy(true));
 	m_drvButton5->WhenReleased(new ActionArmChevy(false));
 	m_drvButton6->WhileHeld(new ShiftHighGear());
-	m_drvButton7->WhileHeld(new BeamBreakIntake());
+	m_drvButton7->WhenPressed(new ShootGroup(true));
 
 
 
