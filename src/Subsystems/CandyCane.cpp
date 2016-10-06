@@ -23,12 +23,12 @@ CandyCane* CandyCane::GetInstance(){
 		return m_instance;
 }
 
-void CandyCane::SetState(bool on){
+void CandyCane::SetOpen(bool on){
 	m_on = on;
 
 	CandyCane1->Set(m_on);
 }
 
-bool CandyCane::GetState(){
+bool CandyCane::IsOpen(){
 	return m_on;
 }

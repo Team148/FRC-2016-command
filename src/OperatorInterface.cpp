@@ -21,6 +21,7 @@ OperatorInterface::OperatorInterface() {
 	m_drvButton5 = new JoystickButton(m_drvJoystick, 5);
 	m_drvButton6 = new JoystickButton(m_drvJoystick, 6);
 	m_drvButton7 = new JoystickButton(m_drvJoystick, 7);
+	m_drvButton8 = new JoystickButton(m_drvJoystick, 8);
 
 	//Driver Controls
 	m_drvButton1->WhileHeld(new IntakeIn());
@@ -29,7 +30,8 @@ OperatorInterface::OperatorInterface() {
 	m_drvButton5->WhenPressed(new ActionArmChevy(true));
 	m_drvButton5->WhenReleased(new ActionArmChevy(false));
 	m_drvButton6->WhileHeld(new ShiftHighGear());
-	m_drvButton7->WhenPressed(new ShootGroup(true));
+	m_drvButton7->WhenPressed(new ShootGroup(true));	//longshot
+	m_drvButton8->WhenPressed(new ShootGroup(false)); 	//short shot
 
 
 

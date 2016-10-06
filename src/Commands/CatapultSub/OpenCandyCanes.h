@@ -1,22 +1,23 @@
-#ifndef ResetCatapult_H
-#define ResetCatapult_H
+#ifndef OpenCandyCanes_H
+#define OpenCandyCanes_H
 
 #include "WPILib.h"
-#include "Subsystems/Catapult.h"
 #include "Subsystems/CandyCane.h"
 
-class ResetCatapult: public Command
+class OpenCandyCanes: public Command
 {
 public:
-	ResetCatapult();
+	OpenCandyCanes();
 	void Initialize();
 	void Execute();
 	bool IsFinished();
 	void End();
 	void Interrupted();
-
 private:
+	Timer *m_timer;
+	double m_startTime;
 	bool m_finished;
+	double m_step1;
 };
 
 #endif

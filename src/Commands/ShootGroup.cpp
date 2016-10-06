@@ -24,7 +24,11 @@ ShootGroup::ShootGroup(bool IsLong)
 		AddSequential(new ResetCatapult());
 	}
 	else{
-		AddParallel(new OpenClampSub(IsLong));
+		AddSequential(new OpenClampSub(IsLong));
+		AddSequential(new OpenCandyCanes());
+		AddSequential(new FireCatapult(IsLong));
+		AddSequential(new ResetCatapult());
+
 
 	}
 }

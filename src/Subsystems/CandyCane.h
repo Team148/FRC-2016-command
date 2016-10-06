@@ -15,8 +15,8 @@ class CandyCane : public Subsystem
 {
 public:
 	static CandyCane* GetInstance();
-	void SetState(bool on);
-	bool GetState();
+	void SetOpen(bool on);
+	bool IsOpen();
 
 private:
 	CandyCane();
