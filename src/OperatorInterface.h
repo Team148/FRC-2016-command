@@ -15,10 +15,10 @@
 #include "Commands/FlashlightOn.h"
 #include <Commands/ActionArmChevy.h>
 #include <Commands/ActionArmDown.h>
-#include <Commands/ToggleClamp.h>
+#include <Commands/ShootCatapult.h>
+#include <Commands/CatapultSub/ToggleClamp.h>
 #include "Commands/ShiftHighGear.h"
-#include "Commands/BeamBreakIntake.h"
-#include "Commands/ShootGroup.h"
+//#include "Commands/BeamBreakIntake.h"
 
 
 

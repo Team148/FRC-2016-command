@@ -1,13 +1,15 @@
-#ifndef OpenCandyCanes_H
-#define OpenCandyCanes_H
+#ifndef OpenClamp_H
+#define OpenClamp_H
 
+// #include "../CommandBase.h"
 #include "WPILib.h"
-#include "Subsystems/CandyCane.h"
+#include "Subsystems/Clamp.h"
+//#include "Constants/Constants.h"
 
-class OpenCandyCanes: public Command
+class OpenClamp: public Command
 {
 public:
-	OpenCandyCanes();
+	OpenClamp(bool IsLong);
 	void Initialize();
 	void Execute();
 	bool IsFinished();
