@@ -16,8 +16,8 @@ class Catapult : public Subsystem
 {
 public:
 	static Catapult* GetInstance();
-	void SetState(bool on);
-	bool GetState();
+	void SetOpen(bool on);
+	bool IsOpen();
 
 private:
 	Catapult();

@@ -27,7 +27,7 @@ Catapult* Catapult::GetInstance() {
 	return m_instance;
 }
 
-void Catapult::SetState(bool on){
+void Catapult::SetOpen(bool on){
 	m_on = on;
 
 	Catapult1->Set(m_on);
@@ -36,6 +36,6 @@ void Catapult::SetState(bool on){
 	Catapult4->Set(m_on);
 }
 
-bool Catapult::GetState(){
+bool Catapult::IsOpen(){
 	return m_on;
 }

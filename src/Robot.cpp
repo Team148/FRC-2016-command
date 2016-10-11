@@ -8,6 +8,7 @@
 #include "Subsystems/Drivetrain.h"
 #include "Subsystems/Flashlight.h"
 #include "Subsystems/ActionArm.h"
+#include "Subsystems/Catapult.h"
 #include "Subsystems/Clamp.h"
 #include "OperatorInterface.h"
 
@@ -17,11 +18,12 @@ OperatorInterface *operatorInterface = 0;
 IntakeRoller *intakeRoller = 0;
 HangerWinch *hangerWinch = 0;
 HangerArm *hangerArm = 0;
-Clamp *clamp = 0;
 Drivetrain *drivetrain = 0;
 Pneumatic *pneumatic = 0;
 Flashlight *flashlight = 0;
 ActionArm *actionArm = 0;
+Clamp *clamp = 0;
+Catapult *catapult = 0;
 
 class Robot: public IterativeRobot
 {
@@ -32,13 +34,12 @@ private:
 		std::cout << "starting RobotInit" << std::endl;
 		intakeRoller = IntakeRoller::GetInstance();
 		flashlight = Flashlight::GetInstance();
-		//hangerWinch->GetInstance();
-		//hangerArm->GetInstance();
-		actionArm = ActionArm::GetInstance();
-		clamp = Clamp::GetInstance();
 		drivetrain = Drivetrain::GetInstance();
 		pneumatic = Pneumatic::GetInstance();
 		operatorInterface = OperatorInterface::GetInstance();
+		actionArm = ActionArm::GetInstance();
+		clamp = Clamp::GetInstance();
+		catapult = Catapult::GetInstance();
 		//chooser = new SendableChooser();
 		//chooser->AddDefault("Default Auto", new ExampleCommand());
 		//chooser->AddObject("My Auto", new MyAutoCommand());
@@ -57,6 +58,7 @@ private:
 	void DisabledPeriodic()
 	{
 		Scheduler::GetInstance()->Run();
+		//Update SmartDashboard
 	}
 
 	/**
@@ -70,6 +72,9 @@ private:
 	 */
 	void AutonomousInit()
 	{
+		int position = operatorInterface->GetSelectorA();
+		int defense = operatorInterface->GetSelectorB();
+		int actions = operatorInterface->GetDSSwitches();
 		/* std::string autoSelected = SmartDashboard::GetString("Auto Selector", "Default");
 		if(autoSelected == "My Auto") {
 			autonomousCommand.reset(new MyAutoCommand());
@@ -83,6 +88,7 @@ private:
 	void AutonomousPeriodic()
 	{
 		Scheduler::GetInstance()->Run();
+		//Update SmartDashboard
 	}
 
 	void TeleopInit()
@@ -97,12 +103,22 @@ private:
 	void TeleopPeriodic()
 	{
 		Scheduler::GetInstance()->Run();
+		//Update SmartDashboard
 	}
 
 	void TestPeriodic()
 	{
 		LiveWindow::GetInstance()->Run();
 	}
+	
+	void UpdateSmartDash()
+	{
+		//Subsystems
+		SmartDashboard::PutData(Drivetrain::GetInstance());
+		SmartDashboard::PutData(ActionArm::GetInstance());
+		SmartDashboard::PutData(IntakeRoller::GetInstance());
+	}
+	
 };
 
 START_ROBOT_CLASS(Robot)
