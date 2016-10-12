@@ -10,13 +10,17 @@ class IntakeRoller : public Subsystem
 public:
 	static IntakeRoller* GetInstance();
 	void SetSpeed(double speed);
+	bool IsBeamBroke();
 
 private:
 	IntakeRoller();
 	static IntakeRoller *m_instance;
-	CanTalonSRX *RollerMotor;
+	CanTalonSRX *m_RollerMotor;
+	AnalogInput* m_BeamBreak;
+
 
 	double m_speed = 0;
+
 
 };
 

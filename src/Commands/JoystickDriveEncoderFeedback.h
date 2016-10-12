@@ -17,9 +17,11 @@ public:
 	void Interrupted();
 
 private:
-	int m_prevLEncoderCount;
-	int m_prevREncoderCount;
-	int m_prevError;
+	double m_prevLEncoderCount;
+	double m_prevREncoderCount;
+	double m_prevError;
+
+	double m_kd;
 };
 
 #endif

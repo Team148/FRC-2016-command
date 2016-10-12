@@ -6,8 +6,9 @@ using namespace std;
 
 IntakeRoller::IntakeRoller() : Subsystem("IntakeRoller") {
 	cout << "IntakeRoller constructor " << endl;
-	RollerMotor = new CanTalonSRX(INTAKE_ROLLER);
+	m_RollerMotor = new CanTalonSRX(INTAKE_ROLLER);
 	//RollerMotor->Set(0); 											//recommended to call immediately after SetControlMode
+	m_BeamBreak = new AnalogInput(INTAKE_BEAM_BREAK);
 	cout << "info: IntakeRoller class created on port " << INTAKE_ROLLER << endl;
 }
 
@@ -23,6 +24,18 @@ void IntakeRoller::SetSpeed(double speed) {
 	//cout << "info: IntakeRoller SetSpeed set to " << speed << endl;
 	//cout << "RollerMotor " << RollerMotor << endl;
 	m_speed = speed;
-	RollerMotor->Set(speed);
+	m_RollerMotor->Set(speed);
 	//cout << "info: IntakeRoller SetSpeed after" << endl;
+}
+
+bool IntakeRoller::IsBeamBroke() {
+
+	double voltage = m_BeamBreak->GetVoltage();
+
+	if(voltage >= 3.0)
+	{
+		return true;
+	}
+	else
+		return false;
 }

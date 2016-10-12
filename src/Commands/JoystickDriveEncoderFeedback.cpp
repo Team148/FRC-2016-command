@@ -17,14 +17,29 @@ void JoystickDriveEncoderFeedback::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void JoystickDriveEncoderFeedback::Execute()
 {
-	//read rotation stick
-	//read both encoders tick counted since last loop
-	//setpoint is always 0
-	//error = difference between encoders
-	//multiply rotation stick by kP
+	float rotatestick = OperatorInterface::GetInstance()->GetJoystick()->GetRawAxis(2);	//read rotation stick
 
-	//Drivetrain::GetInstance()->Arcade(OperatorInterface::GetInstance()->GetJoystick()->GetRawAxis(2), OperatorInterface::GetInstance()->GetJoystick()->GetRawAxis(1));
+
+	double rdistance = Drivetrain::GetInstance()->GetREncoder()->GetDistance() - m_prevREncoderCount;//read both encoders tick counted since last loop
+	double ldistance = Drivetrain::GetInstance()->GetLEncoder()->GetDistance() - m_prevLEncoderCount;
+	double error = 0;
+
+	if(rotatestick == 0) {
+		//setpoint is always 0
+		//error = difference between encoders
+		double error = rdistance - ldistance;
+		//multiply rotation stick by kP
+		double output = (m_prevError-error) * m_kd;
+		rotatestick = output; // not sure about this, may need to flip sign
+	}
+
+	Drivetrain::GetInstance()->Arcade(OperatorInterface::GetInstance()->GetJoystick()->GetRawAxis(1), rotatestick);
+
+
 	//set current encoder ticks to previous
+	m_prevLEncoderCount = ldistance;
+	m_prevREncoderCount = rdistance;
+	m_prevError = error;
 }
 
 // Make this return true when this Command no longer needs to run execute()
