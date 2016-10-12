@@ -10,12 +10,14 @@
 #include <Commands/ActionArmDown.h>
 #include <Commands/IntakeIn.h>
 #include <Commands/IntakeOut.h>
+#include <Commands/IntakeDown.h>
 
 
 OperatorInterface::OperatorInterface() {
 
 
 	m_driverJoystick = new Joystick(0);
+	m_operatorJoystick = new Joystick(1);
 	JoystickButton* m_drvButton1 = new JoystickButton(m_driverJoystick, 1);
 	JoystickButton* m_drvButton2 = new JoystickButton(m_driverJoystick, 2);
 	//JoystickButton* m_drvButton3 = new JoystickButton(m_driverJoystick, 3);
@@ -30,6 +32,11 @@ OperatorInterface::OperatorInterface() {
 	m_drvButton5->WhenPressed(new ActionArmChevy(true));
 	m_drvButton5->WhenReleased(new ActionArmChevy(false));
 	m_drvButton7->WhileHeld(new ActionArmDown());
+
+    m_opButton4 = new JoystickButton(m_operatorJoystick, 4);
+	m_opButton4->WhenPressed(new IntakeDown());
+
+
 
 
 	m_operatorJoystick = new Joystick(1);
