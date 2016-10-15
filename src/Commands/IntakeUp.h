@@ -15,6 +15,10 @@ public:
 	void Interrupted();
 private:
 	IntakeArm* m_intakeArm;
+	bool m_isFinished = 0;
+	double m_startTime;
+	double m_armTime = 0.75;
+
 };
 
 #endif

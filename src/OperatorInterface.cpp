@@ -34,7 +34,9 @@ OperatorInterface::OperatorInterface() {
 	m_drvButton7->WhileHeld(new ActionArmDown());
 
     m_opButton4 = new JoystickButton(m_operatorJoystick, 4);
-	m_opButton4->WhenPressed(new IntakeDown());
+	m_opButton4->WhenPressed(new IntakeUp());
+    m_opButton2 = new JoystickButton(m_operatorJoystick, 2);
+	m_opButton2->WhenPressed(new IntakeDown());
 
 
 
