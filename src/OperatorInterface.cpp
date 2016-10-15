@@ -30,8 +30,8 @@ OperatorInterface::OperatorInterface() {
 	m_drvButton5->WhenPressed(new ActionArmChevy(true));
 	m_drvButton5->WhenReleased(new ActionArmChevy(false));
 	m_drvButton6->WhileHeld(new ShiftHighGear());
-	m_drvButton7->WhenPressed(new ShootGroup(true));	//longshot
-	m_drvButton8->WhenPressed(new ShootGroup(false)); 	//short shot
+	m_drvButton7->WhenPressed(new ShootCatapult(true));	//longshot
+	m_drvButton8->WhenPressed(new ShootCatapult(false)); 	//short shot
 
 
 

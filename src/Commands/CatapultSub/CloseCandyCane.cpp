@@ -1,6 +1,6 @@
-#include "OpenCandyCanes.h"
+#include <Commands/CatapultSub/CloseCandyCane.h>
 
-OpenCandyCanes::OpenCandyCanes()
+CloseCandyCane::CloseCandyCane()
 {
 	m_timer = new Timer();
 	Requires(CandyCane::GetInstance());
@@ -10,7 +10,7 @@ OpenCandyCanes::OpenCandyCanes()
 }
 
 // Called just before this Command runs the first time
-void OpenCandyCanes::Initialize()
+void CloseCandyCane::Initialize()
 {
 	m_startTime = m_timer->GetFPGATimestamp();
 	m_finished = 0;
@@ -19,7 +19,7 @@ void OpenCandyCanes::Initialize()
 }
 
 // Called repeatedly when this Command is scheduled to run
-void OpenCandyCanes::Execute()
+void CloseCandyCane::Execute()
 {
 	double m_currentTime = m_timer->GetFPGATimestamp();
 
@@ -31,20 +31,20 @@ void OpenCandyCanes::Execute()
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool OpenCandyCanes::IsFinished()
+bool CloseCandyCane::IsFinished()
 {
 	return m_finished;
 }
 
 // Called once after isFinished returns true
-void OpenCandyCanes::End()
+void CloseCandyCane::End()
 {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void OpenCandyCanes::Interrupted()
+void CloseCandyCane::Interrupted()
 {
 
 }

@@ -1,15 +1,13 @@
-#ifndef OpenClampSub_H
-#define OpenClampSub_H
+#ifndef CloseCandyCane_H
+#define CloseCandyCane_H
 
-// #include "../CommandBase.h"
 #include "WPILib.h"
-#include "Subsystems/Clamp.h"
-//#include "Constants/Constants.h"
+#include "Subsystems/CandyCane.h"
 
-class OpenClampSub: public Command
+class CloseCandyCane: public Command
 {
 public:
-	OpenClampSub(bool IsLong);
+	CloseCandyCane();
 	void Initialize();
 	void Execute();
 	bool IsFinished();

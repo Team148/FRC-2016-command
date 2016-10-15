@@ -1,6 +1,6 @@
-#include "ShootGroup.h"
+#include <Commands/ShootCatapult.h>
 
-ShootGroup::ShootGroup(bool IsLong)
+ShootCatapult::ShootCatapult(bool IsLong)
 {
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
@@ -19,13 +19,13 @@ ShootGroup::ShootGroup(bool IsLong)
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
 	if(IsLong){
-		AddSequential(new OpenClampSub(IsLong));
+		AddSequential(new OpenClamp(IsLong));
 		AddSequential(new FireCatapult(IsLong));
 		AddSequential(new ResetCatapult());
 	}
 	else{
-		AddSequential(new OpenClampSub(IsLong));
-		AddSequential(new OpenCandyCanes());
+		AddSequential(new OpenClamp(IsLong));
+		AddSequential(new CloseCandyCane());
 		AddSequential(new FireCatapult(IsLong));
 		AddSequential(new ResetCatapult());
 
