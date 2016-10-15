@@ -14,6 +14,8 @@ IntakeArm::IntakeArm() : Subsystem("IntakeArm") {
 	ArmMotor->Set(0);
 
 }
+
+
 IntakeArm* IntakeArm::GetInstance() {
 	if (m_instance ==  0) {
 		m_instance = new IntakeArm();
@@ -21,6 +23,8 @@ IntakeArm* IntakeArm::GetInstance() {
 	}
 	return m_instance;
 }
+
+
 void IntakeArm::SetSpeed(double speed) {
 	m_speed = speed;
 	ArmMotor->Set(m_speed);

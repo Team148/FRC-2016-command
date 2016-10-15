@@ -18,6 +18,8 @@
 #include <Commands/ShootCatapult.h>
 #include <Commands/CatapultSub/ToggleClamp.h>
 #include "Commands/ShiftHighGear.h"
+#include "Commands/IntakeDown.h"
+#include "Commands/IntakeUp.h"
 //#include "Commands/BeamBreakIntake.h"
 
 

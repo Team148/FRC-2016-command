@@ -36,12 +36,12 @@ bool IntakeDown::IsFinished()
 // Called once after isFinished returns true
 void IntakeDown::End()
 {
-
+	IntakeArm::GetInstance()->SetSpeed(0.0);
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
 void IntakeDown::Interrupted()
 {
-
+	End();
 }
