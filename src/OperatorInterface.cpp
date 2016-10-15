@@ -7,11 +7,13 @@
 
 #include <OperatorInterface.h>
 
+
 OperatorInterface* OperatorInterface::m_instance = 0;
 
 OperatorInterface::OperatorInterface() {
 
 	std::cout << "info: creating operator interface." << std::endl;
+
 
 	m_drvJoystick = new Joystick(0);
 	m_drvButton1 = new JoystickButton(m_drvJoystick, 1);
@@ -23,6 +25,7 @@ OperatorInterface::OperatorInterface() {
 	m_drvButton7 = new JoystickButton(m_drvJoystick, 7);
 	m_drvButton8 = new JoystickButton(m_drvJoystick, 8);
 
+
 	//Driver Controls
 	m_drvButton1->WhileHeld(new IntakeIn());
 	m_drvButton2->WhileHeld(new IntakeOut());
@@ -32,7 +35,6 @@ OperatorInterface::OperatorInterface() {
 	m_drvButton6->WhileHeld(new ShiftHighGear());
 	m_drvButton7->WhenPressed(new ShootCatapult(true));	//longshot
 	m_drvButton8->WhenPressed(new ShootCatapult(false)); 	//short shot
-
 
 
 	
@@ -48,6 +50,9 @@ OperatorInterface::OperatorInterface() {
 	//Operator Controls
 	m_opButton1->WhileHeld(new IntakeIn());
 	m_opButton2->WhileHeld(new IntakeOut());
+	m_opButton3->WhenPressed(new IntakeDown());
+	m_opButton4->WhenPressed(new IntakeUp());
+
 
 	//m_operatorJoystick = new Joystick(1);
 	//m_opButton1 = new JoystickButton(m_operatorJoystick, 1);
