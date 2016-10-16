@@ -117,6 +117,10 @@ private:
 		SmartDashboard::PutData(Drivetrain::GetInstance());
 		SmartDashboard::PutData(ActionArm::GetInstance());
 		SmartDashboard::PutData(IntakeRoller::GetInstance());
+
+		//Commands
+		SmartDashboard::PutBoolean("Lowgear:",Drivetrain::GetInstance()->GetGear());
+
 	}
 	
 };
