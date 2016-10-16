@@ -9,6 +9,7 @@ IntakeDown::IntakeDown()
 // Called just before this Command runs the first time
 void IntakeDown::Initialize()
 {
+	//std::cout << "info: IntakeDown Initialize" << std::endl;
 	m_startTime = Timer::GetFPGATimestamp();
 	IntakeArm::GetInstance()->SetSpeed(0.75);
 	m_isFinished = false;
@@ -17,14 +18,14 @@ void IntakeDown::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void IntakeDown::Execute()
 {
-	std::cout << "down delay IntakeArm" << (Timer::GetFPGATimestamp() - m_startTime) << std::endl;
+	//std::cout << "down delay IntakeArm" << (Timer::GetFPGATimestamp() - m_startTime) << std::endl;
 
-		if((Timer::GetFPGATimestamp() - m_startTime) >= m_armTime)
-		{
-			std::cout << "Down Timer Passed" << Timer::GetFPGATimestamp() << std::endl;
-			IntakeArm::GetInstance()->SetSpeed(0.0);
-			m_isFinished = true;
-		}
+	if((Timer::GetFPGATimestamp() - m_startTime) >= m_armTime)
+	{
+		//std::cout << "Down Timer Passed" << Timer::GetFPGATimestamp() << std::endl;
+		IntakeArm::GetInstance()->SetSpeed(0.0);
+		m_isFinished = true;
+	}
 }
 
 // Make this return true when this Command no longer needs to run execute()

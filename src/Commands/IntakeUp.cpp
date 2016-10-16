@@ -9,6 +9,7 @@ IntakeUp::IntakeUp()
 // Called just before this Command runs the first time
 void IntakeUp::Initialize()
 {
+	//std::cout << "info: IntakeUp Initialize" << std::endl;
 	m_startTime = Timer::GetFPGATimestamp();
 	IntakeArm::GetInstance()->SetSpeed(-0.75);
 	m_isFinished = false;
@@ -17,11 +18,11 @@ void IntakeUp::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void IntakeUp::Execute()
 {
-	std::cout << "up delay IntakeArm" << (Timer::GetFPGATimestamp() - m_startTime) << std::endl;
+	//std::cout << "up delay IntakeArm" << (Timer::GetFPGATimestamp() - m_startTime) << std::endl;
 
 		if((Timer::GetFPGATimestamp() - m_startTime) >= m_armTime)
 		{
-			std::cout << "Up Timer Passed" << Timer::GetFPGATimestamp() << std::endl;
+			//std::cout << "Up Timer Passed" << Timer::GetFPGATimestamp() << std::endl;
 			IntakeArm::GetInstance()->SetSpeed(0.0);
 			m_isFinished = true;
 		}
