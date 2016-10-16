@@ -59,6 +59,7 @@ private:
 	{
 		Scheduler::GetInstance()->Run();
 		//Update SmartDashboard
+		UpdateSmartDash();
 	}
 
 	/**
@@ -89,6 +90,7 @@ private:
 	{
 		Scheduler::GetInstance()->Run();
 		//Update SmartDashboard
+		UpdateSmartDash();
 	}
 
 	void TeleopInit()
@@ -104,6 +106,7 @@ private:
 	{
 		Scheduler::GetInstance()->Run();
 		//Update SmartDashboard
+		UpdateSmartDash();
 	}
 
 	void TestPeriodic()
