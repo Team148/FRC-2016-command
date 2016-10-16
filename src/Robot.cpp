@@ -123,7 +123,6 @@ private:
 
 
 		SmartDashboard::PutBoolean("Lowgear:",Drivetrain::GetInstance()->GetGear());
-
 	}
 	
 };
