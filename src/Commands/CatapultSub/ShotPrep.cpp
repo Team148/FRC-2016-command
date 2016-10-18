@@ -1,6 +1,6 @@
-#include <Commands/ShootCatapult.h>
+#include "ShotPrep.h"
 
-ShootCatapult::ShootCatapult(bool IsLong)
+ShotPrep::ShotPrep(bool IsLong)
 {
 	// Add Commands here:
 	// e.g. AddSequential(new Command1());
@@ -18,10 +18,9 @@ ShootCatapult::ShootCatapult(bool IsLong)
 	// e.g. if Command1 requires chassis, and Command2 requires arm,
 	// a CommandGroup containing them would require both the chassis and the
 	// arm.
-		AddSequential(new ShotPrep(IsLong));
-		AddSequential(new FireCatapult(IsLong));
-		AddSequential(new ResetCatapult());
-
+		AddParallel(new OpenClamp(IsLong));
+		if(!IsLong)
+			AddParallel(new CloseCandyCane());
 
 
 }

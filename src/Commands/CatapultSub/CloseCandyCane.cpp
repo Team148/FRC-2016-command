@@ -5,7 +5,7 @@ CloseCandyCane::CloseCandyCane()
 	m_timer = new Timer();
 	Requires(CandyCane::GetInstance());
 
-	m_step1 = 0.2;
+	m_step1 = Preferences::GetInstance()->GetDouble("CATAPULT_CANDY_SHORT_DWELL",0.1);
 
 }
 

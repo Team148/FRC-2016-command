@@ -2,7 +2,10 @@
 #define CloseCandyCane_H
 
 #include "WPILib.h"
+#include "Preferences.h"
+
 #include "Subsystems/CandyCane.h"
+
 
 class CloseCandyCane: public Command
 {

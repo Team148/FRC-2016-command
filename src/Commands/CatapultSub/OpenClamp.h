@@ -4,7 +4,7 @@
 // #include "../CommandBase.h"
 #include "WPILib.h"
 #include "Subsystems/Clamp.h"
-//#include "Constants/Constants.h"
+#include "Preferences.h"
 
 class OpenClamp: public Command
 {
@@ -19,6 +19,7 @@ private:
 	Timer *m_timer;
 	double m_startTime;
 	bool m_finished;
+	bool m_IsLong;
 	double m_step1;
 };
 

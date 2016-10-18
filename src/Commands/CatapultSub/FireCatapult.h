@@ -4,7 +4,7 @@
 
 #include "WPILib.h"
 #include "Subsystems/Catapult.h"
-//#include "Constants/Constants.h"
+#include "Preferences.h"
 
 class FireCatapult: public Command
 {
@@ -20,6 +20,7 @@ private:
 	double m_startTime;
 	bool m_finished;
 	double m_step1;
+	bool m_isLong;
 };
 
 #endif

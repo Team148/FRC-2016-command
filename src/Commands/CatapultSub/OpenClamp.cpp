@@ -2,19 +2,22 @@
 
 OpenClamp::OpenClamp(bool IsLong)
 {
-	m_timer = new Timer();
+	m_IsLong = IsLong;
+
 	Requires(Clamp::GetInstance());
 
-	if(IsLong)
-		m_step1 = 0.2;//CLAMP_OPEN_LONG_DWELL;
-	else
-		m_step1 = 0.2;// CLAMP_OPEN_SHORT_DWELL;
+
 }
 
 // Called just before this Command runs the first time
 void OpenClamp::Initialize()
 {
+	m_timer = new Timer();
 	m_startTime = m_timer->GetFPGATimestamp();
+	if(m_IsLong)
+		m_step1 = Preferences::GetInstance()->GetDouble("CATAPULT_CLAMP_LONG_DWELL",0.2);
+	else
+		m_step1 = Preferences::GetInstance()->GetDouble("CATAPULT_CLAMP_SHORT_DWELL",0.1);
 	m_finished = 0;
 
 	Clamp::GetInstance()->SetOpen(1); //opens clamp
@@ -41,7 +44,7 @@ bool OpenClamp::IsFinished()
 // Called once after isFinished returns true
 void OpenClamp::End()
 {
-
+	m_timer = 0;
 }
 
 // Called when another command which requires one or more of the same
