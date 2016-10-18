@@ -20,6 +20,8 @@
 #include "Commands/ShiftHighGear.h"
 #include "Commands/IntakeDown.h"
 #include "Commands/IntakeUp.h"
+#include "Nav/CalibrateGyro.h"
+#include "Nav/ResetGyro.h"
 //#include "Commands/BeamBreakIntake.h"
 
 

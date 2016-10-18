@@ -1,6 +1,7 @@
 #ifndef SRC_ROBOT_H_
 #define SRC_ROBOT_H_
 
+
 #include "WPILib.h"
 
 #include "Constants/Ports.h"
@@ -15,6 +16,7 @@
 #include "Subsystems/Clamp.h"
 #include "OperatorInterface.h"
 
+#include <Nav/UpdatePosition.h>
 
 
 

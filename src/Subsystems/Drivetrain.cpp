@@ -29,6 +29,9 @@ Drivetrain::Drivetrain() : Subsystem("Drivetrain") {
 
 	//PDP
 	pdp = new PowerDistributionPanel();
+
+	m_posX = 0;
+	m_posY = 0;
 }
 
 
@@ -107,9 +110,43 @@ Encoder* Drivetrain::GetREncoder() {
 	return m_rEncoder;
 }
 
+double Drivetrain::GetLDistance() {
+
+}
+
+double Drivetrain::GetRDistance() {
+
+}
+
+Gyro* Drivetrain::GetGyro() {
+	return m_gyro;
+}
+
 float Drivetrain::GetGyroAngle() {
 	return m_gyro->GetAngle();
 }
+//Position Tracking
+
+void Drivetrain::SetPositionX(double posX){
+	m_posX = posX;
+}
+
+void Drivetrain::SetPositionY(double posY){
+	m_posY = posY;
+}
+
+void Drivetrain::SetDeltaX(double deltaX){
+	m_posX = m_posX + deltaX;
+}
+
+void Drivetrain::SetDeltaY(double deltaY){
+	m_posY = m_posY + deltaY;
+}
+
+void Drivetrain::UpdatePosition(){
+	this->SetDeltaX(sin((static_cast<double>(this->GetGyroAngle())*PI/180.0)));
+}
+
 //void Drivetrain::Arcade(Joystick joy) {
 //	m_drive->ArcadeDrive(joy, false);
 //}
