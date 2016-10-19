@@ -10,12 +10,21 @@
 
 #include "Timer.h"
 #include "WPILib.h"
+#include "Constants/Ports.h"
 
 class IntakeArm : public Subsystem
 {
-
 public:
+	static IntakeArm* GetInstance();
+	void SetSpeed(double speed);
+
+
+private:
 	IntakeArm();
+	static IntakeArm* m_instance;
+	CanTalonSRX* ArmMotor;
+
+	double m_speed = 0;
 
 };
 

@@ -1,17 +1,4 @@
-#include "WPILib.h"
-
-#include "Constants/Ports.h"
-#include "Subsystems/IntakeRoller.h"
-#include "Subsystems/HangerWinch.h"
-#include "Subsystems/HangerArm.h"
-#include "Subsystems/Pneumatic.h"
-#include "Subsystems/Drivetrain.h"
-#include "Subsystems/Flashlight.h"
-#include "Subsystems/ActionArm.h"
-#include "Subsystems/Catapult.h"
-#include "Subsystems/Clamp.h"
-#include "Commands/ShootGroup.h"
-#include "OperatorInterface.h"
+#include "Robot.h"
 
 
 // Initialize a single static instance of all of your subsystems to NULL
@@ -125,8 +112,8 @@ private:
 
 		SmartDashboard::PutBoolean("Lowgear:",Drivetrain::GetInstance()->GetGear());
 		SmartDashboard::PutBoolean("Beam Status:",IntakeRoller::GetInstance()->IsBeamBroke());
-		SmartDashboard::PutData("ShortLong",new ShootGroup(true));
-		SmartDashboard::PutData("ShortShot", new ShootGroup(false));
+		SmartDashboard::PutData("ShortLong",new ShootCatapult(true));
+		SmartDashboard::PutData("ShortShot", new ShootCatapult(false));
 	}
 	
 };

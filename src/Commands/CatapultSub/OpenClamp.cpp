@@ -1,6 +1,6 @@
-#include <Commands/CatapultSub/OpenClampSub.h>
+#include <Commands/CatapultSub/OpenClamp.h>
 
-OpenClampSub::OpenClampSub(bool IsLong)
+OpenClamp::OpenClamp(bool IsLong)
 {
 	m_timer = new Timer();
 	Requires(Clamp::GetInstance());
@@ -12,7 +12,7 @@ OpenClampSub::OpenClampSub(bool IsLong)
 }
 
 // Called just before this Command runs the first time
-void OpenClampSub::Initialize()
+void OpenClamp::Initialize()
 {
 	m_startTime = m_timer->GetFPGATimestamp();
 	m_finished = 0;
@@ -22,7 +22,7 @@ void OpenClampSub::Initialize()
 }
 
 // Called repeatedly when this Command is scheduled to run
-void OpenClampSub::Execute()
+void OpenClamp::Execute()
 {
 	double m_currentTime = m_timer->GetFPGATimestamp();
 
@@ -33,20 +33,20 @@ void OpenClampSub::Execute()
 }
 
 // Make this return true when this Command no longer needs to run execute()
-bool OpenClampSub::IsFinished()
+bool OpenClamp::IsFinished()
 {
 	return m_finished;
 }
 
 // Called once after isFinished returns true
-void OpenClampSub::End()
+void OpenClamp::End()
 {
 
 }
 
 // Called when another command which requires one or more of the same
 // subsystems is scheduled to run
-void OpenClampSub::Interrupted()
+void OpenClamp::Interrupted()
 {
 
 }
