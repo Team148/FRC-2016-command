@@ -10,6 +10,7 @@
 #include "Subsystems/ActionArm.h"
 #include "Subsystems/Catapult.h"
 #include "Subsystems/Clamp.h"
+#include "Commands/ShootGroup.h"
 #include "OperatorInterface.h"
 
 
@@ -123,6 +124,10 @@ private:
 
 
 		SmartDashboard::PutBoolean("Lowgear:",Drivetrain::GetInstance()->GetGear());
+		SmartDashboard::PutBoolean("Lowgear:",Drivetrain::GetInstance()->GetGear());
+		SmartDashboard::PutBoolean("Beam Status:",IntakeRoller::GetInstance()->IsBeamBroke());
+		SmartDashboard::PutData("ShortLong",new ShootGroup(true));
+		SmartDashboard::PutData("ShortShot", new ShootGroup(false));
 	}
 	
 };
