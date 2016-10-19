@@ -14,7 +14,19 @@ Catapult *catapult = 0;
 
 class Robot: public IterativeRobot
 {
+
 private:
+	SendableChooser* chooser;
+	std::unique_ptr<Command> autonCommand;
+	int position;
+	int defense;
+	int actions;
+	bool sw1;
+	bool sw2;
+	bool sw3;
+	bool sw4;
+	bool sw5;
+
 
 	void RobotInit()
 	{
@@ -27,10 +39,10 @@ private:
 		actionArm = ActionArm::GetInstance();
 		clamp = Clamp::GetInstance();
 		catapult = Catapult::GetInstance();
-		//chooser = new SendableChooser();
-		//chooser->AddDefault("Default Auto", new ExampleCommand());
-		//chooser->AddObject("My Auto", new MyAutoCommand());
-		//SmartDashboard::PutData("Auto Modes", chooser);
+		chooser = new SendableChooser();
+
+
+
 	}
 
 	/**
@@ -45,7 +57,11 @@ private:
 	void DisabledPeriodic()
 	{
 		Scheduler::GetInstance()->Run();
-		//Update SmartDashboard
+
+		position = operatorInterface->GetSelectorA();
+		defense = operatorInterface->GetSelectorB();
+		actions = operatorInterface->GetDSSwitches();
+		UpdateSmartDash();
 	}
 
 	/**
@@ -59,16 +75,32 @@ private:
 	 */
 	void AutonomousInit()
 	{
-		int position = operatorInterface->GetSelectorA();
-		int defense = operatorInterface->GetSelectorB();
-		int actions = operatorInterface->GetDSSwitches();
-		/* std::string autoSelected = SmartDashboard::GetString("Auto Selector", "Default");
-		if(autoSelected == "My Auto") {
-			autonomousCommand.reset(new MyAutoCommand());
-		} else {
-			autonomousCommand.reset(new ExampleCommand());
-		} */
+		position = operatorInterface->GetSelectorA();
+		defense = operatorInterface->GetSelectorB();
+		actions = operatorInterface->GetDSSwitches();
 
+		switch(position) {
+		case 1:  //position 1
+			autonCommand.reset(new Position1(defense, actions));
+			break;
+		case 2:  //position 2
+			autonCommand.reset(new Position2(defense, actions));
+			break;
+		case 3:  //position 3
+			autonCommand.reset(new Position3(defense, actions));
+			break;
+		case 4:  //position 4
+			autonCommand.reset(new Position4(defense, actions));
+			break;
+		case 5:  //position 5
+			autonCommand.reset(new Position5(defense, actions));
+			break;
+		default:  //Do Nothing
+			autonCommand==NULL;
+		}
+
+		if (autonCommand != NULL)
+			autonCommand->Start();
 
 	}
 
@@ -84,7 +116,8 @@ private:
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-
+		if (autonCommand != NULL)
+			autonCommand->Cancel();
 	}
 
 	void TeleopPeriodic()
@@ -104,6 +137,18 @@ private:
 		SmartDashboard::PutData(Drivetrain::GetInstance());
 		SmartDashboard::PutData(ActionArm::GetInstance());
 		SmartDashboard::PutData(IntakeRoller::GetInstance());
+
+		//Auton
+		SmartDashboard::PutData("Auton Modes", chooser);
+		SmartDashboard::PutNumber("Position", position);
+		SmartDashboard::PutNumber("Defense", defense);
+		SmartDashboard::PutBoolean("Switch 1", operatorInterface->GetSw1());
+		SmartDashboard::PutBoolean("Switch 2", operatorInterface->GetSw2());
+		SmartDashboard::PutBoolean("Switch 3", operatorInterface->GetSw3());
+		SmartDashboard::PutBoolean("Switch 4", operatorInterface->GetSw4());
+		SmartDashboard::PutBoolean("Switch 5", operatorInterface->GetSw5());
+
+
 	}
 	
 };

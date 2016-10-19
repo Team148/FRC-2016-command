@@ -30,7 +30,7 @@ bool Wait::IsFinished()
 // Called once after isFinished returns true
 void Wait::End()
 {
-
+	std::cout << "info: waited for " << m_waittime << std::endl;
 }
 
 // Called when another command which requires one or more of the same
