@@ -46,12 +46,17 @@ OperatorInterface::OperatorInterface() {
 	m_opButton4 = new JoystickButton(m_opJoystick, 4);
 	m_opButton5 = new JoystickButton(m_opJoystick, 5);
 	m_opButton6 = new JoystickButton(m_opJoystick, 6);
+	m_opButton7 = new JoystickButton(m_opJoystick, 6);
+	m_opButton8 = new JoystickButton(m_opJoystick, 6);
 
 	//Operator Controls
 	m_opButton1->WhileHeld(new IntakeIn());
 	m_opButton2->WhileHeld(new IntakeOut());
 	m_opButton3->WhenPressed(new IntakeDown());
 	m_opButton4->WhenPressed(new IntakeUp());
+	m_opButton5->WhenPressed(new CalibrateGyro());
+	m_opButton6->WhenPressed(new ResetGyro());
+	m_opButton7->WhenPressed(new ResetPosition());
 
 
 	//m_operatorJoystick = new Joystick(1);

@@ -28,7 +28,7 @@ bool CalibrateGyro::IsFinished()
 // Called once after isFinished returns true
 void CalibrateGyro::End()
 {
-
+	std::cout<<"GyroCalibrated! @ " <<Drivetrain::GetInstance()->GetGyroAngle() <<" degrees."<<std::endl;
 }
 
 // Called when another command which requires one or more of the same

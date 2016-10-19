@@ -22,6 +22,8 @@
 #include "Commands/IntakeUp.h"
 #include "Nav/CalibrateGyro.h"
 #include "Nav/ResetGyro.h"
+#include "Nav/ResetPosition.h"
+
 //#include "Commands/BeamBreakIntake.h"
 
 
@@ -59,6 +61,7 @@ private:
 	JoystickButton* m_opButton5;
 	JoystickButton* m_opButton6;
 	JoystickButton* m_opButton7;
+	JoystickButton* m_opButton8;
 
 
 	JoystickButton* m_brickAselect1;

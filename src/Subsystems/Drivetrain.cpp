@@ -32,6 +32,7 @@ Drivetrain::Drivetrain() : Subsystem("Drivetrain") {
 
 	m_posX = 0;
 	m_posY = 0;
+	m_prevDistance = 0;
 }
 
 
@@ -111,11 +112,15 @@ Encoder* Drivetrain::GetREncoder() {
 }
 
 double Drivetrain::GetLDistance() {
-
+	return m_lEncoder->GetDistance();
 }
 
 double Drivetrain::GetRDistance() {
+	return m_lEncoder->GetDistance();
+}
 
+double Drivetrain::GetAvgDistance(){
+	return ((this->GetLDistance() + this->GetRDistance()) / 2);
 }
 
 Gyro* Drivetrain::GetGyro() {
@@ -126,6 +131,12 @@ float Drivetrain::GetGyroAngle() {
 	return m_gyro->GetAngle();
 }
 //Position Tracking
+double Drivetrain::GetPositionX(){
+	return m_posX;
+}
+double Drivetrain::GetPositionY(){
+	return m_posY;
+}
 
 void Drivetrain::SetPositionX(double posX){
 	m_posX = posX;
@@ -144,7 +155,18 @@ void Drivetrain::SetDeltaY(double deltaY){
 }
 
 void Drivetrain::UpdatePosition(){
-	this->SetDeltaX(sin((static_cast<double>(this->GetGyroAngle())*PI/180.0)));
+	if (m_prevDistance == 0)
+		m_prevDistance = this->GetAvgDistance();
+
+	m_deltaDistance = this->GetAvgDistance() - m_prevDistance;	//Checks for change since last cycle
+
+	//converts Gyro to Rads takes sin or cos value and multiplies it by distance scalar
+	this->SetDeltaX(m_deltaDistance*sin((static_cast<double>(this->GetGyroAngle())*PI/180.0)));
+	this->SetDeltaY(m_deltaDistance*cos((static_cast<double>(this->GetGyroAngle())*PI/180.0)));
+
+	std::cout<<"current x:"<<this->GetPositionX()<<" y:"<<this->GetPositionY()<<std::endl;
+
+	m_prevDistance = this->GetAvgDistance(); //Sets current distance moved to previous for next cycle
 }
 
 //void Drivetrain::Arcade(Joystick joy) {

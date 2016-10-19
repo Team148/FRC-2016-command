@@ -1,22 +1,19 @@
-#ifndef UpdatePosition_H
-#define UpdatePosition_H
+#ifndef ResetPosition_H
+#define ResetPosition_H
 
 #include "WPILib.h"
 
 #include "Subsystems/Drivetrain.h"
 
-class UpdatePosition: public Command
+class ResetPosition: public Command
 {
 public:
-	UpdatePosition();
+	ResetPosition();
 	void Initialize();
 	void Execute();
 	bool IsFinished();
 	void End();
 	void Interrupted();
-private:
-
-
 };
 
 #endif

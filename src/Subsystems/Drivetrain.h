@@ -30,6 +30,9 @@ public:
 	float GetGyroAngle();
 	double GetLDistance();
 	double GetRDistance();
+	double GetAvgDistance();
+	double GetPositionX();
+	double GetPositionY();
 	Encoder* GetLEncoder();
 	Encoder* GetREncoder();
 	Gyro* GetGyro();
@@ -64,6 +67,8 @@ private:
 	//Drivetrain Position
 	double m_posX;
 	double m_posY;
+	double m_prevDistance;
+	double m_deltaDistance;
 };
 
 #endif
