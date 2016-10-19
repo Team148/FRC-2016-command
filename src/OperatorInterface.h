@@ -23,6 +23,7 @@
 #include "Nav/CalibrateGyro.h"
 #include "Nav/ResetGyro.h"
 #include "Nav/ResetPosition.h"
+#include "Nav/UpdatePosition.h"
 
 //#include "Commands/BeamBreakIntake.h"
 

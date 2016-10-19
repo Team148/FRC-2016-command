@@ -68,7 +68,7 @@ private:
 		} else {
 			autonomousCommand.reset(new ExampleCommand());
 		} */
-		Scheduler::GetInstance()->AddCommand(new UpdatePosition);
+	//	Scheduler::GetInstance()->AddCommand(new UpdatePosition);
 
 
 	}
@@ -85,7 +85,7 @@ private:
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-		Scheduler::GetInstance()->Remove(new UpdatePosition);
+	//	Scheduler::GetInstance()->Remove(new UpdatePosition);
 
 	}
 
