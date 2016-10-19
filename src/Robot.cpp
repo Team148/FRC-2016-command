@@ -124,7 +124,6 @@ private:
 
 
 		SmartDashboard::PutBoolean("Lowgear:",Drivetrain::GetInstance()->GetGear());
-		SmartDashboard::PutBoolean("Lowgear:",Drivetrain::GetInstance()->GetGear());
 		SmartDashboard::PutBoolean("Beam Status:",IntakeRoller::GetInstance()->IsBeamBroke());
 		SmartDashboard::PutData("ShortLong",new ShootGroup(true));
 		SmartDashboard::PutData("ShortShot", new ShootGroup(false));
