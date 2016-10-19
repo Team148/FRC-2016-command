@@ -81,21 +81,27 @@ private:
 
 		switch(position) {
 		case 1:  //position 1
+			std::cout << "info: position " << position << "def " << defense << "Actions " << actions << std::endl;
 			autonCommand.reset(new Position1(defense, actions));
 			break;
 		case 2:  //position 2
+			std::cout << "info: position " << position << "def " << defense << "Actions " << actions << std::endl;
 			autonCommand.reset(new Position2(defense, actions));
 			break;
 		case 3:  //position 3
+			std::cout << "info: position " << position << "def " << defense << "Actions " << actions << std::endl;
 			autonCommand.reset(new Position3(defense, actions));
 			break;
 		case 4:  //position 4
+			std::cout << "info: position " << position << "def " << defense << "Actions " << actions << std::endl;
 			autonCommand.reset(new Position4(defense, actions));
 			break;
 		case 5:  //position 5
+			std::cout << "info: position " << position << "def " << defense << "Actions " << actions << std::endl;
 			autonCommand.reset(new Position5(defense, actions));
 			break;
 		default:  //Do Nothing
+			std::cout << "info: DEFAULT position " << position << "def " << defense << "Actions " << actions << std::endl;
 			autonCommand==NULL;
 		}
 

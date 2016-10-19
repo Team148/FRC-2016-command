@@ -84,11 +84,11 @@ OperatorInterface::OperatorInterface() {
 	m_brickBselect7 = new JoystickButton(m_dsiBrickB, 7);
 	m_brickBselect8 = new JoystickButton(m_dsiBrickB, 8);
 
-	m_dsiSw1 = new JoystickButton(m_dsiBrickA, 9);
-	m_dsiSw2 = new JoystickButton(m_dsiBrickA, 10);
-	m_dsiSw3 = new JoystickButton(m_dsiBrickA, 11);
-	m_dsiSw4 = new JoystickButton(m_dsiBrickB, 9);
-	m_dsiSw5 = new JoystickButton(m_dsiBrickB, 10);
+	m_dsiSw1 = new JoystickButton(m_dsiBrickB, 9);
+	m_dsiSw2 = new JoystickButton(m_dsiBrickB, 10);
+	m_dsiSw3 = new JoystickButton(m_dsiBrickA, 9);
+	m_dsiSw4 = new JoystickButton(m_dsiBrickA, 10);
+	m_dsiSw5 = new JoystickButton(m_dsiBrickA, 11);
 
 
 }
