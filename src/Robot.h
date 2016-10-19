@@ -13,6 +13,7 @@
 #include "Subsystems/ActionArm.h"
 #include "Subsystems/Catapult.h"
 #include "Subsystems/Clamp.h"
+#include "Commands/ShootCatapult.h"
 #include "OperatorInterface.h"
 
 

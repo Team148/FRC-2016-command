@@ -16,7 +16,7 @@ public:
 	int CountToDist(int tick);						//convert encoder ticks to distance traveled
 	void SetGear(bool gear);						//shift to given low/high gear
 	void SwitchGear();								//shift to the other gear
-	bool Drivetrain::GetGear();						// get current gear
+	bool GetGear();						// get current gear
 	void SetBrakeMode(bool on);						//set the drivetrain in/out of brake mode
 	void SetLeftDrive(float power);
 	void SetRightDrive(float power);
