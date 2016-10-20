@@ -67,6 +67,10 @@ void Drivetrain::SwitchGear() {
 	m_shifter->Set(m_gear);
 
 }
+// lowgear=true highgear=false
+bool Drivetrain::GetGear() {
+	return m_gear;
+}
 
 //TODO: Test SetBrakeMode
 void Drivetrain::SetBrakeMode(bool on) {

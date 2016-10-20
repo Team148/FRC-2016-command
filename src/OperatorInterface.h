@@ -38,6 +38,12 @@ public:
 	int GetSelectorB();
 	int GetDSSwitches();
 
+	bool GetSw1();
+	bool GetSw2();
+	bool GetSw3();
+	bool GetSw4();
+	bool GetSw5();
+
 private:
 	OperatorInterface();
 	static OperatorInterface* m_instance;
