@@ -77,18 +77,7 @@ private:
 	 */
 	void AutonomousInit()
 	{
-<<<<<<< HEAD
-		int position = operatorInterface->GetSelectorA();
-		int defense = operatorInterface->GetSelectorB();
-		int actions = operatorInterface->GetDSSwitches();
-		/* std::string autoSelected = SmartDashboard::GetString("Auto Selector", "Default");
-		if(autoSelected == "My Auto") {
-			autonomousCommand.reset(new MyAutoCommand());
-		} else {
-			autonomousCommand.reset(new ExampleCommand());
-		} */
-	//	Scheduler::GetInstance()->AddCommand(new UpdatePosition);
-=======
+
 		position = operatorInterface->GetSelectorA();
 		defense = operatorInterface->GetSelectorB();
 		actions = operatorInterface->GetDSSwitches();
@@ -118,7 +107,6 @@ private:
 			std::cout << "info: DEFAULT position " << position << "def " << defense << "Actions " << actions << std::endl;
 			autonCommand==NULL;
 		}
->>>>>>> refs/remotes/origin/master
 
 		if (autonCommand != NULL)
 			autonCommand->Start();
@@ -138,13 +126,12 @@ private:
 		// teleop starts running. If you want the autonomous to
 		// continue until interrupted by another command, remove
 		// this line or comment it out.
-<<<<<<< HEAD
+
 	//	Scheduler::GetInstance()->Remove(new UpdatePosition);
 
-=======
+
 		if (autonCommand != NULL)
 			autonCommand->Cancel();
->>>>>>> refs/remotes/origin/master
 	}
 
 	void TeleopPeriodic()
