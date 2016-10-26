@@ -13,6 +13,11 @@ Drivetrain::Drivetrain() : Subsystem("Drivetrain") {
 	m_RightMotor1 = new CANTalon(DRIVE_RIGHT_1);
 	m_RightMotor2 = new CANTalon(DRIVE_RIGHT_2);
 
+	m_LeftMotor1->SetFeedbackDevice(CANTalon::QuadEncoder);
+	m_LeftMotor1->ConfigEncoderCodesPerRev(256);
+	m_RightMotor1->SetFeedbackDevice(CANTalon::QuadEncoder);
+	m_RightMotor1->ConfigEncoderCodesPerRev(256);
+
 	SetBrakeMode(0);
 
 	m_drive = new RobotDrive(m_LeftMotor1, m_LeftMotor2, m_RightMotor1, m_RightMotor2);
@@ -86,6 +91,28 @@ void Drivetrain::SetBrakeMode(bool on) {
 		m_RightMotor1->ConfigNeutralMode(CANTalon::kNeutralMode_Coast);
 		m_RightMotor2->ConfigNeutralMode(CANTalon::kNeutralMode_Coast);
 	}
+}
+
+void Drivetrain::SetVelocityMode(){
+	m_LeftMotor1->SetControlMode(CANSpeedController::kSpeed);
+	m_LeftMotor1->Set(0);
+	m_LeftMotor2->SetControlMode(CANSpeedController::kFollower);
+	m_LeftMotor2->Set(DRIVE_LEFT_1);
+	m_RightMotor1->SetControlMode(CANSpeedController::kSpeed);
+	m_RightMotor1->Set(0);
+	m_RightMotor2->SetControlMode(CANSpeedController::kFollower);
+	m_RightMotor2->Set(DRIVE_RIGHT_1);
+}
+
+void Drivetrain::SetVBusMode(){
+	m_LeftMotor1->SetControlMode(CANSpeedController::kPercentVbus);
+	m_LeftMotor1->Set(0);
+	m_LeftMotor2->SetControlMode(CANSpeedController::kPercentVbus);
+	m_LeftMotor2->Set(0);
+	m_RightMotor1->SetControlMode(CANSpeedController::kPercentVbus);
+	m_RightMotor1->Set(0);
+	m_RightMotor2->SetControlMode(CANSpeedController::kPercentVbus);
+	m_RightMotor2->Set(0);
 }
 
 //TODO: Test SetLeftDrive

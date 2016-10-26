@@ -15,18 +15,21 @@ public:
 	void Arcade(float ystick, float xstick);
 	//void Arcade(Joystick joy);
 
-	void ResetEncoders(); 							//Reset Both Encoders
-	int CountToDist(int tick);						//convert encoder ticks to distance traveled
-	void SetGear(bool gear);						//shift to given low/high gear
-	void SwitchGear();								//shift to the other gear
-	bool GetGear();						// get current gear
-	void SetBrakeMode(bool on);						//set the drivetrain in/out of brake mode
+	void ResetEncoders(); 					//Reset Both Encoders
+	int CountToDist(int tick);				//convert encoder ticks to distance traveled
+	void SetGear(bool gear);				//shift to given low/high gear
+	void SwitchGear();						//shift to the other gear
+	bool GetGear();							// get current gear
+	void SetBrakeMode(bool on);				//set the drivetrain in/out of brake mode
+	void SetVelocityMode();
+	void SetVBusMode();
 	void SetLeftDrive(float power);
 	void SetRightDrive(float power);
 	void SetPositionX(double posX);
 	void SetPositionY(double posY);
 	void SetDeltaX(double deltaX);
 	void SetDeltaY(double deltaY);
+
 	void UpdatePosition();
 	float GetGyroAngle();
 	double GetLDistance();
