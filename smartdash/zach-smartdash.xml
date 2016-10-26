@@ -1,0 +1,54 @@
+<xml version="1.0">
+<dashboard>
+	<widget field="ShortLong" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="48" y="221"/>
+	</widget>
+	<widget field="Lowgear:" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="352" y="640"/>
+	</widget>
+	<widget field="Drivetrain" type="Subsystem" class="edu.wpi.first.smartdashboard.gui.elements.Subsystem">
+		<location x="32" y="112"/>
+	</widget>
+	<widget field="Defense" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="352" y="618"/>
+	</widget>
+	<widget field="IntakeRoller" type="Subsystem" class="edu.wpi.first.smartdashboard.gui.elements.Subsystem">
+		<location x="24" y="138"/>
+	</widget>
+	<widget field="Switch 3" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="356" y="595"/>
+	</widget>
+	<widget field="Auton Modes" type="String Chooser" class="edu.wpi.first.smartdashboard.gui.elements.Chooser">
+		<location x="0" y="225"/>
+	</widget>
+	<widget field="ActionArm" type="Subsystem" class="edu.wpi.first.smartdashboard.gui.elements.Subsystem">
+		<location x="356" y="572"/>
+	</widget>
+	<widget field="Switch 5" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="356" y="549"/>
+	</widget>
+	<widget field="Switch 4" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="356" y="526"/>
+	</widget>
+	<widget field="Switch 2" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="393" y="503"/>
+	</widget>
+	<widget field="Switch 1" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="361" y="480"/>
+	</widget>
+	<widget field="ShortShot" type="Command" class="edu.wpi.first.smartdashboard.gui.elements.Command">
+		<location x="48" y="256"/>
+	</widget>
+	<widget field="Position" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="379" y="398"/>
+	</widget>
+	<widget field="Beam Status:" type="Boolean" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="379" y="375"/>
+	</widget>
+	<widget field="See Binary" type="Number" class="edu.wpi.first.smartdashboard.gui.elements.TextBox">
+		<location x="14" y="2"/>
+	</widget>
+</dashboard>
+<live-window>
+</live-window>
+</xml>
