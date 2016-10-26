@@ -114,6 +114,8 @@ private:
 		SmartDashboard::PutBoolean("Beam Status:",IntakeRoller::GetInstance()->IsBeamBroke());
 		SmartDashboard::PutData("ShortLong",new ShootCatapult(true));
 		SmartDashboard::PutData("ShortShot", new ShootCatapult(false));
+		SmartDashboard::PutNumber("Gyro Angle:",((double)Drivetrain::GetInstance()->GetGyroAngle()));
+
 	}
 	
 };
