@@ -23,9 +23,12 @@ public:
 private:
 	int m_num_rotations = 0;
 	AnalogInput* m_analogInput;
-	int m_zeropoint;
+	int m_zeropointangle;
+	int m_accumulatedangle;
+	int m_prevval;
+	int m_prevangle = 0;
 
-
+	int m_accumulatedangle;
 };
 
 
