@@ -14,18 +14,28 @@ MA3::MA3(int port) {
 }
 
 
-void MA3::SetContinuousMode() {
+int MA3::GetCalibratedAngle() {
 
+
+	//check for rollover
+
+	//return current angle relative to calibrated angle minus rotations
 }
 
 
+//Reset the Encoder to set the Zero point to the current angle.
 void MA3::Reset() {
 	m_num_rotations = 0;
-	int calangle = m_analogInput->GetAverageVoltage();
-	m_calibratedangle = calangle;
+	int calval = m_analogInput->GetAverageVoltage();
+	m_zeropoint = calval;
+}
+
+
+int MA3::GetRawVoltage() {
+	return m_analogInput->GetVoltage();
 }
 
 
 int MA3::GetRawAngle() {
-	return m_analogInput->GetVoltage();
+	return 2 * M_PI * m_analogInput->GetVoltage() / 5.0;  //returns angle in radians
 }
