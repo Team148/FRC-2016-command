@@ -29,8 +29,11 @@ void DriveStraight::Execute()
 	double m_dt = m_timer->GetFPGATimestamp()- m_lastTime;
 
 	m_profile->Update(m_Distance, m_currentVel, m_ExitVelocity, m_dt);
-
+	Drivetrain::GetInstance()->SetLeftSpeed(m_profile->GetVelocity());
+	Drivetrain::GetInstance()->SetRightSpeed(m_profile->GetVelocity());
 	m_lastTime = m_timer->GetFPGATimestamp();
+	SmartDashboard::PutNumber("Profile Velocity", m_profile->GetVelocity());
+	SmartDashboard::PutNumber("Actual Velocity", Drivetrain::GetInstance()->GetAvgEncSpeed());
 
 	if(m_Distance < m_DeadBand)
 		m_finished = 1;

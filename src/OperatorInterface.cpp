@@ -55,7 +55,7 @@ OperatorInterface::OperatorInterface() {
 	m_opButton3->WhenPressed(new IntakeDown());
 	m_opButton4->WhenPressed(new IntakeUp());
 	m_opButton5->WhenPressed(new CalibrateGyro());
-	m_opButton6->WhenPressed(new ResetGyro());
+	m_opButton6->WhenPressed(new DriveStraight(50.0, 0.0, 5.0));
 	m_opButton7->WhenPressed(new ResetPosition());
 	m_opButton8->WhileHeld(new UpdatePosition());
 
