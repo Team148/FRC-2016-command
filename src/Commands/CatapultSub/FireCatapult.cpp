@@ -24,7 +24,7 @@ void FireCatapult::Initialize()
 // Called repeatedly when this Command is scheduled to run
 void FireCatapult::Execute()
 {
-	std::cout<<m_timer->GetFPGATimestamp()<<std::endl;
+//	std::cout<<m_timer->GetFPGATimestamp()<<std::endl;
 
 	if(m_timer->GetFPGATimestamp()-m_startTime > m_step1) //checks to see if time is still good, doesn't open if already open
 		m_finished = 1;

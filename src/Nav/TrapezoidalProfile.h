@@ -20,8 +20,7 @@ public:
 	double GetPosition();
 	void Reset();
 	void UpdateKinematics(double Accel, double dt);
-	void GenerateAccelProfile(double ActualDistance, double ActualVel, double GoalVel);
-	void Update(double ActualDistance, double ActualVel, double dt);
+	void Update(double ActualDistance, double ActualVel, double GoalVel, double dt);
 	void PrintAccelProfile();
 
 private:
@@ -34,7 +33,7 @@ private:
 		double m_EndAccel;
 		double m_EndTime;
 	};
-
+	void GenerateAccelProfile(double ActualDistance, double ActualVel, double GoalVel);
 	double m_CurrentAccel;
 	double m_CurrentVel;
 	double m_CurrentPos;

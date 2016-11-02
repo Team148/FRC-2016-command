@@ -59,7 +59,7 @@ void TrapezoidalProfile::GenerateAccelProfile(double ActualDistance, double Actu
 	// vf^2 = v_0^2 + 2*a*d (timeless equation)
 	// vf = sqrt(v_0^2 + 2*a*d)
 	double MaxAchievableVelocity = sqrt(ActualVel*ActualVel + 2*StartAccel*ActualDistance);
-	std::cout <<"MaxAchievableVelocity: " << MaxAchievableVelocity<<std::endl;
+//	std::cout <<"MaxAchievableVelocity: " << MaxAchievableVelocity<<std::endl;
 	double FinalAccel;
 	double MaxGoalVelocity; //Largest Velocity Outputted to Hit Goal
 	if(MaxAchievableVelocity >= GoalVel){
@@ -82,7 +82,7 @@ void TrapezoidalProfile::GenerateAccelProfile(double ActualDistance, double Actu
 						- (ActualVel*ActualVel) / (2.0*StartAccel)
 						+ (GoalVel*GoalVel) / (2.0*FinalAccel))
 						/ (1.0 / (2.0*FinalAccel) - 1.0 / (2.0 * StartAccel)));
-	std::cout <<"MaxGoalVelocity: " << MaxGoalVelocity<<std::endl;
+//	std::cout <<"MaxGoalVelocity: " << MaxGoalVelocity<<std::endl;
 	}
 	else{
 		FinalAccel = m_MaxAccel;
@@ -114,8 +114,10 @@ void TrapezoidalProfile::GenerateAccelProfile(double ActualDistance, double Actu
 	profile->m_EndAccel = FinalAccel;
 }
 
-void TrapezoidalProfile::Update(double ActualDistance, double ActualVel, double dt) {
+void TrapezoidalProfile::Update(double ActualDistance, double ActualVel, double GoalVel, double dt) {
 	double m_dt = dt;
+
+	this->GenerateAccelProfile(ActualDistance,ActualVel,GoalVel);
 	if (profile->m_StartTime > m_dt) {
 		this->UpdateKinematics(profile->m_StartAccel, m_dt);
 	}

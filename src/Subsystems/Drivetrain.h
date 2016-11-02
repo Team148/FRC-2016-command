@@ -25,6 +25,8 @@ public:
 	void SetVBusMode();
 	void SetLeftDrive(float power);
 	void SetRightDrive(float power);
+	void SetLeftSpeed(double speed);
+	void SetRightSpeed(double speed);
 	void SetPositionX(double posX);
 	void SetPositionY(double posY);
 	void SetDeltaX(double deltaX);
@@ -35,6 +37,10 @@ public:
 	double GetLDistance();
 	double GetRDistance();
 	double GetAvgDistance();
+	double GetAvgDistanceInInches();
+	double GetLEncSpeed();
+	double GetREncSpeed();
+	double GetAvgEncSpeed();
 	double GetPositionX();
 	double GetPositionY();
 	Encoder* GetLEncoder();
@@ -73,6 +79,8 @@ private:
 	double m_posY;
 	double m_prevDistance;
 	double m_deltaDistance;
+
+	double WheelCircumference = PI * 6.0;
 };
 
 #endif
