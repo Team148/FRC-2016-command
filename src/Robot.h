@@ -24,6 +24,7 @@
 #include "Commands/Auton/Routines/Position5.h"
 
 #include "OperatorInterface.h"
+#include "Logger.h"
 
 
 
