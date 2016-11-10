@@ -12,6 +12,7 @@ Flashlight *flashlight = 0;
 ActionArm *actionArm = 0;
 Clamp *clamp = 0;
 Catapult *catapult = 0;
+Logger *logger = new Logger();
 
 class Robot: public IterativeRobot
 {
@@ -42,8 +43,6 @@ private:
 		catapult = Catapult::GetInstance();
 		chooser = new SendableChooser();
 
-
-
 	}
 
 	/**
@@ -53,6 +52,7 @@ private:
      */
 	void DisabledInit()
 	{
+		logger->CloseFile();
 	}
 
 	void DisabledPeriodic()

@@ -5,8 +5,8 @@
  *      Author: justingriggs
  */
 
-#ifndef SRC_LOGGER_H_
-#define SRC_LOGGER_H_
+#ifndef LOGGER_H_
+#define LOGGER_H_
 
 #include <iostream>
 #include <fstream>
@@ -14,23 +14,34 @@
 #include <ctime>
 #include "Robot.h"
 
-namespace std {
+using namespace std;
 
 class Logger {
 public:
 	Logger();
 	Logger(string filename);
-	void SetLogInterval(int period);  	//set the logging period in msec
-	void CreateNewCSVFile();			//create a new CSV log file
-	string CurrentDateTime();
+	void SetLogInterval(double period);  		//set the logging period in sec
+	void CreateNewFile(string filename);		//create a new CSV log file
+	void CloseFile();							//closes the current log file
+	string CurrentDateTime();					//Returns the current date/time
+	void AddtoBuffer(string name, string value);
+	void WriteToFile(string name, string value);//write data to file manually
+	void Log();									//format data and write to file from all subsystems pushing to it, called in periodic
+
+	struct logkey {double timestamp; string name; string value;};//logkey is the data structure that hold each log entry.
+	//logkey logbuffer[5000];
+	queue<logkey> logbuffer;
 
 private:
 	string m_filepathbase = "/home/lvuser/";
-	string m_filename;
-	fstream* m_filestream;
+	string m_filenamebase;
+	ofstream m_filestream;
 	int m_period;
+	Timer* m_timer;
+
+
+
 };
 
-} /* namespace std */
 
-#endif /* SRC_LOGGER_H_ */
+#endif /* LOGGER_H_ */

@@ -9,37 +9,67 @@
 
 using namespace std;
 
-Logger::Logger() {
-	// TODO Auto-generated constructor stub
 
-	m_filestream->open(m_filepathbase+CurrentDateTime()+".csv", fstream::out);
+Logger::Logger() {
+	m_timer = new Timer();
+	m_timer->Start();
+	CreateNewFile("log"+CurrentDateTime());
+
+	if(!m_filestream.is_open()) {
+		cout << m_filepathbase+CurrentDateTime()+".csv" << " Log File failed to open!" << endl;
+	}
 }
 
 
 Logger::Logger(string filename) {
-	// TODO Auto-generated constructor stub
+	m_timer = new Timer();
+	m_timer->Start();
+	m_filenamebase = filename;
+	CreateNewFile(m_filenamebase);
 
-	m_filename = filename;
-	m_filestream->open(m_filepathbase+m_filename+".csv", fstream::out);
+	if(!m_filestream.is_open()) {
+		cout << m_filepathbase+CurrentDateTime()+".csv" << " Log File failed to open!" << endl;
+	}
 }
 
-void Logger::SetLogInterval(int period) {
-	period = m_period;
+
+void Logger::SetLogInterval(double period) {
+	m_period = period;
 }
 
-//void Logger::CreateNewCSVFile() {
-//	if(!m_filestream->is_open()) {
-//
-//	}
-//		//create a file
-//}
+void Logger::CreateNewFile(string filename) {
+	m_filestream.open(m_filepathbase+filename+".csv", fstream::out | fstream::in);
+	m_filestream << "Start of Log at " << CurrentDateTime() << "\n";
+}
+
+void Logger::CloseFile() {
+	m_filestream.close();
+}
 
 string Logger::CurrentDateTime() {
-    time_t     now = time(0);
-    struct tm  tstruct;
-    char       buf[80];
+    time_t now = time(0);
+    struct tm tstruct;
+    char buf[80];
     tstruct = *localtime(&now);
     strftime(buf, sizeof(buf), "%Y-%m-%d.%X", &tstruct);
 
     return buf;
 }
+
+
+void Logger::WriteToFile(string name, string value) {
+	double time = Timer::GetFPGATimestamp();
+	string str_time = to_string(time);
+	m_filestream << time << "," << name << "," << value << "\n";
+}
+
+
+void Logger::AddtoBuffer(string name, string value) {
+	logkey data;
+	data.timestamp = Timer::GetFPGATimestamp();
+	data.name = name;
+	data.value = value;
+	logbuffer.push(data);
+
+}
+

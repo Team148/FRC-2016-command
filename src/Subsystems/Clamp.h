@@ -8,15 +8,16 @@
 #ifndef Clamp_H
 #define Clamp_H
 
-#include "WPILib.h"
-#include "Constants/Ports.h"
+#include "Robot.h"
 
-class Clamp: public Subsystem
+
+class Clamp : public Subsystem
 {
 public:
 	static Clamp* GetInstance();
 	void SetOpen(bool open);
 	bool GetState();
+	void Log();
 
 private:
 	Clamp();

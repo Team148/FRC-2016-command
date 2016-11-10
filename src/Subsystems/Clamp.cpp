@@ -32,3 +32,8 @@ void Clamp::SetOpen(bool open){
 bool Clamp::GetState(){
 	return m_open;
 }
+
+//everything to send to the Logger
+void Clamp::Log() {
+	//logger->AddtoBuffer("clamp_pos",std::to_string(m_open));
+}
