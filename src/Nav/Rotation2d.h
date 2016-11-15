@@ -18,9 +18,9 @@ public:
 	static Rotation2d fromRadians(double angle_radians);
 	static Rotation2d fromDegrees(double angle_degrees);
 	void normalize();
-	double m_cos();
-	double m_sin();
-	double m_tan();
+	double getCos();
+	double getSin();
+	double getTan();
 	double getRadians();
 	double getDegrees();
 	Rotation2d rotateBy(Rotation2d other);

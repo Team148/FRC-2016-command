@@ -55,5 +55,5 @@ Translation2d Translation2d::translateBy(Translation2d other){
  * @return This translation rotated by rotation.
  */
 Translation2d Translation2d::rotateBy(Rotation2d rotation){
-	return new Translation2d(m_x*rotation.cos() - m_y*rotation.sin(), m_x*rotation.sin()+m_y*rotation.cos());
+	return new Translation2d(m_x*rotation.getCos() - m_y*rotation.getSin(), m_x*rotation.sin()+m_y*rotation.cos());
 }
