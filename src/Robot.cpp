@@ -12,11 +12,11 @@ Flashlight *flashlight = 0;
 ActionArm *actionArm = 0;
 Clamp *clamp = 0;
 Catapult *catapult = 0;
-Logger *logger = new Logger();
+
 
 class Robot: public IterativeRobot
 {
-
+	Logger *logger;
 private:
 	SendableChooser* chooser;
 	std::unique_ptr<Command> autonCommand;
@@ -42,6 +42,9 @@ private:
 		clamp = Clamp::GetInstance();
 		catapult = Catapult::GetInstance();
 		chooser = new SendableChooser();
+		logger = new Logger();
+
+
 
 	}
 

@@ -108,7 +108,7 @@ void Logger::AddtoBuffer(string name, bool value) {
 
 
 void Logger::WriteBuffertoFile() {
-	cout << "writing log buffer" << endl;
+	//cout << "writing log buffer" << endl;
 	while(!logbuffer.empty()) {
 		logkey data = logbuffer.front();
 		WritetoFile(data.timestamp, data.name,data.value);
@@ -163,5 +163,9 @@ void Logger::WritetoFile(string name, bool value) {
 	//string str_time = CurrentDateTime();  //for testing
 
 	m_filestream << str_time << "," << name << "," << value << "\n";
+}
+
+int  Logger::GetBufferSize() {
+	return logbuffer.size();
 }
 
