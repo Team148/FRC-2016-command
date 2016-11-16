@@ -165,7 +165,13 @@ void Logger::WritetoFile(string name, bool value) {
 	m_filestream << str_time << "," << name << "," << value << "\n";
 }
 
-int  Logger::GetBufferSize() {
+
+int Logger::GetBufferSize() {
 	return logbuffer.size();
 }
 
+
+void Logger::FlushBuffer() {
+	while(!logbuffer.empty())
+		logbuffer.pop();
+}

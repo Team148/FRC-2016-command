@@ -46,6 +46,7 @@ public:
 	struct logkey {double timestamp; string name; string value;};//logkey is the data structure that hold each log entry.
 	queue<logkey> logbuffer;
 	int GetBufferSize();
+	void FlushBuffer();  //empty anything in the buffer.
 
 private:
 	string m_filepathbase = "/home/lvuser/";
