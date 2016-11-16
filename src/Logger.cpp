@@ -38,12 +38,15 @@ void Logger::SetLogInterval(double period) {
 }
 
 void Logger::CreateNewFile(string filename) {
-	m_filestream.open(m_filepathbase+filename+".csv", fstream::out | fstream::in);
+	string name = m_filepathbase+filename+".csv";
+	m_filestream.open(name);
 	m_filestream << "Start of Log at " << CurrentDateTime() << "\n";
+	cout << "created file " << name << endl;
 }
 
 void Logger::CloseFile() {
 	m_filestream.close();
+	cout << "log file closed" << endl;
 }
 
 string Logger::CurrentDateTime() {
@@ -57,19 +60,108 @@ string Logger::CurrentDateTime() {
 }
 
 
-void Logger::WriteToFile(string name, string value) {
-	double time = Timer::GetFPGATimestamp();
-	string str_time = to_string(time);
-	m_filestream << time << "," << name << "," << value << "\n";
-}
-
-
 void Logger::AddtoBuffer(string name, string value) {
 	logkey data;
 	data.timestamp = Timer::GetFPGATimestamp();
 	data.name = name;
 	data.value = value;
 	logbuffer.push(data);
+}
 
+
+void Logger::AddtoBuffer(string name, double value) {
+	logkey data;
+	data.timestamp = Timer::GetFPGATimestamp();
+	data.name = name;
+	data.value = to_string(value);;
+	logbuffer.push(data);
+}
+
+
+void Logger::AddtoBuffer(string name, int value) {
+	logkey data;
+	data.timestamp = Timer::GetFPGATimestamp();
+	//data.timestamp = CurrentDateTime();
+	data.name = name;
+	data.value = to_string(value);
+	logbuffer.push(data);
+}
+
+
+void Logger::AddtoBuffer(string name, float value) {
+	logkey data;
+	data.timestamp = Timer::GetFPGATimestamp();
+	//data.timestamp = CurrentDateTime();
+	data.name = name;
+	data.value = to_string(value);
+	logbuffer.push(data);
+}
+
+void Logger::AddtoBuffer(string name, bool value) {
+	logkey data;
+	data.timestamp = Timer::GetFPGATimestamp();
+	//data.timestamp = CurrentDateTime();
+	data.name = name;
+	data.value = to_string(value);
+	logbuffer.push(data);
+}
+
+
+void Logger::WriteBuffertoFile() {
+	cout << "writing log buffer" << endl;
+	while(!logbuffer.empty()) {
+		logkey data = logbuffer.front();
+		WritetoFile(data.timestamp, data.name,data.value);
+		logbuffer.pop();
+	}
+}
+
+
+void Logger::WritetoFile(string name, string value) {
+	double time = Timer::GetFPGATimestamp();
+	string str_time = to_string(time);
+
+	m_filestream << str_time << "," << name << "," << value << "\n";
+}
+
+
+void Logger::WritetoFile(double time, string name, string value) {
+	m_filestream << time << "," << name << "," << value << "\n";
+}
+
+
+void Logger::WritetoFile(string name, double value) {
+	double time = Timer::GetFPGATimestamp();
+	string str_time = to_string(time);
+	//string str_time = CurrentDateTime(); //for testing
+
+	m_filestream << str_time << "," << name << "," << value << "\n";
+}
+
+
+void Logger::WritetoFile(string name, int value) {
+	double time = Timer::GetFPGATimestamp();
+	string str_time = to_string(time);
+	//string str_time = CurrentDateTime(); //for testing
+
+	m_filestream << str_time << "," << name << "," << value << "\n";
+}
+
+
+void Logger::WritetoFile(string name, float value) {
+	double time = Timer::GetFPGATimestamp();
+	string str_time = to_string(time);
+	//string str_time = CurrentDateTime(); //for testing
+
+	m_filestream << str_time << "," << name << "," << value << "\n";
+}
+
+
+void Logger::WritetoFile(string name, bool value) {
+	double time = Timer::GetFPGATimestamp();
+	string str_time = to_string(time);
+	//string str_time = CurrentDateTime();  //for testing
+
+	m_filestream << str_time << "," << name << "," << value << "\n";
 }
 
