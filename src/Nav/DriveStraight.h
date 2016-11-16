@@ -19,7 +19,7 @@ public:
 private:
 	TrapezoidalProfile *m_profile;
 	Timer *m_timer;
-	bool m_finished = 0;
+	bool m_finished;
 	double m_lastTime = 0;
 	double m_startPos;
 	double m_finalPos;

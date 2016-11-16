@@ -9,6 +9,7 @@
 #define SRC_NAV_KINEMATICS_H_
 
 #include "RigidTransform2d.h"
+#include "Translation2d.h"
 
 /**Inspired by 254 (https://github.com/Team254/FRC-2016-Public/blob/master/src/com/team254/frc2016/Kinematics.java)
  * Provides forward and inverse kinematics equations for the robot modeling the
@@ -19,9 +20,9 @@
 class Kinematics {
 public:
 	Kinematics();
-	RigidTransform2d.Delta forwardKinematics(double left_wheel_delta, double right_wheel_delta);
+	RigidTransform2d::Delta forwardKinematics(double left_wheel_delta, double right_wheel_delta);
 private:
-	static const double kEpsilon = 1E-9;
+	double kEpsilon = 1E-9;
 };
 
 #endif /* SRC_NAV_KINEMATICS_H_ */

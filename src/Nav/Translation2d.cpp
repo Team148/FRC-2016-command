@@ -6,7 +6,6 @@
  */
 
 #include <Nav/Translation2d.h>
-#include <Nav/Rotation2d.h>
 
 Translation2d::Translation2d() {
 	m_x = 0;
@@ -16,10 +15,11 @@ Translation2d::Translation2d(double x , double y){
 	m_x = x;
 	m_y = y;
 }
-Translation2d::Translation2d(Translation2d other){
+Translation2d::Translation2d(const Translation2d& other){
 	m_x = other.m_x;
 	m_y = other.m_y;
 }
+
 double Translation2d::norm(){
 	return hypot(m_x, m_y);
 }
@@ -42,8 +42,9 @@ void Translation2d::setY(double y){
   *            The other translation to add.
   * @return The combined effect of translating by this object and the other.
   */
-Translation2d Translation2d::translateBy(Translation2d other){
+Translation2d Translation2d::translateBy(const Translation2d& other){
 	return new Translation2d(m_x + other.m_x, m_y + other.m_y);
+	//return new Translation2d(0,0);
 }
 
 /**
@@ -55,5 +56,5 @@ Translation2d Translation2d::translateBy(Translation2d other){
  * @return This translation rotated by rotation.
  */
 Translation2d Translation2d::rotateBy(Rotation2d rotation){
-	return new Translation2d(m_x*rotation.getCos() - m_y*rotation.getSin(), m_x*rotation.sin()+m_y*rotation.cos());
+	return new Translation2d(m_x*rotation.getCos() - m_y*rotation.getSin(), m_x*rotation.getSin()+m_y*rotation.getCos());
 }

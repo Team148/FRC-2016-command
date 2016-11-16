@@ -9,18 +9,19 @@
 #define SRC_NAV_TRANSLATION2D_H_
 
 #include "Math.h"
+#include "Rotation2d.h"
 
 class Translation2d {
 public:
 	Translation2d();
 	Translation2d(double x, double y);
-	Translation2d(Translation2d other);
+	Translation2d(const Translation2d& other);
 	double norm();
 	double getX();
 	double getY();
 	void setX(double x);
 	void setY(double y);
-	Translation2d translateBy(Translation2d other);
+	Translation2d translateBy(const Translation2d& other);
 	Translation2d rotateBy(Rotation2d rotation);
 	Translation2d inverse();
 	Translation2d interpolate(Translation2d other, double x);

@@ -14,6 +14,7 @@ DriveStraight::DriveStraight(double distance, double ExitVelocity, double DeadBa
 void DriveStraight::Initialize()
 {
 	m_lastTime = m_timer->GetFPGATimestamp();
+	m_finished = 0;
 	m_startPos = Drivetrain::GetInstance()->GetAvgDistanceInInches();
 	m_profile->Update(m_finalPos,0.0,0.0,0.02);	//cheating since finalPos = distance
 	m_finalPos += m_startPos;
@@ -34,6 +35,7 @@ void DriveStraight::Execute()
 	m_lastTime = m_timer->GetFPGATimestamp();
 	SmartDashboard::PutNumber("Profile Velocity", m_profile->GetVelocity());
 	SmartDashboard::PutNumber("Actual Velocity", Drivetrain::GetInstance()->GetAvgEncSpeed());
+	SmartDashboard::PutNumber("Actual Distance to Travel", m_Distance);
 
 	if(m_Distance < m_DeadBand)
 		m_finished = 1;
