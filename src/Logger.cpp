@@ -108,6 +108,8 @@ void Logger::AddtoBuffer(string name, bool value) {
 
 
 void Logger::WriteBuffertoFile() {
+	if(!m_enabled)
+		return;
 	//cout << "writing log buffer" << endl;
 	while(!logbuffer.empty()) {
 		logkey data = logbuffer.front();
@@ -118,6 +120,8 @@ void Logger::WriteBuffertoFile() {
 
 
 void Logger::WritetoFile(string name, string value) {
+	if(!m_enabled)
+		return;
 	double time = Timer::GetFPGATimestamp();
 	string str_time = to_string(time);
 
@@ -126,11 +130,15 @@ void Logger::WritetoFile(string name, string value) {
 
 
 void Logger::WritetoFile(double time, string name, string value) {
+	if(!m_enabled)
+		return;
 	m_filestream << time << "," << name << "," << value << "\n";
 }
 
 
 void Logger::WritetoFile(string name, double value) {
+	if(!m_enabled)
+		return;
 	double time = Timer::GetFPGATimestamp();
 	string str_time = to_string(time);
 	//string str_time = CurrentDateTime(); //for testing
@@ -140,6 +148,8 @@ void Logger::WritetoFile(string name, double value) {
 
 
 void Logger::WritetoFile(string name, int value) {
+	if(!m_enabled)
+		return;
 	double time = Timer::GetFPGATimestamp();
 	string str_time = to_string(time);
 	//string str_time = CurrentDateTime(); //for testing
@@ -149,6 +159,8 @@ void Logger::WritetoFile(string name, int value) {
 
 
 void Logger::WritetoFile(string name, float value) {
+	if(!m_enabled)
+		return;
 	double time = Timer::GetFPGATimestamp();
 	string str_time = to_string(time);
 	//string str_time = CurrentDateTime(); //for testing
@@ -158,6 +170,8 @@ void Logger::WritetoFile(string name, float value) {
 
 
 void Logger::WritetoFile(string name, bool value) {
+	if(!m_enabled)
+		return;
 	double time = Timer::GetFPGATimestamp();
 	string str_time = to_string(time);
 	//string str_time = CurrentDateTime();  //for testing
@@ -174,4 +188,19 @@ int Logger::GetBufferSize() {
 void Logger::FlushBuffer() {
 	while(!logbuffer.empty())
 		logbuffer.pop();
+}
+
+
+void Logger::Start() {
+	m_enabled = true;
+}
+
+
+void Logger::Stop() {
+	m_enabled = false;
+}
+
+
+bool Logger::IsEnabled() {
+	return m_enabled;
 }

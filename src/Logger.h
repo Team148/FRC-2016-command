@@ -26,6 +26,9 @@ public:
 	void CreateNewFile(string filename);		//create a new CSV log file
 	void CloseFile();							//closes the current log file
 	string CurrentDateTime();					//Returns the current date/time
+	void Start();
+	void Stop();
+	bool IsEnabled();
 
 	void AddtoBuffer(string name, string value);//write data to a buffer to be written to a file later.
 	void AddtoBuffer(string name, double value);
@@ -54,6 +57,7 @@ private:
 	ofstream m_filestream;
 	int m_period;
 	Timer* m_timer;
+	bool m_enabled;
 
 };
 
