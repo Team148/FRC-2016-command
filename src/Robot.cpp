@@ -12,11 +12,12 @@ Flashlight *flashlight = 0;
 ActionArm *actionArm = 0;
 Clamp *clamp = 0;
 Catapult *catapult = 0;
-
+Logger *logger = 0;
 
 class Robot: public IterativeRobot
 {
-	Logger *logger;
+public:
+
 private:
 	SendableChooser* chooser;
 	std::unique_ptr<Command> autonCommand;
@@ -33,6 +34,8 @@ private:
 	void RobotInit()
 	{
 		std::cout << "starting RobotInit" << std::endl;
+		logger = new Logger();
+		logger->Start();
 		intakeRoller = IntakeRoller::GetInstance();
 		flashlight = Flashlight::GetInstance();
 		drivetrain = Drivetrain::GetInstance();
@@ -42,9 +45,6 @@ private:
 		clamp = Clamp::GetInstance();
 		catapult = Catapult::GetInstance();
 		chooser = new SendableChooser();
-		logger = new Logger();
-
-
 
 	}
 
@@ -120,6 +120,7 @@ private:
 		Scheduler::GetInstance()->Run();
 		//Update SmartDashboard
 		UpdateSmartDash();
+		RobotLog();
 	}
 
 	void TeleopInit()
@@ -137,6 +138,7 @@ private:
 		Scheduler::GetInstance()->Run();
 		//Update SmartDashboard
 		UpdateSmartDash();
+		RobotLog();
 	}
 
 	void TestPeriodic()
@@ -167,7 +169,13 @@ private:
 		SmartDashboard::PutBoolean("Switch 4", operatorInterface->GetSw4());
 		SmartDashboard::PutBoolean("Switch 5", operatorInterface->GetSw5());
 
+	}
+	void RobotLog()
+	{
+		//Add all subsystems to log here.
+		drivetrain->Log();
 
+		logger->WriteBuffertoFile();
 	}
 	
 };

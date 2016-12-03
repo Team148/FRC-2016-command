@@ -44,7 +44,6 @@ public:
 	void WritetoFile(string name, float value);
 	void WritetoFile(string name, bool value);
 
-	//void Log();									//format data and write to file from all subsystems pushing to it, called in periodic
 
 	struct logkey {double timestamp; string name; string value;};//logkey is the data structure that hold each log entry.
 	queue<logkey> logbuffer;

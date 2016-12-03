@@ -1,16 +1,17 @@
 #ifndef Drivetrain_H
 #define Drivetrain_H
 
-#include "WPILib.h"
-#include "Constants/Ports.h"
+#include "Robot.h"
 #include "Commands/DriveWithJoystick.h"
+
+
+
 
 class Drivetrain: public Subsystem {
 public:
 	static Drivetrain* GetInstance();
 	void InitDefaultCommand();
 	void Arcade(float ystick, float xstick);
-	//void Arcade(Joystick joy);
 
 	void ResetEncoders(); 							//Reset Both Encoders
 	int CountToDist(int tick);						//convert encoder ticks to distance traveled
@@ -24,9 +25,14 @@ public:
 	Encoder* GetLEncoder();
 	Encoder* GetREncoder();
 
+	//Logger functions
+	void Log();
+	void LogPDP();
+
 private:
 	Drivetrain();
 	static Drivetrain *m_instance;
+
 
 	CANTalon *m_LeftMotor1;
 	CANTalon *m_LeftMotor2;
@@ -41,7 +47,7 @@ private:
 
 
 	//PDP
-	PowerDistributionPanel *pdp;
+	PowerDistributionPanel *m_pdp;
 
 	//Encoders
 	Encoder *m_lEncoder;
@@ -49,10 +55,8 @@ private:
 	int m_lEncoderDistance;
 	int m_rEncoderDistance;
 
-
 	//Gyro
 	Gyro *m_gyro;
-
 };
 
 #endif

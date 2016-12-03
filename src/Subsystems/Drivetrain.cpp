@@ -1,6 +1,7 @@
 #include "Drivetrain.h"
 
 Drivetrain *Drivetrain::m_instance = 0;  						//Global static pointer
+extern Logger *logger;
 
 using namespace std;
 
@@ -28,7 +29,8 @@ Drivetrain::Drivetrain() : Subsystem("Drivetrain") {
 	m_gyro = new ADXRS450_Gyro(SPI::Port::kOnboardCS0);
 
 	//PDP
-	pdp = new PowerDistributionPanel();
+	m_pdp = new PowerDistributionPanel();
+
 }
 
 
@@ -114,6 +116,17 @@ Encoder* Drivetrain::GetREncoder() {
 float Drivetrain::GetGyroAngle() {
 	return m_gyro->GetAngle();
 }
-//void Drivetrain::Arcade(Joystick joy) {
-//	m_drive->ArcadeDrive(joy, false);
-//}
+
+void Drivetrain::Log() {
+	LogPDP();
+}
+
+
+void Drivetrain::LogPDP() {
+	string name;
+	for(int i=0;i<=15;i++) {
+		name = "Channel " + i + string(" Current");
+		logger->AddtoBuffer(name, m_pdp->GetCurrent(i));
+	}
+
+}
