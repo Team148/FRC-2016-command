@@ -35,5 +35,5 @@ bool Clamp::GetState(){
 
 //everything to send to the Logger
 void Clamp::Log() {
-	//logger->AddtoBuffer("clamp_pos",std::to_string(m_open));
+	//logger->AddtoBuffer("clamp position",std::to_string(m_open));
 }
