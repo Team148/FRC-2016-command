@@ -119,13 +119,14 @@ float Drivetrain::GetGyroAngle() {
 
 void Drivetrain::Log() {
 	LogPDP();
+
 }
 
 
 void Drivetrain::LogPDP() {
 	string name;
 	for(int i=0;i<=15;i++) {
-		name = "Channel " + i + string(" Current");
+		name = "Channel " + std::to_string(i);
 		logger->AddtoBuffer(name, m_pdp->GetCurrent(i));
 	}
 

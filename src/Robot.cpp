@@ -55,7 +55,7 @@ private:
      */
 	void DisabledInit()
 	{
-		logger->CloseFile();
+
 	}
 
 	void DisabledPeriodic()
@@ -131,6 +131,7 @@ private:
 		// this line or comment it out.
 		if (autonCommand != NULL)
 			autonCommand->Cancel();
+
 	}
 
 	void TeleopPeriodic()
