@@ -16,7 +16,7 @@ Logger::Logger() {
 	CreateNewFile("log"+CurrentDateTime());
 
 	if(!m_filestream.is_open()) {
-		cout << m_filepathbase+CurrentDateTime()+".csv" << " Log File failed to open!" << endl;
+		cout << "error: " << m_filepathbase+CurrentDateTime()+".csv" << " Log File failed to open!" << endl;
 	}
 }
 
@@ -28,7 +28,7 @@ Logger::Logger(string filename) {
 	CreateNewFile(m_filenamebase);
 
 	if(!m_filestream.is_open()) {
-		cout << m_filepathbase+CurrentDateTime()+".csv" << " Log File failed to open!" << endl;
+		cout << "error: " << m_filepathbase+CurrentDateTime()+".csv" << " Log File failed to open!" << endl;
 	}
 }
 
@@ -37,17 +37,20 @@ void Logger::SetLogInterval(double period) {
 	m_period = period;
 }
 
+
 void Logger::CreateNewFile(string filename) {
 	string name = m_filepathbase+filename+".csv";
 	m_filestream.open(name);
 	m_filestream << "Start of Log at " << CurrentDateTime() << "\n";
-	cout << "created file " << name << endl;
+	cout << "info: created file " << name << endl;
 }
+
 
 void Logger::CloseFile() {
 	m_filestream.close();
 	cout << "log file closed" << endl;
 }
+
 
 string Logger::CurrentDateTime() {
     time_t now = time(0);
@@ -61,6 +64,8 @@ string Logger::CurrentDateTime() {
 
 
 void Logger::AddtoBuffer(string name, string value) {
+	if(!m_enabled)
+		return;
 	logkey data;
 	data.timestamp = Timer::GetFPGATimestamp();
 	data.name = name;
@@ -70,6 +75,8 @@ void Logger::AddtoBuffer(string name, string value) {
 
 
 void Logger::AddtoBuffer(string name, double value) {
+	if(!m_enabled)
+		return;
 	logkey data;
 	data.timestamp = Timer::GetFPGATimestamp();
 	data.name = name;
@@ -79,6 +86,8 @@ void Logger::AddtoBuffer(string name, double value) {
 
 
 void Logger::AddtoBuffer(string name, int value) {
+	if(!m_enabled)
+		return;
 	logkey data;
 	data.timestamp = Timer::GetFPGATimestamp();
 	//data.timestamp = CurrentDateTime();
@@ -89,6 +98,8 @@ void Logger::AddtoBuffer(string name, int value) {
 
 
 void Logger::AddtoBuffer(string name, float value) {
+	if(!m_enabled)
+		return;
 	logkey data;
 	data.timestamp = Timer::GetFPGATimestamp();
 	//data.timestamp = CurrentDateTime();
@@ -97,7 +108,10 @@ void Logger::AddtoBuffer(string name, float value) {
 	logbuffer.push(data);
 }
 
+
 void Logger::AddtoBuffer(string name, bool value) {
+	if(!m_enabled)
+		return;
 	logkey data;
 	data.timestamp = Timer::GetFPGATimestamp();
 	//data.timestamp = CurrentDateTime();
@@ -108,8 +122,10 @@ void Logger::AddtoBuffer(string name, bool value) {
 
 
 void Logger::WriteBuffertoFile() {
-	if(!m_enabled)
+	if(!m_enabled) {
+		cout << "warning: Attempted to write to a file when not enabled" << endl;
 		return;
+	}
 	//cout << "writing log buffer" << endl;
 	while(!logbuffer.empty()) {
 		logkey data = logbuffer.front();
@@ -184,7 +200,7 @@ int Logger::GetBufferSize() {
 	return logbuffer.size();
 }
 
-
+//Empty the Buffer without writing to a file
 void Logger::FlushBuffer() {
 	while(!logbuffer.empty())
 		logbuffer.pop();
@@ -203,4 +219,14 @@ void Logger::Stop() {
 
 bool Logger::IsEnabled() {
 	return m_enabled;
+}
+
+//return the loop rate in Hz
+int Logger::GetRate() {
+	double currentperiod = m_timer->Get();
+	double rate = 1/currentperiod;
+	rate = round(rate * 10) / 10;
+	int roundedrate = rate;
+	m_timer->Reset();
+	return roundedrate;
 }

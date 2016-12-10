@@ -178,8 +178,6 @@ private:
 
 		logger->WriteBuffertoFile();
 	}
-	
 };
 
 START_ROBOT_CLASS(Robot)
-

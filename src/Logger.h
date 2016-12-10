@@ -13,6 +13,7 @@
 #include <string>
 #include <ctime>
 #include <queue>
+#include <iomanip>
 #include "stdlib.h"
 #include "Robot.h"
 
@@ -29,6 +30,7 @@ public:
 	void Start();
 	void Stop();
 	bool IsEnabled();
+	int GetRate();
 
 	void AddtoBuffer(string name, string value);//write data to a buffer to be written to a file later.
 	void AddtoBuffer(string name, double value);
