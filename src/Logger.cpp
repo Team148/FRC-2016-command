@@ -222,11 +222,11 @@ bool Logger::IsEnabled() {
 }
 
 //return the loop rate in Hz
-int Logger::GetRate() {
+float Logger::GetRate() {
 	double currentperiod = m_timer->Get();
 	double rate = 1/currentperiod;
 	rate = round(rate * 10) / 10;
-	int roundedrate = rate;
+	float roundedrate = rate;
 	m_timer->Reset();
 	return roundedrate;
 }
