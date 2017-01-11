@@ -11,6 +11,7 @@
 #include "Timer.h"
 #include "WPILib.h"
 #include "Constants/Ports.h"
+#include "CanTalonSRX.h"
 
 class IntakeArm : public Subsystem
 {

@@ -4,6 +4,7 @@
 #include "WPILib.h"
 #include "Subsystems/HangerArm.h"
 #include "Constants/Ports.h"
+#include "CanTalon.h"
 
 class HangerWinch: public Subsystem
 {

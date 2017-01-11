@@ -4,6 +4,7 @@
 
 #include "WPILib.h"
 #include "Constants/Ports.h"
+#include "CanTalonSRX.h"
 
 class IntakeRoller : public Subsystem
 {

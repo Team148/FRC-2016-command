@@ -1,5 +1,5 @@
 #include "Robot.h"
-
+using namespace frc;
 
 // Initialize a single static instance of all of your subsystems to NULL
 OperatorInterface *operatorInterface = 0;
@@ -19,7 +19,7 @@ class Robot: public IterativeRobot
 public:
 
 private:
-	SendableChooser* chooser;
+	SendableChooser<Command*> chooser;
 	std::unique_ptr<Command> autonCommand;
 	int position;
 	int defense;
@@ -44,7 +44,6 @@ private:
 		actionArm = ActionArm::GetInstance();
 		clamp = Clamp::GetInstance();
 		catapult = Catapult::GetInstance();
-		chooser = new SendableChooser();
 
 	}
 
@@ -161,7 +160,7 @@ private:
 		SmartDashboard::PutData("ShortShot", new ShootCatapult(false));
 
 		//Auton
-		SmartDashboard::PutData("Auton Modes", chooser);
+		SmartDashboard::PutData("Auton Modes", &chooser);
 		SmartDashboard::PutNumber("Position", position);
 		SmartDashboard::PutNumber("Defense", defense);
 		SmartDashboard::PutBoolean("Switch 1", operatorInterface->GetSw1());

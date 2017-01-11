@@ -2,6 +2,8 @@
 #define SRC_ROBOT_H_
 
 #include "WPILib.h"
+#include "CANTalonSRX.h"
+#include "CANTalon.h"
 
 #include "Constants/Ports.h"
 #include "Subsystems/IntakeRoller.h"
